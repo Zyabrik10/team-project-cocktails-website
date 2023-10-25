@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/team-project-cocktails-website/static/css/main.7acaea2f.css",
+    "main.js": "/team-project-cocktails-website/static/js/main.3b9d8015.js",
+    "index.html": "/team-project-cocktails-website/index.html",
+    "main.7acaea2f.css.map": "/team-project-cocktails-website/static/css/main.7acaea2f.css.map",
+    "main.3b9d8015.js.map": "/team-project-cocktails-website/static/js/main.3b9d8015.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.3b9d8015.js"
+  ]
+}
