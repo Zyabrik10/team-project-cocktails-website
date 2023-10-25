@@ -1,0 +1,41 @@
+@import url('./variables.css');
+
+.global-p,
+.global-title,
+.global-list {
+  margin: 0;
+}
+
+.global-list {
+  padding: 0;
+  list-style: none;
+}
+
+.global-link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.global-button {
+  display: block;
+  color: currentColor;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  background: transparent;
+}
+
+/* Cell */
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--flex-gap);
+}
+
+.flex-container > * {
+  flex-basis: calc(
+    (100% - (var(--flex-items) - 1) * var(--flex-gap)) / var(--flex-items)
+  );
+}
