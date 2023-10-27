@@ -6,10 +6,11 @@
     padding: 20px;
 }
 
-.logoBox {
+.logoLink {
     display: flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
 }
 
 .logoSvg {
@@ -33,6 +34,7 @@
 }
 
 .profile {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 14px;

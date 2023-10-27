@@ -1,0 +1,63 @@
+.profileDropdown {
+    position: absolute;
+    z-index: 3;
+    top: 58px;
+    right: 25%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 177px;
+    height: 134px;
+    border-radius: 8px;
+    padding: 18px;
+    background-color: #161F37;
+}
+
+.edditLink {
+    color: #F3F3F3;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.linkSvg > svg {
+    width: 14px;
+    height: 14px;
+}
+
+.logoutBtn {
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+
+    background-color: #F3F3F3;
+    color: #161F37;
+    padding: 11px 44px;
+    border: none;
+    border-radius: 42px;
+    
+    &:hover, &:focus {
+        color: #F3F3F3;
+        background-color: #161F37;    
+        border: 1px solid rgba(243, 243, 243, 0.20);
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .profileDropdown {
+        top: 67px;
+    }
+}
+
+
