@@ -1,0 +1,149 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px rgba(22, 31, 55, 0.10);
+    padding: 20px;
+}
+
+.logoBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logoSvg {
+    width: 22px;
+    height: 22px;
+}
+
+.title {
+    margin: 0;
+    color: #161F37;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: none;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.userBox{
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 32px;
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 8px; 
+}
+
+.name {
+    color: #161F37;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.burgerMenu {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.burgerSvg {
+    width: 32px;
+    height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        padding: 20px 32px;
+    }
+
+    .logoBox {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .logoSvg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .profile {
+        gap: 24px;
+    }
+
+    .avatar {
+        width: 44px;
+        margin-right: 14px; 
+    }
+    
+   .burgerSvg {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header {
+        padding: 22px 100px;
+    }
+
+   .nav {
+        display: block;
+   }
+
+   .navLink {
+        text-decoration: none;
+        border-radius: 40px;
+        border: 1px solid rgba(22, 31, 55, 0.20);   
+        margin-right: 16px;
+        padding: 8px 16px;
+
+        color: #161F37;
+        font-family: Manrope;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22.4px;
+         transition: color 0.4s, background-color 0.4s;
+        
+        &:hover, &:focus{
+            color: #F3F3F3;
+            background-color: #161F37;
+        }
+    }
+    .navLink:last-child {
+        margin-right: 0;
+    }
+
+    .themeSwitcher {
+        display: inline-block;
+   }
+
+    .burgerMenu {
+        display: none;
+    }
+}
