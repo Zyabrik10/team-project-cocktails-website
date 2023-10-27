@@ -1,0 +1,143 @@
+.footer {
+    border-top: 1px solid rgba(243, 243, 243, 0.20);
+    padding: 40px 20px 18px;
+    background-color: black;
+}
+
+
+.box1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+
+.socialBox {
+    display: inline-block;
+}
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    
+    > svg {
+        fill: #F3F3F3;
+    }
+}
+
+.title {
+    color: #F3F3F3;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+    text-transform: uppercase;
+}
+
+.socialList {
+    display: flex;
+    gap: 14px;
+}
+
+.socialItem {
+    border-radius: 10px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    padding: 8px;
+}
+.socialLink {
+    display: flex;
+}
+
+.socialSvg {
+    width: 22px;
+    height: 22px;
+}
+
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.navLink {
+    color: #F3F3F3;
+    font-size: 14px;
+    line-height: calc(23 / 14);
+}
+
+
+.subscribeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+.subscribeP {
+    max-width: 325px;
+    text-align: start;
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(20 / 14);
+}
+.subscribeForm {
+    position: relative;
+    min-width: 280px;
+    max-width: 325px;
+}
+.subscribeInput {
+    position: relative;
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(18 / 14);
+    width: 100%;
+
+    padding: 18px 24px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    opacity: 0.8;
+    border-radius: 42px;
+    outline: none;
+    background-color: transparent;
+}
+.subscribeBtn {
+    color: #F3F3F3;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    opacity: 0.8;
+    border-radius: 42px;
+    padding: 17px 0;
+
+    min-width: 280px;
+    width: 100%; 
+    max-width: 325px;
+}
+
+
+.serviceP {
+    color: rgba(243, 243, 243, 0.50);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: calc(16 / 12);
+    letter-spacing: -0.24px;
+}
+.serviceLink {
+    color: rgba(243, 243, 243, 0.50);
+    text-align: right;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: calc(16 / 12);
+    letter-spacing: -0.24px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
