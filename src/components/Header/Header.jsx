@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import globalCss from '../../css/global.module.css';
 import css from './Header.module.css'
 
 import { ThemeSwitcher } from 'components/Header/components/ThemeSwitcher/ThemeSwitcher';
@@ -20,9 +21,9 @@ export const Header = () => {
 
     return (
         <header className={css.header}>
-            <NavLink to="/link1" className={css.logoLink}>
+            <NavLink to="/link1" className={`${css["logoLink"]} ${globalCss["global-link"]}`}>
                 <LogoSvg/>
-                <h1 className={css.title}>Drink Master</h1>
+                <p className={`${css["title"]} ${globalCss["global-p"]}`}>Drink Master</p>
             </NavLink>
 
             <nav className={css.nav}>

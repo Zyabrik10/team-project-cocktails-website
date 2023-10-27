@@ -14,11 +14,9 @@
 .alertTitle {
     color: #F3F3F3;
     text-align: center;
-    font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 18px; 
+    line-height: calc(18 / 14);
     letter-spacing: -0.28px;
     margin-top: 0;
     margin-bottom: 25px;
@@ -30,11 +28,9 @@
 }
 
 .logoutBtn {
-    font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: 18px;
+    line-height: calc(18 / 14);
 
     background-color: #F3F3F3;
     color: #161F37;
@@ -50,11 +46,9 @@
 }
 
 .cancelBtn {
-    font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: 18px;
+    line-height: calc(18 / 14);
 
     background-color: #434D67;
     color: #F3F3F3;
@@ -98,11 +92,9 @@
     .alertTitle {
         color: #F3F3F3;
         text-align: center;
-        font-family: Manrope;
         font-size: 18px;
-        font-style: normal;
         font-weight: 400;
-        line-height: 24px; 
+        line-height: calc(24 / 18);
         letter-spacing: -0.36px;
         margin-bottom: 37px;
     }
@@ -111,20 +103,16 @@
         gap: 12px;
     }
     .logoutBtn {
-        font-family: Manrope;
         font-size: 16px;
-        font-style: normal;
         font-weight: 600;
-        line-height: 18px;
+        line-height: calc(18 / 16);
     
         padding: 18px 69px;
     }
     .cancelBtn {
-        font-family: Manrope;
         font-size: 16px;
-        font-style: normal;
         font-weight: 600;
-        line-height: 18px;
+        line-height: calc(18 / 16);
 
         padding: 17px 68px;
     }

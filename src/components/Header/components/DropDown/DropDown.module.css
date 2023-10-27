@@ -16,12 +16,9 @@
 
 .edditLink {
     color: #F3F3F3;
-    font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
-    line-height: 18px;
-    text-decoration: none;
+    line-height: calc(18 / 14);
 
     display: flex;
     align-items: center;
@@ -34,11 +31,9 @@
 }
 
 .logoutBtn {
-    font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: 18px;
+    line-height: calc(18 / 14);
 
     background-color: #F3F3F3;
     color: #161F37;
