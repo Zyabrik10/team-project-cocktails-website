@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom';
 
 import css from './Header.module.css'
 
-import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
-import { LogoSvg } from './LogoSvg';
-import { BurgerMenuSvg } from './BurgerMenuSvg';
+import { ThemeSwitcher } from 'components/Header/components/ThemeSwitcher/ThemeSwitcher';
+import { LogoSvg } from './components/LogoSvg';
+import { BurgerMenuSvg } from './components/BurgerMenuSvg';
 
 
 export const Header = () => {
