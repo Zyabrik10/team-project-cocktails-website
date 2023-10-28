@@ -2,4 +2,13 @@
   /* Cell */
   --flex-items: 2;
   --flex-gap: 21px;
+
+  /* dark theme */
+
+  --bg-color-dark: #0a0a11;
+  --button-color-dark: #161f37;
+  --button-color-active: #434d67;
+  --button-color-pagination: #4070cd;
+  --accent-color: #bce6d2;
+  --button-color-light: #f3f3f3;
 }
