@@ -41,11 +41,16 @@
     border: none;
     border-radius: 42px;
     
-    &:hover, &:focus {
-        color: #F3F3F3;
-        background-color: #161F37;    
-        border: 1px solid rgba(243, 243, 243, 0.20);
-    }
+}
+.logoutBtn:hover {
+    color: #F3F3F3;
+    background-color: #161F37;    
+    border: 1px solid rgba(243, 243, 243, 0.20);
+}
+.logoutBtn:focus {
+    color: #F3F3F3;
+    background-color: #161F37;
+    border: 1px solid rgba(243, 243, 243, 0.20);
 }
 
 
