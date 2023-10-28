@@ -36,9 +36,9 @@ const AddDrinkForm = () => {
     console.log('result', result);
   };
 
-  const onCategoryDropSelected = () => {};
+  // const onCategoryDropSelected = () => {};
 
-  const onGlassDropSelected = () => {};
+  // const onGlassDropSelected = () => {};
 
   const getIngData = data => {
     setIngredients(data);
@@ -47,7 +47,7 @@ const AddDrinkForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={validationSchema}
+      validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.addForm}>
