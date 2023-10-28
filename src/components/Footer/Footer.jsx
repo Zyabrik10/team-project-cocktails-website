@@ -35,24 +35,22 @@ export const Footer = () => {
                         </ul>
                     </div>
                     <nav className={css.nav}>
-                        <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`}>Drinks</NavLink>
-                        <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`}>Add drink</NavLink>
-                        <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`}>My drinks</NavLink>
-                        <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`}>Favorites drinks</NavLink>
+                        <NavLink to="/drinks" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Drinks</NavLink>
+                        <NavLink to="/add-drink" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Add drink</NavLink>
+                        <NavLink to="/my-drinks" className={`${css["navLink"]} ${globalCss["global-link"]}`}>My drinks</NavLink>
+                        <NavLink to="/favorites" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Favorites drinks</NavLink>
                     </nav>
                 </div>
                 <div className={css.box2}>
                     <div className={css.subscribeBox}>
                         <p className={`${css["subscribeP"]} ${globalCss["global-p"]}`}>Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
                         <form className={css.subscribeForm} action="">
-                            <label className={css.subscribeLabel} htmlFor="subscribe">
                                 <input
                                 id="subscribe"
                                 className={css.subscribeInput}
                                 type="text"
                                 placeholder='Enter the email'
                                 />
-                            </label>
                             <button className={css.subscribeBtn}>Subscribe</button>
                         </form>
                     </div>

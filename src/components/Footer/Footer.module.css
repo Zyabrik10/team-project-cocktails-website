@@ -107,7 +107,6 @@
 }
 .subscribeP {
     max-width: 325px;
-    text-align: start;
     color: #F3F3F3;
     font-size: 14px;
     font-weight: 400;
@@ -244,7 +243,6 @@
     }
     .subscribeP {
         max-width: 309px;
-        text-align: start;
         font-size: 18px;
         font-weight: 400;
         line-height: calc(24 / 18);

@@ -14,7 +14,7 @@ export const App = () => {
         <Route path="/signin" element={<Signin />} />
       </Route>
       <Route path='/home' element={<Layout/>}>
-        <Route path='/home' element={<div></div>}/>
+        <Route index element={<div></div>}/>
       </Route>
     </Routes>
   );
