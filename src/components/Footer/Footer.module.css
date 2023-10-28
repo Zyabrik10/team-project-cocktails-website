@@ -1,0 +1,344 @@
+.footer {
+    position: relative;
+    z-index: 6;
+    border-top: 1px solid rgba(243, 243, 243, 0.20);
+    padding: 40px 20px 18px;
+    background-color: #0A0A11;
+    overflow: hidden;
+}
+.container {
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.circle1 {
+    position: absolute;
+    z-index: -1;
+    bottom: -120%;
+    right: 30%;
+    width: 750px;
+    height: 750px;
+    border-radius: 50%;
+    background-color: rgba(188, 230, 210, 0.40);
+    filter: blur(105px);
+}
+.circle2 {
+    position: absolute;
+    z-index: -1;
+    bottom: -150%;
+    left: 60%;
+    width: 750px;
+    height: 850px;
+    border-radius: 30%;
+    background-color: rgba(64, 112, 205, 0.5);
+    filter: blur(105px);
+}
+
+
+.box1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+
+.socialBox {
+    display: inline-block;
+}
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    
+    > svg {
+        fill: #F3F3F3;
+    }
+}
+
+.title {
+    color: #F3F3F3;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+    text-transform: uppercase;
+}
+
+.socialList {
+    display: flex;
+    gap: 14px;
+}
+
+.socialItem {
+    border-radius: 10px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    padding: 8px;
+}
+.socialLink {
+    display: flex;
+}
+
+.socialSvg {
+    width: 22px;
+    height: 22px;
+}
+
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.navLink {
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(23 / 14);
+}
+
+
+.subscribeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+.subscribeP {
+    max-width: 325px;
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(20 / 14);
+}
+.subscribeForm {
+    position: relative;
+    min-width: 280px;
+    max-width: 325px;
+}
+.subscribeInput {
+    position: relative;
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(18 / 14);
+    width: 100%;
+
+    padding: 18px 24px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    opacity: 0.8;
+    border-radius: 42px;
+    outline: none;
+    background-color: transparent;
+}
+.subscribeBtn {
+    color: #F3F3F3;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    opacity: 0.8;
+    border-radius: 42px;
+    padding: 17px 0;
+
+    min-width: 280px;
+    width: 100%; 
+    max-width: 325px;
+}
+
+
+
+
+
+
+.serviceP {
+    color: rgba(243, 243, 243, 0.50);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: calc(16 / 12);
+    letter-spacing: -0.24px;
+    margin-bottom: 8px;
+}
+.serviceLink {
+    color: rgba(243, 243, 243, 0.50);
+    text-align: right;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: calc(16 / 12);
+    letter-spacing: -0.24px;
+}
+.serviceLink:first-child {
+    margin-right: 14px;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    .footer {
+        padding: 80px 32px 24px;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .circle1 {
+        right: 10%;
+    }
+    .circle2 {
+        bottom: -155%;
+        left: 30%;
+    }
+
+    .box1 {
+        display: inline-block;
+        margin-bottom: 80px;
+    }
+    .box2 {
+        display: inline-block;
+
+    }
+
+
+    .socialBox {
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+    .logoLink {
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+    .title {
+        font-size: 18px;
+        line-height: calc(22 / 18);
+    }
+    .socialList {
+        gap: 16px;
+    }
+    .socialItem {
+        padding: 8px;
+    }
+
+    .socialSvg {
+        width: 28px;
+        height: 28px;
+    }
+    
+
+    .nav {
+        gap: 16px;
+    }
+    .navLink {
+        font-size: 14px;
+        line-height: calc(23 / 14);
+    }
+
+    .subscribeBox {
+        gap: 24px;
+        margin-bottom: 0;
+    }
+    .subscribeP {
+        max-width: 309px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+    }
+    .subscribeForm {
+        max-width: 309px;
+    }
+    .subscribeInput {
+        font-size: 17px;
+        line-height: calc(26 / 17);
+        width: 100%;
+    
+        padding: 14px 24px;
+        margin-bottom: 18px;
+    }
+    .subscribeBtn {
+        font-size: 16px;
+        line-height: calc(18 / 16);
+    
+        padding: 17px 0;
+    
+        min-width: 280px;
+        width: 100%; 
+        max-width: 309px;
+    }
+    
+
+
+
+    .serviceBox {
+        display: flex;
+    }
+    .serviceP {
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.28px;
+        margin-right: 155px;
+        margin-bottom: 0;
+    }
+    .serviceLink {
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.28px;
+    }
+    .serviceLink:first-child {
+        margin-right: 18px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1440px) {
+    .footer {
+        padding: 80px 100px 24px;
+    }
+
+    .circle1 {
+        right: 30%;
+        bottom: -155%;
+    }
+    .circle2 {
+        left: 40%;
+        bottom: -180%;
+    }
+    .box1 {
+        display: flex;
+        width: 52%;
+        margin-bottom: 0;
+    }
+    .box2 {
+        margin-bottom: 80px;
+    }
+
+    .socialBox {
+        margin-bottom: 0;
+    }
+    .logoLink {
+        margin-bottom: 40px;
+    }
+    .nav {
+    
+    }
+
+
+
+    .serviceBox {
+        max-width: 1440px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .serviceP {
+        margin-right: auto;
+    }
+    .serviceLinkBox{
+        margin-right: 100px;
+    }
+
+}
