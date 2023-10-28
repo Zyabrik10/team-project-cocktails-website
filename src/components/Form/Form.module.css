@@ -1,4 +1,16 @@
-.title {
+.form {
+  width: 100%;
+  z-index: 100;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.form > .title {
   color: #f3f3f3;
   font-size: 28px;
   font-weight: 600;
@@ -17,9 +29,15 @@
 
 .form-submit-button {
   margin-bottom: 14px;
+  transition: background-color 0.2s ease;
 }
 
-.link-to {
+.form-submit-button:focus,
+.form-submit-button:hover {
+  background-color: rgba(243, 243, 243, 0.8);
+}
+
+.form > .link-to {
   display: block;
   width: 100%;
   text-align: center;
