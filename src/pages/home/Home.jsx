@@ -5,10 +5,8 @@ import css from "./Home.module.css"
 export function Home() {
   return (
       <div className={css.container}>
-        <div>Header</div>
         <Hero />
         <DrinkContainer />
-        <div>Footer</div>
       </div>
   );
 }

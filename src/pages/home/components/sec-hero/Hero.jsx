@@ -4,7 +4,7 @@ import globalcss from '../../../../css/global.module.css';
 
 export const Hero = () => {
   return (
-    <div>
+    <div className={css.heroContainer}>
       <h1 className={css.headerHero}>
         Craft Your Perfect Drink with Drink Master
       </h1>
@@ -13,6 +13,7 @@ export const Hero = () => {
         destination for exploring, crafting, and mastering the world's finest
         beverages.
       </p>
+      {/* <img src="../../../" alt="" /> */}
       <Link
         className={`${css['light']} ${css['button']} ${globalcss['global-link']} ${css['link']}`}
         // to="/add"

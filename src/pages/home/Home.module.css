@@ -53,15 +53,14 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .link {
-    padding: 18px;
-    display: block;
-    width: 151px;
-    height: 46px;
-    color: #161f37;
-    text-transform: capitalize;
-    text-align: center;
-  }
-  
+  padding: 18px;
+  display: block;
+  width: 151px;
+  height: 46px;
+  color: #161f37;
+  text-transform: capitalize;
+  text-align: center;
+}
 
 .categoryName {
   color: var(--button-color-light);

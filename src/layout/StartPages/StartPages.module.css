@@ -1,8 +1,6 @@
-@import "../../css/variables.css";
-
 .layout {
   position: relative;
-  background-color: var(--bg-color);
+  background-color: #0a0a11;
   background-image: url('../../img/start/bg-mob.jpg');
   background-position: right -300px top;
   background-repeat: no-repeat;
@@ -10,7 +8,7 @@
   width: 100vw;
   height: 100vh;
 
-  color: var(--text-color);
+  color: #fafafa;
 
   display: flex;
   flex-direction: column;
