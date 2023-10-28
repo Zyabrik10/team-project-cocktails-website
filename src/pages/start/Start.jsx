@@ -14,14 +14,14 @@ export const Start = () => {
       </p>
       <div className={css['buttons-list']}>
         <Link
-          className={`${css["light"]} ${css["button"]} ${globalCss['global-link']} ${css['link']}`}
+          className={`${css["light"]} ${css["button"]} ${globalCss['custom-button']} ${globalCss['global-link']} ${css['link']}`}
           to="/signin"
         >
           sign in
         </Link>
 
         <Link
-          className={`${css["dark"]} ${css["button"]} ${globalCss['global-link']} ${css['link']}`}
+          className={`${css["dark"]} ${css["button"]} ${globalCss['custom-button']} ${globalCss['global-link']} ${css['link']}`}
           to="/signup"
         >
           sign up
