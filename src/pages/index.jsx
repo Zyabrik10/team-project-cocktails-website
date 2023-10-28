@@ -6,3 +6,4 @@ export { MyDrinks } from './my-drinks/MyDrinks';
 export { Signin } from './signin/Signin';
 export { Signup } from './signup/Signup';
 export { Start } from './start/Start';
+export { Drink } from './drink/Drink';
