@@ -5,10 +5,17 @@
 
   /* dark theme */
 
-  --bg-color-dark: #0a0a11;
+  /* --bg-color-dark: #0a0a11; */
+  --bg-color: #0a0a11;
+  --text-color: #fafafa;
   --button-color-dark: #161f37;
   --button-color-active: #434d67;
   --button-color-pagination: #4070cd;
   --accent-color: #bce6d2;
   --button-color-light: #f3f3f3;
+}
+
+.light-theme {
+  --bg-color: #fafafa;
+  --text-color: #0a0a11;
 }

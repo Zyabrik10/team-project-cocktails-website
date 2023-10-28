@@ -1,0 +1,94 @@
+@import '../../css/variables.css';
+
+.drinkGroup {
+  height: 90vh;
+  overflow: scroll;
+}
+
+/* glass effect */
+/* .container {
+background: rgba(255, 255, 255, 0);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+} */
+
+.headerHero {
+  margin-top: 80px;
+}
+
+.heroDescr {
+  margin-top: 16px;
+}
+
+.button {
+  padding: 18px;
+  border-radius: 42px;
+  width: 100%;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.button.light {
+  background-color: #f3f3f3;
+  color: #161f37;
+}
+
+.button.dark {
+  background: transparent;
+  color: #f3f3f3;
+  border: 1px solid #f3f3f3;
+}
+
+.button.light:hover {
+  background: rgba(243, 243, 243, 0.8);
+}
+
+.button.dark:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.link {
+    padding: 18px;
+    display: block;
+    width: 151px;
+    height: 46px;
+    color: #161f37;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  
+
+.categoryName {
+  color: var(--button-color-light);
+}
+
+.groupCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.drink img {
+  width: 100%;
+}
+
+.drink {
+  width: 335px;
+}
+
+@media screen and (min-width: 768px) {
+  .drink {
+    width: 342px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .drink {
+    width: 400px;
+  }
+}
