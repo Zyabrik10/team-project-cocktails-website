@@ -15,7 +15,7 @@ export const Footer = () => {
             <div className={css.circle1}></div>
             <div className={css.circle2}></div>
 
-            <div className={css.footerMainBox}>
+            <div className={css.container}>
                 <div className={css.box1}>
                     <div className={css.socialBox}>
                         <NavLink to="/home" className={`${css["logoLink"]} ${globalCss["global-link"]}`}>

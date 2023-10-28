@@ -1,10 +1,13 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     border-bottom: solid 1px rgba(22, 31, 55, 0.10);
     padding: 20px;
 }
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 .logoLink {
     display: flex;
@@ -104,8 +107,6 @@
     .header {
         padding: 22px 100px;
     }
-
-
 
     .themeSwitcher {
         display: inline-block;

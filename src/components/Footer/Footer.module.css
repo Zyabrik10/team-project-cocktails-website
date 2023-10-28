@@ -1,13 +1,15 @@
 .footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
+    position: relative;
     z-index: 6;
     border-top: 1px solid rgba(243, 243, 243, 0.20);
     padding: 40px 20px 18px;
     background-color: #0A0A11;
     overflow: hidden;
+}
+.container {
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .circle1 {
@@ -170,7 +172,7 @@
     line-height: calc(16 / 12);
     letter-spacing: -0.24px;
 }
-.serviceLink:last-child {
+.serviceLink:first-child {
     margin-right: 14px;
 }
 
@@ -181,7 +183,7 @@
     .footer {
         padding: 80px 32px 24px;
     }
-    .footerMainBox {
+    .container {
         display: flex;
         justify-content: space-between;
     }
@@ -295,31 +297,50 @@
 
 
 
-
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .footer {
         padding: 80px 100px 24px;
     }
+
     .circle1 {
-        right: 25%;
+        right: 30%;
+        bottom: -155%;
     }
     .circle2 {
-        left: 30%;
-        bottom: -150%;
+        left: 40%;
+        bottom: -180%;
     }
     .box1 {
         display: flex;
+        width: 52%;
         margin-bottom: 0;
+    }
+    .box2 {
+        margin-bottom: 80px;
     }
 
     .socialBox {
-        display: inline-block;
         margin-bottom: 0;
     }
     .logoLink {
         margin-bottom: 40px;
     }
+    .nav {
+    
+    }
 
+
+
+    .serviceBox {
+        max-width: 1440px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .serviceP {
+        margin-right: auto;
+    }
+    .serviceLinkBox{
+        margin-right: 100px;
+    }
 
 }
