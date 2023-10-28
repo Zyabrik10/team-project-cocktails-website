@@ -1,0 +1,61 @@
+.switchContainer {
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .switchContainer {
+        display: inline-block;
+    }
+    
+    .switch {
+        display: inline-block;
+        position: relative;
+        width: 40px;
+        height: 20px;
+    }
+
+    .switchInput {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    .switchSlider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 36px;
+        background-color: #161F37;
+
+        transition: transform 0.4s, background-color 0.4s;
+    }
+    .switchSlider::before {
+        content: "";
+        position: absolute;
+        cursor: pointer;
+        bottom: 1px;
+        left: 1px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #F3F3F3;
+
+        transition: transform 0.4s, background-color 0.4s;
+    }
+
+    .swithInput:focus + .switchSlider {
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.10) inset;
+    }
+    .switchInput:checked + .switchSlider {
+        background-color: #F3F3F3;
+    }
+    .switchInput:checked + .switchSlider::before {
+        background-color: #161F37;
+
+        transform: translateX(18px);
+        -ms-transform: translateX(18px);
+    }
+}

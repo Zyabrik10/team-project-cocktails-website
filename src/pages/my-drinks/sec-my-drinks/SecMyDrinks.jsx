@@ -1,1 +1,4 @@
-export const SecMyDrinks = () => {}
+
+export const SecMyDrinks = () => {
+
+};
