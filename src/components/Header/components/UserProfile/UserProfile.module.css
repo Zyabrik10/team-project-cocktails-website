@@ -64,7 +64,9 @@
 .inputBox {
     position: relative;
 }
+.avatarLabel {
 
+}
 .avatarInput {
     position: relative;
     color: #F3F3F3;
@@ -103,17 +105,12 @@
     border-radius: 42px;
     padding: 17px 96px;
     background-color: #F3F3F3;
-}
-.submitBtn:hover {
-    color: #F3F3F3;
-    background-color: #161F37;
-    border: 1px solid rgba(243, 243, 243, 0.20);
-}
 
-.submitBtn:focus {
-    color: #F3F3F3;
-    background-color: #161F37;
-    border: 1px solid rgba(243, 243, 243, 0.20);
+    &:hover, &:focus {
+        color: #F3F3F3;
+        background-color: #161F37;    
+        border: 1px solid rgba(243, 243, 243, 0.20);
+    }
 }
 
 .closeBtn {
