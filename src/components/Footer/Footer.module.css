@@ -1,7 +1,36 @@
 .footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
     border-top: 1px solid rgba(243, 243, 243, 0.20);
     padding: 40px 20px 18px;
-    background-color: black;
+    background-color: #0A0A11;
+    overflow: hidden;
+}
+
+.circle1 {
+    position: absolute;
+    z-index: -1;
+    bottom: -120%;
+    right: 30%;
+    width: 750px;
+    height: 750px;
+    border-radius: 50%;
+    background-color: rgba(188, 230, 210, 0.40);
+    filter: blur(105px);
+}
+.circle2 {
+    position: absolute;
+    z-index: -1;
+    bottom: -150%;
+    left: 60%;
+    width: 750px;
+    height: 850px;
+    border-radius: 30%;
+    background-color: rgba(64, 112, 205, 0.5);
+    filter: blur(105px);
 }
 
 
@@ -59,10 +88,10 @@
     flex-direction: column;
     gap: 14px;
 }
-
 .navLink {
     color: #F3F3F3;
     font-size: 14px;
+    font-weight: 500;
     line-height: calc(23 / 14);
 }
 
@@ -121,12 +150,17 @@
 }
 
 
+
+
+
+
 .serviceP {
     color: rgba(243, 243, 243, 0.50);
     font-size: 12px;
     font-weight: 400;
     line-height: calc(16 / 12);
     letter-spacing: -0.24px;
+    margin-bottom: 8px;
 }
 .serviceLink {
     color: rgba(243, 243, 243, 0.50);
@@ -136,8 +170,156 @@
     line-height: calc(16 / 12);
     letter-spacing: -0.24px;
 }
+.serviceLink:last-child {
+    margin-right: 14px;
+}
+
+
 
 
 @media screen and (min-width: 768px) {
+    .footer {
+        padding: 80px 32px 24px;
+    }
+    .footerMainBox {
+        display: flex;
+        justify-content: space-between;
+    }
+    .circle1 {
+        right: 10%;
+    }
+    .circle2 {
+        bottom: -155%;
+        left: 30%;
+    }
+
+    .box1 {
+        display: inline-block;
+        margin-bottom: 80px;
+    }
+    .box2 {
+        display: inline-block;
+
+    }
+
+
+    .socialBox {
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+    .logoLink {
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+    .title {
+        font-size: 18px;
+        line-height: calc(22 / 18);
+    }
+    .socialList {
+        gap: 16px;
+    }
+    .socialItem {
+        padding: 8px;
+    }
+
+    .socialSvg {
+        width: 28px;
+        height: 28px;
+    }
+    
+
+    .nav {
+        gap: 16px;
+    }
+    .navLink {
+        font-size: 14px;
+        line-height: calc(23 / 14);
+    }
+
+    .subscribeBox {
+        gap: 24px;
+        margin-bottom: 0;
+    }
+    .subscribeP {
+        max-width: 309px;
+        text-align: start;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+    }
+    .subscribeForm {
+        max-width: 309px;
+    }
+    .subscribeInput {
+        font-size: 17px;
+        line-height: calc(26 / 17);
+        width: 100%;
+    
+        padding: 14px 24px;
+        margin-bottom: 18px;
+    }
+    .subscribeBtn {
+        font-size: 16px;
+        line-height: calc(18 / 16);
+    
+        padding: 17px 0;
+    
+        min-width: 280px;
+        width: 100%; 
+        max-width: 309px;
+    }
+    
+
+
+
+    .serviceBox {
+        display: flex;
+    }
+    .serviceP {
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.28px;
+        margin-right: 155px;
+        margin-bottom: 0;
+    }
+    .serviceLink {
+        font-size: 14px;
+        line-height: calc(18 / 14);
+        letter-spacing: -0.28px;
+    }
+    .serviceLink:first-child {
+        margin-right: 18px;
+    }
+}
+
+
+
+
+
+
+@media screen and (min-width: 1200px) {
+    .footer {
+        padding: 80px 100px 24px;
+    }
+    .circle1 {
+        right: 25%;
+    }
+    .circle2 {
+        left: 30%;
+        bottom: -150%;
+    }
+    .box1 {
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .socialBox {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .logoLink {
+        margin-bottom: 40px;
+    }
+
 
 }
