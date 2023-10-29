@@ -1,7 +1,7 @@
 import { StartPages } from 'layout/StartPages/StartPages';
 import { Routes, Route } from 'react-router-dom';
 
-import Layout from '../layout/layout';
+import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from '../pages/index';
 
 export const App = () => {
