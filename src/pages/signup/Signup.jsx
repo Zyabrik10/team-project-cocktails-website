@@ -10,7 +10,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [date, setDate] = useState('');
 
-  // const [selectedDate, setSelectedDate] = useState(Date.now());
+  const [selectedDate, setSelectedDate] = useState(Date.now());
   //оце той стейт який я собі передаю в календар
 
   function validName(name) {
