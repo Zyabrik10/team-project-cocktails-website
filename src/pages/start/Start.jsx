@@ -15,14 +15,14 @@ export default function Start ()  {
       <div className={css['buttons-list']}>
         <Link
           className={`${css["light"]} ${css["button"]} ${globalCss['custom-button']} ${globalCss['global-link']} ${css['link']}`}
-          to="/signin"
+          to="/welcome/signin"
         >
           sign in
         </Link>
 
         <Link
           className={`${css["dark"]} ${css["button"]} ${globalCss['custom-button']} ${globalCss['global-link']} ${css['link']}`}
-          to="/signup"
+          to="/welcome/signup"
         >
           sign up
         </Link>

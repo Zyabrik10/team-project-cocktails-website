@@ -13,7 +13,7 @@ export default function Signin() {
         title="Sign In"
         buttonTitle="Sign In"
         linkTitle="Sign Up"
-        linkTo="/signup"
+        linkTo="/welcome/signup"
         buttonOnClick={buttonHandler}
       >
         <FormInput type="email" placeholder="Email" />
