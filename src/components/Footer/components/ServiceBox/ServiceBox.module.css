@@ -47,12 +47,6 @@
 
 
 @media screen and (min-width: 1440px) {
-    .serviceBox {
-        max-width: 1440px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     .serviceP {
         margin-right: auto;
     }

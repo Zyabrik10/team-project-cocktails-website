@@ -56,7 +56,6 @@
 
 @media screen and (min-width: 768px) {
     .subscribeBox {
-        gap: 24px;
         margin-bottom: 0;
     }
 
@@ -74,24 +73,14 @@
     .subscribeInput {
         font-size: 17px;
         line-height: calc(26 / 17);
-        width: 100%;
     
         padding: 14px 24px;
         margin-bottom: 18px;
     }
 
     .subscribeBtn {
-        font-size: 16px;
-        line-height: calc(18 / 16);
-    
-        padding: 17px 0;
-        min-width: 280px;
-        width: 100%; 
+        font-size: 17px;
+        line-height: calc(26 / 17);
         max-width: 309px;
     }
-}
-
-
-@media screen and (min-width: 1440px) {
-
 }
