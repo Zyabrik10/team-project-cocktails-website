@@ -65,6 +65,7 @@
 
 .button {
   transition: 0.3s ease;
+  text-transform: capitalize;
 }
 
 .button.light {
