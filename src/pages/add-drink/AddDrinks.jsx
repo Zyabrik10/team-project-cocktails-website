@@ -1,5 +1,5 @@
 import AddDrinkForm from 'components/AddDrinkForm';
 
-export const AddDrinks = () => {
+export default function AddDrinks() {
   return <AddDrinkForm />;
 };
