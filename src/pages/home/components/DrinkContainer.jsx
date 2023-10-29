@@ -12,7 +12,7 @@ export const DrinkContainer = () => {
           <DrinkGroup group={group} key={group} />
         ))}
       </div>
-      <Link>Other Drinks</Link>
+      <p>Other Drinks</p>
     </>
   );
 };

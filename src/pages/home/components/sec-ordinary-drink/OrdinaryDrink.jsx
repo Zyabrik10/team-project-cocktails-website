@@ -7,7 +7,7 @@ export default function OrdinaryDrink({ cocktail }) {
       <img src={cocktail.drinkThumb} alt={cocktail.drink} />
       <div>
         <h5>{cocktail.drink}</h5>
-        <Link>See more</Link>
+        <p>See more</p>
       </div>
     </div>
   );

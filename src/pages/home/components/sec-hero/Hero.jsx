@@ -14,12 +14,12 @@ export const Hero = () => {
         beverages.
       </p>
       {/* <img src="../../../" alt="" /> */}
-      <Link
+      <p
         className={`${css['light']} ${css['button']} ${globalcss['global-link']} ${css['link']}`}
         // to="/add"
       >
        Add Drinks
-      </Link>
+      </p>
     </div>
   );
 };
