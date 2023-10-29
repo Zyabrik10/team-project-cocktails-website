@@ -30,7 +30,7 @@ export const Calendar = () => {
     
     const CustomInput = forwardRef(({ value, onClick }, ref) => {
         return (
-            <TitleWrapper onClick={onClick} ref={ref}>
+            <TitleWrapper onClick={onClick} ref={ref} type="button">
                 .
             </TitleWrapper>
         )
