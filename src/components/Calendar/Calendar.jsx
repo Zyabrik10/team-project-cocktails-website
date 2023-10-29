@@ -11,7 +11,7 @@ import {
 import NavLeftSvg from './svg/NavLeftSvg';
 import NavRightSvg from './svg/NavRightSvg';
 
-export const Calendar = ({style}) => {
+export const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
   const range = (start, end) => {
     return new Array(end - start).fill().map((d, i) => i + start);
@@ -33,15 +33,7 @@ export const Calendar = ({style}) => {
     'December',
   ];
 
-    
-    const CustomInput = forwardRef(({ value, onClick }, ref) => {
-        return (
-            <TitleWrapper onClick={onClick} ref={ref} type="button">
-                .
-            </TitleWrapper>
-        )
-    })
-  
+  const CustomInput = forwardRef(({ value, onClick, style }, ref) => {
     return (
       <TitleWrapper onClick={onClick} ref={ref} type="button" style={style}>
         .
