@@ -122,22 +122,16 @@ export default function Signup() {
             value={email}
             required={true}
           />
-          <FormInput
-            onChange={dateInputHandler}
-            type="date"
-            placeholder="dd.mm.yyyy"
-            value={date}
-            required={true}
-          >
-            <Calendar
-              style={{
-                position: 'absolute',
-                top: '50%',
-                right: '24px',
-                transform: 'translateY(-50%)',
-              }}
-            ></Calendar>
-          </FormInput>
+          <Calendar
+          onChange={dateInputHandler}
+          type="date"
+          placeholder="dd.mm.yyyy"
+          value={selectedDate}
+          required={true}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          ></Calendar>
+          
           <FormInput
             onChange={passwordInputHandler}
             type="password"
