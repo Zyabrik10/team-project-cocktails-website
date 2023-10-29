@@ -2,6 +2,8 @@ import { Form, FormInput } from '../../components/Form/index';
 import { Calendar } from '../../components/Calendar/Calendar';
 import { useState } from 'react';
 
+import WelcomeLayout from 'components/WelcomeLayout/WelcomeLayout';
+
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -98,46 +100,53 @@ export default function Signup() {
 
   return (
     <>
-      <Form
-        title="Sign Up"
-        buttonTitle="Sign Up"
-        linkTitle="Sign In"
-        linkTo="/signin"
-        buttonOnClick={buttonHandler}
-      >
-        <FormInput
-          onChange={nameInputHandler}
-          type="text"
-          placeholder="Name"
-          value={name}
-          required={true}
-        />
-        <FormInput
-          onChange={emailInputHandler}
-          type="email"
-          placeholder="Email"
-          value={email}
-          required={true}
-        />
-
-          <Calendar
-          onChange={dateInputHandler}
-          type="date"
-          placeholder="dd.mm.yyyy"
-          value={selectedDate}
-          required={true}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          ></Calendar>
-
-        <FormInput
-          onChange={passwordInputHandler}
-          type="password"
-          placeholder="Password"
-          value={password}
-          required={true}
-        />
-      </Form>
+      <WelcomeLayout>
+        <Form
+          title="Sign Up"
+          buttonTitle="Sign Up"
+          linkTitle="Sign In"
+          linkTo="/welcome/signin"
+          buttonOnClick={buttonHandler}
+        >
+          <FormInput
+            onChange={nameInputHandler}
+            type="text"
+            placeholder="Name"
+            value={name}
+            required={true}
+          />
+          <FormInput
+            onChange={emailInputHandler}
+            type="email"
+            placeholder="Email"
+            value={email}
+            required={true}
+          />
+          <FormInput
+            onChange={dateInputHandler}
+            type="date"
+            placeholder="dd.mm.yyyy"
+            value={date}
+            required={true}
+          >
+            <Calendar
+              style={{
+                position: 'absolute',
+                top: '50%',
+                right: '24px',
+                transform: 'translateY(-50%)',
+              }}
+            ></Calendar>
+          </FormInput>
+          <FormInput
+            onChange={passwordInputHandler}
+            type="password"
+            placeholder="Password"
+            value={password}
+            required={true}
+          />
+        </Form>
+      </WelcomeLayout>
     </>
   );
 }

@@ -1,0 +1,17 @@
+.title {
+  font-size: 32px;
+  color: #f3f3f3;
+  /* font-family: Manrope;
+  font-weight: 600; */
+  /* color: var(--text-color); */
+}
+@media screen and (min-width: 768px) {
+  .title{
+    font-size: 56px;
+  }
+} 
+@media screen and (min-width: 1440px) {
+  .title{
+    font-size: 64px;
+  }
+}
