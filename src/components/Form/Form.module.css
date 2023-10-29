@@ -1,0 +1,50 @@
+.form {
+  width: 100%;
+  z-index: 100;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.form > .title {
+  color: #f3f3f3;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: calc(32 / 28);
+  letter-spacing: -0.56px;
+
+  margin-bottom: 28px;
+}
+
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.form-submit-button {
+  margin-bottom: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.form-submit-button:focus,
+.form-submit-button:hover {
+  background-color: rgba(243, 243, 243, 0.8);
+}
+
+.form > .link-to {
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: calc(16 / 12);
+  text-decoration-line: underline;
+}
