@@ -1,7 +1,3 @@
-.socialBox {
-    display: inline-block;
-}
-
 .logoLink {
     display: flex;
     align-items: center;
@@ -44,7 +40,6 @@
 
 @media screen and (min-width: 768px) {
     .socialBox {
-        display: inline-block;
         margin-bottom: 40px;
     }
     
@@ -61,11 +56,7 @@
     .socialList {
         gap: 16px;
     }
-
-    .socialItem {
-        padding: 8px;
-    }
-
+    
     .socialSvg {
         width: 28px;
         height: 28px;
