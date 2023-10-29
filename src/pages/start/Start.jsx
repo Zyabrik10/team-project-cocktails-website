@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import css from './Start.module.css';
 import globalCss from '../../css/global.module.css';
 
-export const Start = () => {
+export default function Start ()  {
   return (
     <div className={css['start-box']}>
       <h1 className={globalCss['global-title']}>Welcome to the app!</h1>
