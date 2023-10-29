@@ -1,0 +1,46 @@
+@import url('../../../css/global.module.css');
+
+h3,p,img{
+    padding: 0;
+    margin: 0;
+}
+
+.drinksList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.drinkCard{
+    width: 335px;
+    height: 581px;
+}
+
+.drinkImage{
+    margin-bottom: 18px;
+}
+
+.drunkStatus{
+    margin-top: 4px;
+    margin-bottom: 18px;
+}
+
+.seeMore{
+    display: inline-block;
+    margin-top: 18px;
+    margin-right: 8px;
+}
+
+@media screen and (min-width: 768px){
+   .drinkCard{
+    width: 342px;
+    height: 650px;
+} 
+}
+
+@media screen and (min-width: 1439.98px){
+      .drinkCard{
+    width: 400px;
+    height: 676px;
+}  
+}
