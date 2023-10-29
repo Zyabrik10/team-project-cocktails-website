@@ -22,29 +22,28 @@ export const Header = () => {
 
     return (
         <header className={css.header}>
-            <NavLink to="/home" className={`${css["logoLink"]} ${globalCss["global-link"]}`}>
-                <LogoSvg/>
-                <p className={`${css["title"]} ${globalCss["global-p"]}`}>Drink Master</p>
-            </NavLink>
-
-            <Navigation/>
-        
-            <div className={css.profile}>
-                <ThemeSwitcher/>
-                <div onClick={handleToggleDropdown} 
-                className={css.userBox}>
-                    <img src={require("../../img/header/user.png")} alt="Avatar" className={css.avatar}/>
-                    <span className={css.name}>User</span>
-                    {isDropdownOpen ? (
-                        <>
-                            <DropDown/>
-                            <LogoutAlert/>
-                            <UserProfile/>
-                        </>
-                    )  : <></>}
+            <div className={`${css["headerBox"]} ${globalCss["container"]}`}>
+                <NavLink to="/home" className={`${css["logoLink"]} ${globalCss["global-link"]}`}>
+                    <LogoSvg/>
+                    <p className={`${css["title"]} ${globalCss["global-p"]}`}>Drink Master</p>
+                </NavLink>
+                <Navigation/>
+                <div className={css.profile}>
+                    <ThemeSwitcher/>
+                    <div onClick={handleToggleDropdown}
+                    className={css.userBox}>
+                        <img src={require("../../img/header/user.png")} alt="Avatar" className={css.avatar}/>
+                        <span className={css.name}>User</span>
+                        {isDropdownOpen ? (
+                            <>
+                                <DropDown/>
+                                <LogoutAlert/>
+                                <UserProfile/>
+                            </>
+                        )  : <></>}
+                    </div>
+                    <button className={css.burgerMenu}><BurgerMenuSvg/></button>
                 </div>
-
-                <button className={css.burgerMenu}><BurgerMenuSvg/></button>
             </div>
         </header>
     )

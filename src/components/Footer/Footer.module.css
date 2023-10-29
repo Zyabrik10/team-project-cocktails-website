@@ -1,20 +1,14 @@
 .footer {
     position: relative;
     border-top: 1px solid rgba(243, 243, 243, 0.20);
-    padding: 40px 20px 18px;
+    padding-top: 40px;
+    padding-bottom: 18px;
     background-color: #0A0A11;
     overflow: hidden;
 }
 
-.container {
-    max-width: 1440px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .circle1 {
     position: absolute;
-    /* z-index: -1; */
     bottom: -120%;
     right: 30%;
     width: 750px;
@@ -26,8 +20,7 @@
 
 .circle2 {
     position: absolute;
-    /* z-index: -1; */
-    bottom: -150%;
+    bottom: -142%;
     left: 60%;
     width: 750px;
     height: 850px;
@@ -44,61 +37,48 @@
 
 @media screen and (min-width: 768px) {
     .footer {
-        padding: 80px 32px 24px;
+        padding-top: 80px;
+        padding-bottom: 24px;
     }
 
-    .container {
+    .footerContent {
         display: flex;
         justify-content: space-between;
     }
 
     .circle1 {
-        right: 10%;
+        right: 30%;
         bottom: -130%;
     }
 
     .circle2 {
         bottom: -165%;
-        left: 10%;
+        left: 30%;
     }
 
     .box1 {
-        display: inline-block;
+        flex-direction: column;
         margin-bottom: 80px;
     }
-
-    .box2 {
-        display: inline-block;
-
-    }
-
 }
 
 
 
 
 @media screen and (min-width: 1440px) {
-    .footer {
-        padding: 80px 100px 24px;
-    }
-
     .circle1 {
-        right: 35%;
-        bottom: -150%;
+        right: 40%;
+        bottom: -160%;
     }
 
     .circle2 {
         left: 30%;
-        bottom: -177%;
+        bottom: -185%;
     }
 
     .box1 {
-        display: flex;
+        flex-direction: row;
         width: 52%;
-        margin-bottom: 0;
-    }
-
-    .box2 {
-        margin-bottom: 80px;
+        margin-bottom: 142px;
     }
 }

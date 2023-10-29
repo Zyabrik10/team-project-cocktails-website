@@ -16,9 +16,11 @@
     .nav {
         gap: 16px;
     }
+}
 
-    .navLink {
-        font-size: 14px;
-        line-height: calc(23 / 14);
+
+@media screen and (min-width: 1440px) {
+    .nav {
+        gap: 24px;
     }
 }

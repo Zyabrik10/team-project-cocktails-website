@@ -9,7 +9,7 @@ export const App = () => {
 
   return (
     <>
-      {!isAuth ? (
+      {isAuth ? (
         <Routes>
           <Route path="/" element={<StartPages />} >
             <Route path="/" element={<Start />} />

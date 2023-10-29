@@ -33,7 +33,15 @@ export const Calendar = ({style}) => {
     'December',
   ];
 
-  const CustomInput = forwardRef(({ value, onClick }, ref) => {
+    
+    const CustomInput = forwardRef(({ value, onClick }, ref) => {
+        return (
+            <TitleWrapper onClick={onClick} ref={ref} type="button">
+                .
+            </TitleWrapper>
+        )
+    })
+  
     return (
       <TitleWrapper onClick={onClick} ref={ref} type="button" style={style}>
         .
