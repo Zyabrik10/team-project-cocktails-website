@@ -1,0 +1,86 @@
+.subscribeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.subscribeP {
+    max-width: 325px;
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(20 / 14);
+}
+
+.subscribeForm {
+    position: relative;
+    min-width: 280px;
+    max-width: 325px;
+}
+
+.subscribeInput {
+    position: relative;
+    color: #F3F3F3;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(18 / 14);
+    width: 100%;
+
+    padding: 18px 24px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    opacity: 0.8;
+    border-radius: 42px;
+    outline: none;
+}
+
+.subscribeBtn {
+    color: #F3F3F3;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    opacity: 0.8;
+    border-radius: 42px;
+    padding: 17px 0;
+    min-width: 280px;
+    width: 100%;
+    max-width: 325px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .subscribeBox {
+        margin-bottom: 0;
+    }
+
+    .subscribeP {
+        max-width: 309px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: calc(24 / 18);
+    }
+
+    .subscribeForm {
+        max-width: 309px;
+    }
+
+    .subscribeInput {
+        font-size: 17px;
+        line-height: calc(26 / 17);
+    
+        padding: 14px 24px;
+        margin-bottom: 18px;
+    }
+
+    .subscribeBtn {
+        font-size: 17px;
+        line-height: calc(26 / 17);
+        max-width: 309px;
+    }
+}

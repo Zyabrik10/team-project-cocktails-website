@@ -1,0 +1,75 @@
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+
+    >svg {
+        fill: #F3F3F3;
+    }
+}
+
+.title {
+    color: #F3F3F3;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+    text-transform: uppercase;
+}
+
+.socialList {
+    display: flex;
+    gap: 14px;
+}
+
+.socialItem {
+    border-radius: 10px;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+    padding: 8px;
+}
+
+.socialLink {
+    display: flex;
+}
+
+.socialSvg {
+    width: 22px;
+    height: 22px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .socialBox {
+        margin-bottom: 40px;
+    }
+    
+    .logoLink {
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: calc(22 / 18);
+    }
+
+    .socialList {
+        gap: 16px;
+    }
+    
+    .socialSvg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .socialBox {
+        margin-bottom: 0;
+    }
+
+    .logoLink {
+        margin-bottom: 40px;
+    }
+}

@@ -1,0 +1,29 @@
+.form-input-box {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  padding: 18px 24px;
+  border-radius: 200px;
+
+  color: #f3f3f3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: calc(18 / 14);
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(243, 243, 243, 0.5);
+}
+
+.form-input:focus,
+.form-input:hover {
+  border-color: #f3f3f3;
+}

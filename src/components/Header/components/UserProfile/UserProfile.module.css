@@ -64,9 +64,7 @@
 .inputBox {
     position: relative;
 }
-.avatarLabel {
 
-}
 .avatarInput {
     position: relative;
     color: #F3F3F3;
@@ -93,8 +91,6 @@
     height: 16px;
 }
 
-
-
 .submitBtn {
     color: #161F37;
     font-size: 14px;
@@ -103,14 +99,18 @@
 
     border: none;
     border-radius: 42px;
-    padding: 17px 96px;
-    background-color: #F3F3F3;
-
-    &:hover, &:focus {
-        color: #F3F3F3;
-        background-color: #161F37;    
-        border: 1px solid rgba(243, 243, 243, 0.20);
-    }
+    padding: 17px 95.5px;
+    background-color: #F3F3F3; 
+}
+.submitBtn:hover {
+    background-color: #161F37;    
+    color: #F3F3F3;
+    border: 1px solid rgba(243, 243, 243, 0.20);
+}
+.submitBtn:focus {
+    background-color: #161F37;
+    color: #F3F3F3;
+    border: 1px solid rgba(243, 243, 243, 0.20);
 }
 
 .closeBtn {
@@ -128,10 +128,12 @@
         height: 426px;
         padding: 50px 50px 50px 75px;
     }
+
     .circle1 {
         top: -35%;
         left: -15%;
     }
+
     .circle2 {
         bottom: -45%;
         right: -35%;
@@ -140,17 +142,19 @@
     .imgBox {
         margin-bottom: 66px;
     }
+
     .profileImg {
         width: 100px;
         border-radius: 50%;
     }
+
     .addBtn {
         top: 84px;
     }
+
     .addSvg {
         width: 32px;
     }
-
 
     .avatarInput {
         font-size: 17px;
@@ -165,9 +169,11 @@
         outline: none;
         background-color: transparent;
     }
+
     .inputSvg {
         top: 18px;
     }
+
     .edditSvg {
         width: 20px;
         height: 20px;
@@ -178,7 +184,7 @@
 
         border: none;
         border-radius: 42px;
-        padding: 17px 134.5px;
+        padding: 17px 134px;
     }
 
     .closeSvg {

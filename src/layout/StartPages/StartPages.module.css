@@ -1,18 +1,25 @@
 .layout {
-  position: relative;
   background-color: #0a0a11;
-  background-image: url('../../img/start/bg-mob.jpg');
-  background-position: right -300px top;
-  background-repeat: no-repeat;
 
-  width: 100vw;
   height: 100vh;
 
   color: #fafafa;
 
+  overflow: hidden;
+}
+
+.layout > .container {
+  position: relative;
+
+  background-image: url('../../img/start/bg-mob.jpg');
+  background-position: right -300px top -15px;
+  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  height: 100%;
 
   padding-left: 20px;
   padding-right: 20px;
@@ -21,7 +28,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .layout {
+  .layout > .container {
     background-image: url('../../img/start/bg-tab.jpg');
     background-position: right -260px top;
 
@@ -32,9 +39,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .layout {
+  .layout > .container {
     background-image: url('../../img/start/bg-tab.jpg');
-    background-position: right 0 top;
+    background-position: right 0 top -50px;
 
     padding-left: 100px;
     padding-right: 100px;
