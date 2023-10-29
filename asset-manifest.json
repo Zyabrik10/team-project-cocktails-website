@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/team-project-cocktails-website/static/css/main.fe8f1df1.css",
-    "main.js": "/team-project-cocktails-website/static/js/main.b9b60bc0.js",
+    "main.css": "/team-project-cocktails-website/static/css/main.01a0efdf.css",
+    "main.js": "/team-project-cocktails-website/static/js/main.db470eda.js",
     "static/media/bg-tab.jpg": "/team-project-cocktails-website/static/media/bg-tab.0aa2353ef47777b192ba.jpg",
     "static/media/bg-mob.jpg": "/team-project-cocktails-website/static/media/bg-mob.1257aa007c2f5e01ccb7.jpg",
     "index.html": "/team-project-cocktails-website/index.html",
-    "main.fe8f1df1.css.map": "/team-project-cocktails-website/static/css/main.fe8f1df1.css.map",
-    "main.b9b60bc0.js.map": "/team-project-cocktails-website/static/js/main.b9b60bc0.js.map"
+    "main.01a0efdf.css.map": "/team-project-cocktails-website/static/css/main.01a0efdf.css.map",
+    "main.db470eda.js.map": "/team-project-cocktails-website/static/js/main.db470eda.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe8f1df1.css",
-    "static/js/main.b9b60bc0.js"
+    "static/css/main.01a0efdf.css",
+    "static/js/main.db470eda.js"
   ]
 }
