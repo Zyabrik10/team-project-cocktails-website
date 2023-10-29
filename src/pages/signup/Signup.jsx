@@ -8,6 +8,9 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [date, setDate] = useState('');
 
+  const [selectedDate, setSelectedDate] = useState(Date.now());
+  //оце той стейт який я собі передаю в календар
+
   function validName(name) {
     if (name === '')
       return { valid: false, error: 'Please, provide your name' };
@@ -116,22 +119,17 @@ export default function Signup() {
           value={email}
           required={true}
         />
-        <FormInput
+
+          <Calendar
           onChange={dateInputHandler}
           type="date"
           placeholder="dd.mm.yyyy"
-          value={date}
+          value={selectedDate}
           required={true}
-        >
-          <Calendar
-            style={{
-              position: 'absolute',
-              top: '50%',
-              right: '24px',
-              transform: 'translateY(-50%)',
-            }}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
           ></Calendar>
-        </FormInput>
+
         <FormInput
           onChange={passwordInputHandler}
           type="password"

@@ -160,8 +160,16 @@ export const CalendarGlobalStyles = createGlobalStyle`
 `;
 
 export const TitleWrapper = styled.button`
-  background: #161F37;
-  border-radius: 50%;
+  background: transparent;
+  border: none;
+  width: 400px;
+  padding: 0;
+  @media screen and (max-width: 767.98px) {
+   width: 335px;
+  }
+  @media screen and (max-width: 375px) {
+   width: 85vw;
+  }
 `;
 
 export const Select = styled.select`
@@ -192,5 +200,12 @@ export const Svg = styled.svg`
       stroke-opacity: 1;
     }
   }
+`
+
+export const CalIcon = styled.svg`
+ position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
 `
 
