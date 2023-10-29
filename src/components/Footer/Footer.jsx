@@ -61,8 +61,8 @@ export const Footer = () => {
             <div className={css.serviceBox}>
                 <p className={`${css["serviceP"]} ${globalCss["global-p"]}`}>©2023 Drink Master. All rights reserved.</p>
                 <div className={css.serviceLinkBox}>
-                    <a className={`${css["serviceLink"]} ${globalCss["global-link"]}`} href="#">Privacy Policy</a>
-                    <a className={`${css["serviceLink"]} ${globalCss["global-link"]}`} href="#">Terms of Service</a>
+                    <p className={`${css["serviceLink"]} ${globalCss["global-link"]}`} href="#">Privacy Policy</p>
+                    <p className={`${css["serviceLink"]} ${globalCss["global-link"]}`} href="#">Terms of Service</p>
                 </div>
             </div>
         </footer>
