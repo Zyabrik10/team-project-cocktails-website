@@ -1,0 +1,24 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.navLink {
+    color: #F3F3F3;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(23 / 14);
+}
+
+
+@media screen and (min-width: 768px) {
+    .nav {
+        gap: 16px;
+    }
+
+    .navLink {
+        font-size: 14px;
+        line-height: calc(23 / 14);
+    }
+}
