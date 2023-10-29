@@ -1,20 +1,21 @@
-import { lazy } from 'react';
+// import { lazy } from 'react';
 // import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 // import { PrivateRoute } from '../hooks/PrivateRoute';
-import { RestrictedRoute } from '../hooks/RestrictedRoute';
+// import { RestrictedRoute } from '../hooks/RestrictedRoute';
 // import { refreshUser } from '../redux/auth/operations';
 // import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
-import { StartPages } from 'layout/StartPages/StartPages';
+import { Signin, Signup, Start } from 'pages';
+// import { StartPages } from 'layout/StartPages/StartPages';
 
 
-const StartPage = lazy(() => import('../pages/start/Start'));
-const SignupPage = lazy(() => import('../pages/signup/Signup'));
-const SigninPage = lazy(() => import('../pages/signin/Signin'));
-const HomePage = lazy(() => import('../pages/home/Home'));
+// const StartPage = lazy(() => import('../pages/start/Start'));
+// const SignupPage = lazy(() => import('../pages/signup/Signup'));
+// const SigninPage = lazy(() => import('../pages/signin/Signin'));
+// const HomePage = lazy(() => import('../pages/home/Home'));
 // const AddDrinkPage = lazy(() => import('../pages/add-drink/AddDrinks'));
 // const MyDrinksPage = lazy(() => import('../pages/my-drinks/MyDrinks'));
 // const FavoritesPage = lazy(() => import('../pages/favorites/Favorites'));
