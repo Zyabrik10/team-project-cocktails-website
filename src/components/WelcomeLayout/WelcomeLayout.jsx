@@ -1,6 +1,6 @@
 import css from './WelcomeLayout.module.css';
 import globalCss from '../../css/global.module.css';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
 
 export default function WelcomeLayout ({children}) {
