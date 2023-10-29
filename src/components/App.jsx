@@ -30,6 +30,7 @@ export const App = () => {
   // const { isRefreshing } = useAuth();
   const isAuth = false
 
+
   // useEffect(() => {
   //   dispatch(refreshUser());
   // }, [dispatch]);
