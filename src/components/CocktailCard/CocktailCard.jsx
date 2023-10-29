@@ -105,7 +105,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
               >
                 See more
               </Link>
-              <button className={css.delete_button}>
+              <button type="button" className={css.delete_button}>
                 <DeleteSvg></DeleteSvg>
               </button>
             </div>
