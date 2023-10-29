@@ -10,7 +10,7 @@ export default function DrinkGroup ({ group }) {
   let width = ResizeHook()
   useEffect(() => {
     // here I'm make request to take first three cocktails for this group
-    setCocktails(recipes.filter(item => item.category == group).slice(0, amount));
+    setCocktails(recipes.filter(item => item.category === group).slice(0, amount));
   }, [group, amount]);
   useEffect(() => {
     if (width >= 1440) {
