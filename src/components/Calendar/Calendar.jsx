@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { getYear, getMonth } from 'date-fns';
-import { format } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
   CalendarGlobalStyles,
@@ -14,15 +13,10 @@ import NavRightSvg from './svg/NavRightSvg';
 import CalendarIcon from './svg/CalendarIcon';
 import { FormInput } from 'components/Form';
 
-export const Calendar = ({selectedDate, setSelectedDate}) => {
-
+export const Calendar = ({ selectedDate, setSelectedDate }) => {
   const range = (start, end) => {
     return new Array(end - start).fill().map((d, i) => i + start);
   };
-
-  const formattedDate = format(selectedDate, 'dd.MM.yyy');
-  console.log(formattedDate)
-  //я це залишила, щоб ти побачив що стейт міняється
 
   const years = range(1900, getYear(new Date()) + 1, 1);
   const months = [
@@ -41,13 +35,22 @@ export const Calendar = ({selectedDate, setSelectedDate}) => {
   ];
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
+    const arr = value.split(" ");
+
+    const day = arr[0] || "";
+    const month = arr[1] || "";
+    const year = arr[2] || "";
+
+    let date = `${day}/${month}/${year}`;
+
+    if (selectedDate === 0) date = '';
+
+
     return (
       <TitleWrapper onClick={onClick} ref={ref} type="button">
-        <FormInput
-          placeholder={'dd/mm/yyyy'}
-        >
-        <CalendarIcon/>
-       </FormInput>
+        <FormInput onChange={() => {}} value={date} placeholder={'dd/mm/yyyy'}>
+          <CalendarIcon />
+        </FormInput>
       </TitleWrapper>
     );
   });
@@ -56,9 +59,7 @@ export const Calendar = ({selectedDate, setSelectedDate}) => {
     <div>
       <DatePicker
         selected={selectedDate}
-        onChange={date => {
-          setSelectedDate(date);
-        }}
+        onChange={setSelectedDate}
         customInput={<CustomInput />}
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}

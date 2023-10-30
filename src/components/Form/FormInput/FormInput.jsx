@@ -6,11 +6,13 @@ export default function FormInput({
   children,
   onChange,
   required,
-  pattern
+  pattern,
+  value
 }) {
   return (
     <div className="form-input-box">
       <input
+        value={value}
         onChange={onChange}
         className={css['form-input']}
         type={type}
