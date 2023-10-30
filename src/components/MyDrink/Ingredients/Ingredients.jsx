@@ -1,6 +1,6 @@
 import globalCss from '../../../css/global.module.css';
 import css from './Ingredients.module.css';
-import recipes from '../../../pages/drink/recipes.json';
+import recipes from '../../../pages/my-drinks/recipes.json';
 export const Ingredients = () => {
   let recipe = recipes[4];
   console.log('receipes', recipe);

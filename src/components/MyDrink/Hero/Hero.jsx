@@ -1,14 +1,13 @@
 import globalCss from '../../../css/global.module.css';
 import css from './Hero.module.css';
-import recipes from '../../../pages/drink/recipes.json';
+import recipes from '../../../pages/my-drinks/recipes.json';
 import { Title } from 'components/Title/Title';
 
 export const Hero = () => {
   let recipe = recipes[4];
   console.log('recipes', recipes);
   return (
-    <div className={`${css["hero-section"]}`}>
-
+    <div className={`${css['hero-section']}`}>
       <h1 className={`${globalCss['global-title']} ${css['title']}`}>
         {recipe.drink}
       </h1>
