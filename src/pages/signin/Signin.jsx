@@ -14,6 +14,16 @@ export default function Signin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  async function SignUserIn() {
+    const userData = {
+      email,
+      password,
+    };
+
+    const { error } = await dispatch(signin(userData));
+    if (!error) navigate('/home');
+  }
+
   function validEmail(email) {
     if (email === '')
       return { valid: false, error: 'Please, provide your email' };
@@ -33,16 +43,6 @@ export default function Signin() {
       valid: true,
       error: null,
     };
-  }
-
-  async function SignUserIn() {
-    const userData = {
-      email,
-      password
-    }
-
-    await dispatch(signin(userData));
-    navigate("/home");
   }
 
   function validateFields() {

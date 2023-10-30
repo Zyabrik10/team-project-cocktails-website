@@ -26,8 +26,8 @@ export default function Signup() {
       password,
     };
 
-    await dispatch(signup(userData));
-    navigate("/home");
+    const { error } = await dispatch(signup(userData));
+    if (!error) navigate("/home");
   }
   
   function validName(name) {
