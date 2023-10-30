@@ -3,9 +3,16 @@ import { useState } from 'react';
 
 import WelcomeLayout from 'components/WelcomeLayout/WelcomeLayout';
 
+import { useDispatch } from 'react-redux';
+import { signin } from 'redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
+
 export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function validEmail(email) {
     if (email === '')
@@ -28,8 +35,14 @@ export default function Signin() {
     };
   }
 
-  function SignUserIn() {
-    console.log('signin');
+  async function SignUserIn() {
+    const userData = {
+      email,
+      password
+    }
+
+    await dispatch(signin(userData));
+    navigate("/home");
   }
 
   function validateFields() {
