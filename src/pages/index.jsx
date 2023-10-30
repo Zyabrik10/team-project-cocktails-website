@@ -6,3 +6,4 @@ export { default as MyDrinks } from './my-drinks/MyDrinks';
 export { default as Signin } from './signin/Signin';
 export { default as Signup } from './signup/Signup';
 export { default as Start } from './start/Start';
+export {Drink} from './drink/Drink'
