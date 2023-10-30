@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = "https://drunk404.onrender.com";
+axios.defaults.baseURL = 'https://drunk404.onrender.com';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,7 +14,7 @@ const clearAuthHeader = () => {
 
 /*
  * POST @ /users/signup
- * body: { name, email, password }
+ * body: { name, email, password, birthDate }
  */
 export const signup = createAsyncThunk(
   'auth/register',
