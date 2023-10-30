@@ -1,6 +1,16 @@
 .ingredients-section {
   margin-bottom: 80px;
 }
+.list-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--flex-gap);
+}
+
+.img-ingredient {
+  width: 157px;
+  height: 157px;
+}
 .title-ingredients {
   margin-bottom: 42px;
 }
@@ -9,4 +19,39 @@
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: calc(18 / 14);
+}
+
+@media screen and (min-width: 768px) {
+  .list-ingredients {
+    gap: 60px 22px;
+  }
+  .title-ingredients {
+    margin-bottom: 24px;
+  }
+
+  /* .flex-container > * {
+    flex-basis: calc((100% - (3 - 1) * 22px) / 3);
+  } */
+  .item-ingredient {
+    width: 220px;
+    height: 220px;
+  }
+  .ingredient-description {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+  /* needs to be corrected to have 157px */
+  .img-ingredient {
+    width: 220px;
+    height: 220px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list-ingredients {
+    justify-content: space-between;
+    gap: 22px;
+  }
 }

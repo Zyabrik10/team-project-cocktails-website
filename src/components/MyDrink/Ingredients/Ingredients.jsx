@@ -11,16 +11,16 @@ export const Ingredients = () => {
       </p>
       {/* image will be added from the props */}
       <ul
-        className={`${globalCss['global-list']} ${globalCss['flex-container']}`}
+        // ${globalCss['flex-container']}
+        className={`${globalCss['global-list']}  ${css['list-ingredients']} `}
       >
         {recipe.ingredients.map(({ title, measure }) => {
           return (
-            <li key={title}>
+            <li className={`${css['item-ingredient']}`} key={title}>
               <img
+                className={`${css['img-ingredient']}`}
                 src={recipe.drinkThumb}
-                alt="drink"
-                width={157}
-                height={157}
+                alt={title}
               />{' '}
               <p
                 className={`${globalCss['global-p']} ${css['ingredient-description']}`}
