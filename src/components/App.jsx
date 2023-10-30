@@ -9,7 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from 'pages';
-import  Drink  from 'pages/my-drinks/my-drink/Drink';
+import Drink from 'pages/my-drinks/my-drink/Drink';
 // import { StartPages } from 'layout/StartPages/StartPages';
 
 // const StartPage = lazy(() => import('../pages/start/Start'));
@@ -21,7 +21,6 @@ import  Drink  from 'pages/my-drinks/my-drink/Drink';
 // const FavoritesPage = lazy(() => import('../pages/favorites/Favorites'));
 // const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
 // const MyDrinkPage = lazy(() => import('../pages/my-drinks/my-drink/Drink'));
-
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -78,7 +77,14 @@ export const App = () => {
                 </div>
               }
             />
-            <Route path="/drink/:drinkId" element={<Drink />} />
+            <Route
+              path="/drink/:drinkId"
+              element={
+                <div>
+                  <h1>SINGLE DRINK</h1>
+                </div>
+              }
+            />
           </Route>
         </Routes>
       )}
