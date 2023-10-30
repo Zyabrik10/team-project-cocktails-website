@@ -1,12 +1,14 @@
-import { RecipePreparation } from 'components/DrinkPageComponents/RecipePreparation/RecipePreparation';
-import { DrinkPageHero } from 'components/DrinkPageComponents/DrinkPageHero/DrinkPageHero';
-import { DrinkIngredientsList } from 'components/DrinkPageComponents/DrinkIngredientsList/DrinkIngredientsList';
+import { Preparation } from 'components/MyDrink/Preparation/Preparation';
+import { Hero } from 'components/MyDrink/Hero/Hero';
+import { Ingredients } from 'components/MyDrink/Ingredients/Ingredients';
+import globalCss from '../../css/global.module.css';
+
 export const Drink = () => {
   return (
-    <div>
-      <DrinkPageHero />
-      <DrinkIngredientsList />
-      <RecipePreparation />
+    <div className={`${globalCss['container']}`}>
+      <Hero />
+      <Ingredients />
+      <Preparation />
     </div>
   );
 };

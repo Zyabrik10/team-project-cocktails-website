@@ -1,0 +1,12 @@
+.ingredients-section {
+  margin-bottom: 80px;
+}
+.title-ingredients {
+  margin-bottom: 42px;
+}
+
+.ingredient-description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}

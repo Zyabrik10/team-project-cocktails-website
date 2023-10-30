@@ -1,0 +1,33 @@
+.hero-section {
+  margin-bottom: 18px;
+}
+.title {
+  font-size: 32px;
+  color: #f3f3f3;
+  /* font-family: Manrope;
+  font-weight: 600; */
+  /* color: var(--text-color); */
+}
+.title-description {
+  margin-top: 8px;
+}
+.description {
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+.btn-add-drink {
+  width: 222px;
+  padding: 14px 40px;
+  margin-bottom: 85px;
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 56px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 64px;
+  }
+}
