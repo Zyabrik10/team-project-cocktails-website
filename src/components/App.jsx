@@ -77,14 +77,7 @@ export const App = () => {
                 </div>
               }
             />
-            <Route
-              path="/drink/:drinkId"
-              element={
-                <div>
-                  <h1>SINGLE DRINK</h1>
-                </div>
-              }
-            />
+            <Route path="/drink/:drinkId" element={<Drink />} />
           </Route>
         </Routes>
       )}
