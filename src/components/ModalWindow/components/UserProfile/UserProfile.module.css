@@ -1,0 +1,86 @@
+.userProfile {
+  position: relative;
+  border-radius: 16px;
+  background-color: #161f37;
+
+  width: 100%;
+  max-width: 335px;
+
+  padding: 14px;
+  padding-bottom: 50px;
+
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .userProfile {
+    max-width: 500px;
+    padding: 18px;
+    padding-bottom: 75px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .userProfile {
+    max-width: 500px;
+    padding: 18px;
+    padding-bottom: 75px;
+  }
+}
+
+.closeBtn {
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.imgBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.profileImg {
+  display: block;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.addBtn {
+  color: aliceblue;
+  margin-top: -15px;
+}
+
+.addSvg {
+  width: 28px;
+  height: 28px;
+}
+
+.editImg {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+
+  width: 16px;
+  height: 16px;
+}
+
+.inputBox {
+  width: 100%;
+  max-width: 285px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .inputBox {
+    max-width: 400px;
+  }
+}
