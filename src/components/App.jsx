@@ -1,12 +1,12 @@
-import { lazy } from 'react';
+// import { lazy } from 'react';
 // import { useDispatch } from 'react-redux';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { PrivateRoute } from '../hooks/PrivateRoute';
-import { RestrictedRoute } from '../hooks/RestrictedRoute';
+// import { PrivateRoute } from '../hooks/PrivateRoute';
+// import { RestrictedRoute } from '../hooks/RestrictedRoute';
 // import { refreshUser } from '../redux/auth/operations';
-import { useAuth } from '../hooks';
+// import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from 'pages';
