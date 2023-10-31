@@ -1,11 +1,10 @@
 .preparation-section {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 .preparation-title {
   font-size: 28px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 32px;
+  line-height: calc(32 / 28);
   margin-bottom: 40px;
 }
 
@@ -13,6 +12,55 @@
   margin-bottom: 40px;
 }
 .preparation-description {
-  text-align: justify;
+  text-align: left;
   margin-bottom: 20px;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+}
+.img-preparation {
+  width: 335px;
+  height: 430px;
+}
+
+@media screen and (min-width: 768px) {
+  .preparation-section {
+    margin-bottom: 140px;
+  }
+  .preparation-title {
+    font-size: 40px;
+    line-height: calc(44 / 40);
+  }
+  .preparation-description {
+    font-size: 16px;
+    line-height: calc(22 / 16);
+  }
+
+  .img-preparation {
+    width: 704px;
+    height: 430px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .preparation-body {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    gap: 60px;
+  }
+  .preparation-title {
+    font-size: 40px;
+    line-height: calc(44 / 40);
+  }
+
+  .img-preparation {
+    width: 631px;
+    height: 480px;
+  }
+  .preparation-description {
+    text-align: left;
+  }
+  .description-section {
+    margin-bottom: 0;
+  }
 }
