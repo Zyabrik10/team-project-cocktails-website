@@ -21,8 +21,8 @@ const SingleDrinkPage = lazy(() => import('../pages/my-drinks/my-drink/Drink'));
 
 export const App = () => {
   // const dispatch = useDispatch();
-  // const { isRefreshing } = useAuth();
-  const isAuth = false
+  const { isRefreshing } = useAuth();
+  // const isAuth = false
 
   // useEffect(() => {
   //   dispatch(refreshUser());
