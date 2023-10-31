@@ -19,11 +19,20 @@ const AddIngredientList = ({
     initialState
   );
   const [ingrValidationMessage, setIngrValidationMessage] = useState(null);
-  const [isSubmitErrorMessage, setIsSubmitErrorMessage] = useState(true);
 
   useEffect(() => {
     handleIngredientChange(ingredientFields);
-  }, [ingredientFields, handleIngredientChange]);
+
+    setIngrValidationMessage(onSubmitErrorMessage);
+
+    const isError = ingredientFields.every(
+      el => el.amound !== '' && el.ingredient !== '' && el.ingredientId !== ''
+    );
+
+    if (isError) {
+      setIngrValidationMessage(null);
+    }
+  }, [ingredientFields, handleIngredientChange, onSubmitErrorMessage]);
 
   const handleIngrChange = ({
     id,
@@ -84,7 +93,6 @@ const AddIngredientList = ({
       return;
     }
 
-    setIsSubmitErrorMessage(false);
     setIngrValidationMessage(null);
     handleIngredientChange(ingredientFields);
   };
@@ -130,14 +138,7 @@ const AddIngredientList = ({
           );
         })}
 
-        {(() => {
-          if (ingrValidationMessage) {
-            return <p>{ingrValidationMessage}</p>;
-          } else if (isSubmitErrorMessage && onSubmitErrorMessage) {
-            return <p>{onSubmitErrorMessage}</p>;
-          }
-          return null;
-        })()}
+        {ingrValidationMessage && <p>{ingrValidationMessage}</p>}
       </div>
     </div>
   );

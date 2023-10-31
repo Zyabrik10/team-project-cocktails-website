@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 
 import css from './AddDrink.module.css';
@@ -30,6 +30,7 @@ const AddDrinkForm = () => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
     const validationMessage = validateIngredients(ingredients);
+    console.log(validationMessage);
     if (validationMessage) {
       setIngrValidationErrorMess(validationMessage);
       return;
