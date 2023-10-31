@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import SelectInput from 'components/SelectInput';
+import { useGetIngredientsQuery } from 'components/AddDrinkForm/filtersAPI';
+import { makeIngrSelectOptions } from 'components/AddDrinkForm/utils';
+
 const AddIngredientField = ({
   handleIngrChange,
+  ingredient,
   handleRemoveIngrField,
   handleOnBlur,
   id,
   index,
   amound,
-  ingredient,
 }) => {
   const [inputAmound, setinputAmound] = useState(amound);
   const [inputIngredient, setInputIngredient] = useState(ingredient);
@@ -17,22 +21,30 @@ const AddIngredientField = ({
     const { value, name } = e.target;
     if (name === 'amound') {
       setinputAmound(value);
-      handleIngrChange({ inputName: name, id, nextamound: value });
+      handleIngrChange({ inputName: name, id, nextAmound: value });
     }
+  };
 
-    if (name === 'ingredient') {
-      setInputIngredient(value);
-      handleIngrChange({ inputName: name, id, nextIngredient: value });
-    }
+  const handleSelectChange = selectData => {
+    const { name, value, ingredientId } = selectData;
+    setInputIngredient(value);
+
+    handleIngrChange({
+      inputName: name,
+      nextIngredient: value,
+      id,
+      nextingredientId: ingredientId,
+    });
   };
 
   return (
     <div>
-      <input
-        name="ingredient"
-        type="select"
-        value={inputIngredient}
-        onChange={handleInputChange}
+      <SelectInput
+        handleSelectChange={handleSelectChange}
+        inputName={'ingredient'}
+        fetchSelectOpt={useGetIngredientsQuery}
+        makeOptArr={makeIngrSelectOptions}
+        defaultValue={inputIngredient}
         onBlur={handleOnBlur}
       />
 
