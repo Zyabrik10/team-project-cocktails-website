@@ -1,16 +1,15 @@
-// import { lazy } from 'react';
+import { lazy } from 'react';
 // import { useDispatch } from 'react-redux';
 
 import { Routes, Route } from 'react-router-dom';
 
-// import { PrivateRoute } from '../hooks/PrivateRoute';
-// import { RestrictedRoute } from '../hooks/RestrictedRoute';
+import { PrivateRoute } from '../hooks/PrivateRoute';
+import { RestrictedRoute } from '../hooks/RestrictedRoute';
 // import { refreshUser } from '../redux/auth/operations';
-// import { useAuth } from '../hooks';
+import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from 'pages';
-// import { StartPages } from 'layout/StartPages/StartPages';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
 const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
@@ -22,7 +21,6 @@ const SingleDrinkPage = lazy(() => import('../pages/my-drinks/my-drink/Drink'));
 export const App = () => {
   // const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  // const isAuth = false
 
   // useEffect(() => {
   //   dispatch(refreshUser());
@@ -87,30 +85,5 @@ export const App = () => {
         element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
       />
     </Routes>
-
   );
 };
-
-// Rabotaet
-      // <Routes>
-      //   <Route path='/' element={<Layout/>}>
-      //     <Route index  path="/home" element={<HomePage/>} />
-      //   </Route>
-      // </Routes>
-      // <Routes>
-      //   <Route path="/welcome" element={<StartPages />}>
-      //     <Route index element={ <StartPage/>} />
-      //     <Route
-      //       path="/welcome/signup"
-      //       element={
-      //         <RestrictedRoute redirectTo="/home" component={<SignupPage />} />
-      //       }
-      //     />
-      //     <Route
-      //       path="/welcome/signin"
-      //       element={
-      //         <RestrictedRoute redirectTo="/home" component={<SigninPage />} />
-      //       }
-      //     />
-      //   </Route>
-      // </Routes>
