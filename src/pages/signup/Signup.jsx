@@ -119,7 +119,7 @@ export default function Signup() {
           title="Sign Up"
           buttonTitle="Sign Up"
           linkTitle="Sign In"
-          linkTo="/welcome/signin"
+          linkTo="/signin"
           buttonOnClick={buttonHandler}
         >
           <FormInput
