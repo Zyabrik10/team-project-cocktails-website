@@ -1,9 +1,3 @@
-import { SecDrinks } from './sec-drinks/SecDrinks';
-
-export const Drinks = () => {
-  return (
-    <div>
-      <SecDrinks />
-    </div>
-  );
-};
+export default function Drinks() {
+    
+}
