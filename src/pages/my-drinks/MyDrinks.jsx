@@ -1,1 +1,1 @@
-export const MyDrinks = ()=>{}
+export default function MyDrinks() {}
