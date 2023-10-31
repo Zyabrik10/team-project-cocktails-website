@@ -10,11 +10,11 @@ import css from './SubscribeForm.module.css';
 export const SubscribeForm = () => {
     const [email, setEmail] = useState('')
     const dispatch = useDispatch();
-    
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(subscribeUser(email));
-        console.log(email)
+        setEmail('');
     };
 
     return (
@@ -25,6 +25,7 @@ export const SubscribeForm = () => {
                 id="subscribe"
                 className={css.subscribeInput}
                 type="text"
+                value={email}
                 placeholder='Enter the email'
                 onChange={(e) => setEmail(e.target.value)}    
                 />

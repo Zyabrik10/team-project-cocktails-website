@@ -92,7 +92,8 @@ export const subscribeUser = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const res = await axios.post('/users/subscribe', { email });
-      return console.log(res.message)
+      console.log(res, )
+      return res.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
