@@ -1,4 +1,4 @@
-// import { lazy } from 'react';
+import { lazy } from 'react';
 // import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ import { Signin, Signup, Start } from 'pages';
 // const SignupPage = lazy(() => import('../pages/signup/Signup'));
 // const SigninPage = lazy(() => import('../pages/signin/Signin'));
 // const HomePage = lazy(() => import('../pages/home/Home'));
-// const AddDrinkPage = lazy(() => import('../pages/add-drink/AddDrinks'));
+const AddDrinkPage = lazy(() => import('../pages/add-drink/AddDrinks'));
 // const MyDrinksPage = lazy(() => import('../pages/my-drinks/MyDrinks'));
 // const FavoritesPage = lazy(() => import('../pages/favorites/Favorites'));
 // const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
@@ -51,14 +51,7 @@ export const App = () => {
                 </div>
               }
             />
-            <Route
-              path="/add-drink"
-              element={
-                <div>
-                  <h1>ADD-DRINK</h1>
-                </div>
-              }
-            />
+            <Route path="/add" element={<AddDrinkPage />} />
             <Route
               path="/my-drinks"
               element={

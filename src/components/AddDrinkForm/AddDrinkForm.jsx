@@ -60,14 +60,14 @@ const AddDrinkForm = () => {
       }));
 
     const formData = new FormData();
-    formData.append('ingredients', JSON.stringify(succesIngredients));
-    formData.append('drinkThumb', file ?? JSON.stringify({}));
     formData.append('drink', itemTitle.trim());
     formData.append('shortDescription', aboutRecipe.trim());
     formData.append('category', category);
+    formData.append('glass', glass);
     formData.append('alcoholic', radioSelected);
     formData.append('instructions', recipe.trim());
-    formData.append('glass', glass);
+    formData.append('drinkThumb', file ?? JSON.stringify({}));
+    formData.append('ingredients', JSON.stringify(succesIngredients));
 
     for (const key of formData.keys()) {
       console.log({ [key]: formData.get(key) });
