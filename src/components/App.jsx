@@ -36,7 +36,7 @@ export const App = () => {
         element={
           <PrivateRoute redirectTo="/welcome" component={<Layout />} />
         }>
-        <Route path="*" element={ <ErrorComponent/>} />    
+        <Route path="*" element={<ErrorComponent />} />    
         <Route 
         element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
         />
@@ -81,7 +81,10 @@ export const App = () => {
         />
       </Route>
 
-      <Route path="/welcome" element={<Start />} />
+      <Route
+        path="/welcome"
+        element={<RestrictedRoute redirectTo="/home" component={<Start />} />}
+      />
       <Route
         path="/signup"
         element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
