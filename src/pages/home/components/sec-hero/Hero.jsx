@@ -5,18 +5,20 @@ import globalcss from '../../../../css/global.module.css';
 export const Hero = () => {
   return (
     <div className={css.heroContainer}>
-      <h1 className={css.headerHero}>
-        Craft Your Perfect Drink with Drink Master
-      </h1>
-      <p className={css.heroDescr}>
-        Unlock your inner mixologist with Drink Master, your one-stop
-        destination for exploring, crafting, and mastering the world's finest
-        beverages.
-      </p>
-      <p className={`${globalcss['global-button']} ${css['button']}`}>
-        Add Drinks
-      </p>
-      <picture>
+      <div>
+        <h1 className={css.headerHero}>
+          Craft Your Perfect Drink with Drink Master
+        </h1>
+        <p className={css.heroDescr}>
+          Unlock your inner mixologist with Drink Master, your one-stop
+          destination for exploring, crafting, and mastering the world's finest
+          beverages.
+        </p>
+        <p className={`${globalcss['custom-button']} ${css['button']}`}>
+          Add Drinks
+        </p>
+      </div>
+      <picture className={css.image}>
         <source
           srcSet={require('../../../../img/home/ice_tea_3x.png')}
           media="(min-width: 1440px)"
@@ -32,7 +34,6 @@ export const Hero = () => {
         <img
           src={require('../../../../img/home/ice_tea_1x.png')}
           alt="ice_tea"
-          className={css.image}
         />
       </picture>
     </div>

@@ -1,38 +1,44 @@
 @import '../../css/variables.css';
 
-/* glass effect */
-/* .container {
-background: rgba(255, 255, 255, 0);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-} */
-/*  */
-
 .container {
   overflow: scroll;
+  background-color: var(--color-dark);
 }
 
 .headerHero {
   margin-top: 80px;
   margin-left: 20px;
   margin-right: 20px;
-}
+  color: var(--button-color-light);
 
+  width: 335px;
+
+    font-size: 32px;
+    font-weight: 600;
+    line-height: calc(38 / 32);
+}
 
 .heroDescr {
   margin-top: 16px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 32px;
+  color: var(--button-color-light);
+
+  width: 335px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: calc(20 / 14);
 }
 
 .button {
   margin-left: 20px;
   margin-right: 204px;
   margin-bottom: 47px;
+
+  width: 151px;
+  height: 46px;
 }
 
 .button:hover {
@@ -43,14 +49,12 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(0, 0, 0, 0.5);
 }
 
-.link {
-  padding: 18px;
+.image {
   display: block;
-  width: 151px;
-  height: 46px;
-  color: #161f37;
-  text-transform: capitalize;
-  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+
+  margin-bottom: 112px;
 }
 
 .categoryName {
@@ -75,9 +79,82 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   .drink {
     width: 342px;
   }
+  .headerHero {
+    margin-top: 120px;
+    margin-left: 32px;
+    margin-right: 95px;
+
+    width: 641px;
+
+    font-size: 56px;
+    font-weight: 600;
+    line-height: calc(60 / 56);
+  }
+  .heroDescr {
+    margin-top: 28px;
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-bottom: 48px;
+
+    width: 619px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: calc(24 / 18);
+  }
+  .button {
+    margin-left: 32px;
+    margin-right: 567px;
+    margin-bottom: 54px;
+
+    width: 169px;
+    height: 46px;
+  }
+  .image {
+    width: 50%;
+    margin-bottom: 123px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
+  .heroContainer {
+    display: flex;
+  }
+  .image {
+    margin-top: 112px;
+    margin-left: 130px;
+  }
+  .headerHero {
+    margin-top: 185px;
+    margin-left: 100px;
+    margin-right: 95px;
+
+    width: 715px;
+
+    font-size: 64px;
+    font-weight: 600;
+    line-height: calc(68 / 64);
+  }
+  .heroDescr {
+    margin-top: 28px;
+    margin-left: 100px;
+    margin-right: 32px;
+    margin-bottom: 48px;
+
+    width: 500px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: calc(24 / 18);
+  }
+  .button {
+    margin-left: 100px;
+    margin-right: 567px;
+    margin-bottom: 54px;
+
+    width: 160px;
+    height: 54px;
+  }
   .drink {
     width: 400px;
   }
