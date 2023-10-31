@@ -17,11 +17,7 @@ const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
 const AddDrinkPage = lazy(() => import('../pages/add-drink/AddDrinks'));
 const MyDrinksPage = lazy(() => import('../pages/my-drinks/MyDrinks'));
 const FavoritesPage = lazy(() => import('../pages/favorites/Favorites'));
-
-
-
-
-
+const SingleDrinkPage = lazy(() => import('../pages/my-drinks/my-drink/Drink'));
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -33,7 +29,7 @@ export const App = () => {
 
   return isRefreshing ? (
     <p>Loading...</p>
-  ) : ( 
+  ) : (
     <Routes>
       <Route
         path="/"
@@ -42,49 +38,57 @@ export const App = () => {
         }>
         <Route path="*" element={ <ErrorComponent/>} />    
         <Route 
+        element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+        />
+        <Route
           path="/home"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<HomePage/>}/>
-          }  
+            <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+          }
         />
-        <Route 
+        <Route
           path="/drinks"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<DrinksPage/>}/>
-          }  
+            <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
+          }
         />
-        <Route 
+        <Route
           path="/add"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage/>}/>
-          }  
+            <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
+          }
         />
-        <Route 
+        <Route
           path="/my"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage/>}/>
-          }  
+            <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
+          }
         />
-        <Route 
+        <Route
           path="/favorites"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<FavoritesPage/>}/>
-          }  
+            <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
+          }
+        />
+        <Route
+          path="/drink/:drinkId"
+          element={
+            <PrivateRoute
+              redirectTo="/welcome"
+              component={<SingleDrinkPage />}
+            />
+          }
         />
       </Route>
-        
+
       <Route path="/welcome" element={<Start />} />
       <Route
         path="/signup"
-        element={
-          <RestrictedRoute redirectTo="/home" component={<Signup />} />
-        }
-      /> 
+        element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
+      />
       <Route
         path="/signin"
-        element={
-          <RestrictedRoute redirectTo="/home" component={<Signin />} />
-        }
+        element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
       />
     </Routes>
   );
