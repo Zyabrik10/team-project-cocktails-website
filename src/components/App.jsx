@@ -33,12 +33,13 @@ export const App = () => {
     <Routes>
       <Route
         path="/"
-        element={
-          <PrivateRoute redirectTo="/welcome" component={<Layout />} />
-        }>
-        <Route path="*" element={<ErrorComponent />} />    
-        <Route 
         element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+      >
+        <Route path="*" element={<ErrorComponent />} />
+        <Route
+          element={
+            <PrivateRoute redirectTo="/welcome" component={<Layout />} />
+          }
         />
         <Route
           path="/home"

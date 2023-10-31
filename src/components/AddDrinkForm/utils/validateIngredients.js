@@ -17,7 +17,7 @@ const validateIngredients = data => {
   if (isEnyFildEmpty) {
     return ERROR_MESSAGES.oneFieldEmpty;
   }
-  return null;
+  return;
 };
 
 export default validateIngredients;
