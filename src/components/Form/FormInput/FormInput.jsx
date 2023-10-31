@@ -10,7 +10,7 @@ export default function FormInput({
   value
 }) {
   return (
-    <div className="form-input-box">
+    <div className={css["form-input-box"]}>
       <input
         value={value}
         onChange={onChange}
