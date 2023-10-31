@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/team-project-cocktails-website/static/css/main.527db4bb.css",
-    "main.js": "/team-project-cocktails-website/static/js/main.b8c2d40e.js",
+    "main.css": "/team-project-cocktails-website/static/css/main.5ae408ef.css",
+    "main.js": "/team-project-cocktails-website/static/js/main.200fd8b1.js",
     "static/js/426.9cf04a38.chunk.js": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js",
     "static/js/870.7b104bbf.chunk.js": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js",
     "static/js/922.9fb737bb.chunk.js": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js",
     "static/media/bg-tab.jpg": "/team-project-cocktails-website/static/media/bg-tab.0aa2353ef47777b192ba.jpg",
     "static/media/bg-mob.jpg": "/team-project-cocktails-website/static/media/bg-mob.1257aa007c2f5e01ccb7.jpg",
     "static/media/recipe_1x.png": "/team-project-cocktails-website/static/media/recipe_1x.803e8843264663c0712c.png",
+    "static/media/ice_tea_1x.png": "/team-project-cocktails-website/static/media/ice_tea_1x.06c2a2e04f7dfa380080.png",
     "index.html": "/team-project-cocktails-website/index.html",
-    "main.527db4bb.css.map": "/team-project-cocktails-website/static/css/main.527db4bb.css.map",
-    "main.b8c2d40e.js.map": "/team-project-cocktails-website/static/js/main.b8c2d40e.js.map",
+    "main.5ae408ef.css.map": "/team-project-cocktails-website/static/css/main.5ae408ef.css.map",
+    "main.200fd8b1.js.map": "/team-project-cocktails-website/static/js/main.200fd8b1.js.map",
     "426.9cf04a38.chunk.js.map": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js.map",
     "870.7b104bbf.chunk.js.map": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js.map",
     "922.9fb737bb.chunk.js.map": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.527db4bb.css",
-    "static/js/main.b8c2d40e.js"
+    "static/css/main.5ae408ef.css",
+    "static/js/main.200fd8b1.js"
   ]
 }
