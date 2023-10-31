@@ -85,7 +85,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
             </h2>
 
             <Link
-              to={`/${obj._id.$oid}`}
+              to={`/drink/${obj._id.$oid}`}
               className={css.main_drink_seeMore}
               state={{ from: locations }}
             >
@@ -113,7 +113,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
             </div>
             <div className={css.button_block}>
               <Link
-                to={`/${obj._id.$oid}`}
+                to={`/drink/${obj._id.$oid}`}
                 className={`${css['link']} ${css['same']}`}
                 state={{ from: locations }}
               >
