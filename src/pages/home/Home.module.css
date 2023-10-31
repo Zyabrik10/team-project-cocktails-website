@@ -1,10 +1,5 @@
 @import '../../css/variables.css';
 
-.drinkGroup {
-  height: 90vh;
-  overflow: scroll;
-}
-
 /* glass effect */
 /* .container {
 background: rgba(255, 255, 255, 0);
@@ -14,41 +9,37 @@ backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 } */
+/*  */
+
+.container {
+  overflow: scroll;
+}
 
 .headerHero {
   margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
 
 .heroDescr {
   margin-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 32px;
 }
 
 .button {
-  padding: 18px;
-  border-radius: 42px;
-  width: 100%;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  text-align: center;
-  transition: 0.3s ease;
+  margin-left: 20px;
+  margin-right: 204px;
+  margin-bottom: 47px;
 }
 
-.button.light {
-  background-color: #f3f3f3;
-  color: #161f37;
-}
-
-.button.dark {
-  background: transparent;
-  color: #f3f3f3;
-  border: 1px solid #f3f3f3;
-}
-
-.button.light:hover {
+.button:hover {
   background: rgba(243, 243, 243, 0.8);
 }
 
-.button.dark:hover {
+.button:hover {
   background: rgba(0, 0, 0, 0.5);
 }
 

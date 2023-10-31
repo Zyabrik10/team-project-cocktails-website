@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 // import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
-import { Signin, Signup, Start } from 'pages';
+import { Home, Signin, Signup, Start } from 'pages';
 // import { StartPages } from 'layout/StartPages/StartPages';
 
 
@@ -41,7 +41,7 @@ export const App = () => {
                 <Route path='/welcome' element={<Start />} />
                 <Route path='/welcome/signup' element={<Signup />} />
                 <Route path='/welcome/signin' element={<Signin />} />
-                <Route path='/home' element={<div><h1>HOME</h1></div>} />
+                <Route path='/home' element={<Home/>} />
                 <Route path='/drinks' element={<div><h1>DRINKS</h1></div>} />
                 <Route path='/add-drink' element={<div><h1>ADD-DRINK</h1></div>} />
                 <Route path='/my-drinks' element={<div><h1>MY-DRINKS</h1></div>} />

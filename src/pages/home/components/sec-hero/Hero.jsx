@@ -13,13 +13,28 @@ export const Hero = () => {
         destination for exploring, crafting, and mastering the world's finest
         beverages.
       </p>
-      {/* <img src="../../../" alt="" /> */}
-      <p
-        className={`${css['light']} ${css['button']} ${globalcss['global-link']} ${css['link']}`}
-        // to="/add"
-      >
-       Add Drinks
+      <p className={`${globalcss['global-button']} ${css['button']}`}>
+        Add Drinks
       </p>
+      <picture>
+        <source
+          srcSet={require('../../../../img/home/ice_tea_3x.png')}
+          media="(min-width: 1440px)"
+          width="359"
+          height="445"
+        />
+        <source
+          srcSet={require('../../../../img/home/ice_tea_2x.png')}
+          media="(min-width: 768px)"
+          width="359"
+          height="445"
+        />
+        <img
+          src={require('../../../../img/home/ice_tea_1x.png')}
+          alt="ice_tea"
+          className={css.image}
+        />
+      </picture>
     </div>
   );
 };
