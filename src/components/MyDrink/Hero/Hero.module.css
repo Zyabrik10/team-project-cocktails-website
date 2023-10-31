@@ -35,6 +35,7 @@
 .img-hero {
   width: 335px;
   height: 400px;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 768px) {

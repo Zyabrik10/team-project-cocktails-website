@@ -35,8 +35,9 @@ export const Preparation = () => {
         <div className={`img-preparation-section`}>
           <img
             className={`${css['img-preparation']} `}
-            src={recipe.drinkThumb}
-            alt="drink"
+            src={`${require('../../../img/recipe/recipe_1x.png')}`}
+            // srcSet={`${require('../../../img/recipe/recipe_mobile.png')}`}
+            alt="three cocktails"
           />
         </div>
       </div>
