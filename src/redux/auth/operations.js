@@ -82,3 +82,19 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+/*
+ * POST @ /users/subscribe
+ * body: { email }
+ */
+export const subscribeUser = createAsyncThunk(
+  'users/subscribe',
+  async (email, thunkAPI) => {
+    try {
+      await axios.post('/users/subscribe', { email });
+
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
