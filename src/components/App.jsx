@@ -10,6 +10,7 @@ import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from 'pages';
+import { ErrorComponent } from './ErrorComponent/ErrorComponent';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
 const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
@@ -32,8 +33,13 @@ export const App = () => {
     <Routes>
       <Route
         path="/"
+        element={
+          <PrivateRoute redirectTo="/welcome" component={<Layout />} />
+        }>
+        <Route path="*" element={<ErrorComponent />} />    
+        <Route 
         element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
-      >
+        />
         <Route
           path="/home"
           element={
@@ -75,7 +81,10 @@ export const App = () => {
         />
       </Route>
 
-      <Route path="/welcome" element={<Start />} />
+      <Route
+        path="/welcome"
+        element={<RestrictedRoute redirectTo="/home" component={<Start />} />}
+      />
       <Route
         path="/signup"
         element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
