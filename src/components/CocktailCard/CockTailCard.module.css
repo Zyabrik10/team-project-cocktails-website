@@ -5,6 +5,10 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 360px;
 }
 .drink_thumb::before {
   position: absolute;
@@ -34,17 +38,20 @@
 
 .main_drink_title {
   font-size: 16px;
-  color: #f3f3f3;
+  color: #F3F3F3;
 }
 
 .main_drink_seeMore {
   line-height: 16px;
   font-size: 14px;
-  color: #f3f3f3;
+  color: #F3F3F3;
   opacity: 50%;
+  text-decoration: none;
 }
 
-.additional_drink_info {
+
+
+.additional_drink_info{
   padding-top: 18px;
 }
 .additional_drink_details {
@@ -53,22 +60,22 @@
 .additional_drink_title {
   margin-bottom: 4px;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #F3F3F3;
 }
 
 .additional_drink_alc {
   font-size: 14px;
-  color: #f3f3f3;
+  color: #F3F3F3;
   opacity: 50%;
   margin-bottom: 18px;
 }
 
 .additional_drink_description {
   font-size: 14px;
-  color: #f3f3f3;
-  height: 75px;
-  white-space: nowrap;
-  overflow: hidden;
+  color: #F3F3F3;
+  height: 75px; 
+  white-space: nowrap; 
+  overflow: hidden; 
   text-overflow: ellipsis;
 }
 
@@ -77,34 +84,43 @@
   column-gap: 8px;
 }
 
-.link {
+.link{
   padding: 18px 44px;
-  color: #f3f3f3;
-  background-color: #161f37;
+  color: #F3F3F3;
+  background-color: #161F37;
   border: none;
   border-radius: 40px;
+  transition: var(--transit);
+}
+.same:hover,
+.same:focus {
+  color: #161F37;
+  background-color: #F3F3F3;
+}
+.link{
+  padding: 18px 44px;
   text-decoration: none;
 }
 .delete_button {
   padding: 15px;
-  background-color: #161f37;
+  background-color: #161F37;
   border: none;
   border-radius: 40px;
 }
 
 @media screen and (min-width: 768px) {
   .drink_card {
-    width: 342px;
-  }
-
+      width: 342px;
+    }
+    
   .main_drink_title {
     font-size: 18px;
-    color: #f3f3f3;
+    color: #F3F3F3;
   }
 
   .main_drink_seeMore {
     font-size: 16px;
-    color: #f3f3f3;
+    color: #F3F3F3;
     opacity: 50%;
   }
 
@@ -117,13 +133,16 @@
   }
   .additional_drink_title {
     font-size: 24px;
+    line-height: 32px;
   }
   .additional_drink_alc {
     font-size: 16px;
+    line-height: 18px;
     margin-bottom: 24px;
   }
   .additional_drink_description {
     font-size: 16px;
+    line-height: 22px;
     height: 110px;
   }
 }
@@ -132,7 +151,10 @@
   .drink_card {
     width: 400px;
   }
+  .drink_thumb {
+    height: 400px;
+  }
   .additional_drink_description {
-    height: 96px;
+    height: 92px;
   }
 }

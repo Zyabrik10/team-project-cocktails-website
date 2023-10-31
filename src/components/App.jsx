@@ -1,15 +1,15 @@
-// import { lazy } from 'react';
+import { lazy } from 'react';
 // import { useDispatch } from 'react-redux';
+
 import { Routes, Route } from 'react-router-dom';
 
-// import { PrivateRoute } from '../hooks/PrivateRoute';
-// import { RestrictedRoute } from '../hooks/RestrictedRoute';
+import { PrivateRoute } from '../hooks/PrivateRoute';
+import { RestrictedRoute } from '../hooks/RestrictedRoute';
 // import { refreshUser } from '../redux/auth/operations';
-// import { useAuth } from '../hooks';
+import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
 import { Signin, Signup, Start } from 'pages';
-import { SecMyDrinks } from 'pages/my-drinks/sec-my-drinks/SecMyDrinks';
 // import { StartPages } from 'layout/StartPages/StartPages';
 
 
@@ -45,7 +45,7 @@ export const App = () => {
                 <Route path='/home' element={<div><h1>HOME</h1></div>} />
                 <Route path='/drinks' element={<div><h1>DRINKS</h1></div>} />
                 <Route path='/add-drink' element={<div><h1>ADD-DRINK</h1></div>} />
-                <Route path='/my-drinks' element={<SecMyDrinks/>} />
+                <Route path='/my-drinks' element={<div><h1>MY-DRINKS</h1></div>} />
                 <Route path='/favorites' element={<div><h1>FAVORITES</h1></div>} />
               </Route>
           </Routes>
