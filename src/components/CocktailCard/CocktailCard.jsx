@@ -68,9 +68,8 @@ export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
     <>
       <div className={css.drink_card}>
         <div className={css.drink_thumb}>
-          <img className={css.img} src={obj.drinkThumb} alt={obj.drink} />
+            <img className={css.img} src={obj.drinkThumb} alt={obj.drink} />
         </div>
-
         {mainDrinksPage ? (
           <div className={css.main_drink_info}>
             <h2
