@@ -73,10 +73,9 @@ export const Hero = () => {
   return (
     <div className={`${css['hero-section']}`}>
       <div className={`${css['description-section']}`}>
-        <h1 className={`${globalCss['global-title']} ${css['title']}`}>
+        <Title className={`${globalCss['global-title']} ${css['title']}`}>
           {recipe.drink}
-        </h1>
-        <Title title={recipe.drink} />
+        </Title>
         <p className={`${globalCss['global-p']} ${css['title-description']}`}>
           {recipe.glass} / {recipe.alcoholic}
         </p>
