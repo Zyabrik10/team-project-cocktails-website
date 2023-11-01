@@ -2,10 +2,8 @@ import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
   itemTitle: Yup.string().required('Title required'),
-  aboutRecipe: Yup.string(),
-  category: Yup.string().required('Category required'),
-  glass: Yup.string().required('Type of the glass required'),
-  recipe: Yup.string(),
+  aboutRecipe: Yup.string().required('About recipe required'),
+  recipe: Yup.string().required('Recipe required'),
 });
 
 export default validationSchema;

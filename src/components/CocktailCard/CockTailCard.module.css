@@ -1,4 +1,4 @@
-.drink_card{
+.drink_card {
   width: 335px;
 }
 .drink_thumb {
@@ -17,14 +17,19 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(0deg, rgba(10, 10, 17, .96) 0%, rgba(10, 10, 17, 0.03) 80%);
+  background: linear-gradient(
+    0deg,
+    rgba(10, 10, 17, 0.96) 0%,
+    rgba(10, 10, 17, 0.03) 80%
+  );
 }
-.img{
+.img {
   display: block;
   max-width: 100%;
+  height: 360px;
 }
 
-.main_drink_info{
+.main_drink_info {
   padding-top: 14px;
   display: flex;
   justify-content: space-between;
@@ -33,56 +38,55 @@
 
 .main_drink_title {
   font-size: 16px;
-  font-weight: 500;
-  color: var(--bg-color-dark);
+  color: #F3F3F3;
 }
 
-.main_drink_seeMore{
+.main_drink_seeMore {
   line-height: 16px;
   font-size: 14px;
-  color: var(--bg-color-dark);
+  color: #F3F3F3;
   opacity: 50%;
   text-decoration: none;
 }
 
+
+
 .additional_drink_info{
   padding-top: 18px;
 }
-.additional_drink_details{
+.additional_drink_details {
   margin-bottom: 18px;
 }
-.additional_drink_title{
+.additional_drink_title {
   margin-bottom: 4px;
   font-size: 18px;
-  font-weight: 500;
-  color: var(--bg-color-dark);
-  line-height: 24px;
+  color: #F3F3F3;
 }
 
-.additional_drink_alc{
+.additional_drink_alc {
   font-size: 14px;
-  line-height: 18px;
-  color: var(--bg-color-dark);
+  color: #F3F3F3;
   opacity: 50%;
   margin-bottom: 18px;
 }
 
-.additional_drink_description{
+.additional_drink_description {
   font-size: 14px;
-  line-height: 18px;
-  color: var(--bg-color-dark);
+  color: #F3F3F3;
   height: 75px; 
+  white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis;
 }
 
-.button_block{
+.button_block {
   display: flex;
   column-gap: 8px;
 }
 
-.same{
-  color: #f3f3f3;
+.link{
+  padding: 18px 44px;
+  color: #F3F3F3;
   background-color: #161F37;
   border: none;
   border-radius: 40px;
@@ -97,21 +101,27 @@
   padding: 18px 44px;
   text-decoration: none;
 }
-.delete_button{
+.delete_button {
   padding: 15px;
+  background-color: #161F37;
+  border: none;
+  border-radius: 40px;
 }
 
 @media screen and (min-width: 768px) {
   .drink_card {
-    width: 342px;
-  }
+      width: 342px;
+    }
     
   .main_drink_title {
     font-size: 18px;
+    color: #F3F3F3;
   }
 
   .main_drink_seeMore {
     font-size: 16px;
+    color: #F3F3F3;
+    opacity: 50%;
   }
 
   .additional_drink_info {
@@ -148,6 +158,3 @@
     height: 92px;
   }
 }
-
-
-

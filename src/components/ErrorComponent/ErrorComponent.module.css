@@ -1,0 +1,48 @@
+.notFoundBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 190px;
+    padding-bottom: 260px;
+}
+
+.errorText {
+    color: rgba(64, 112, 205, 0.10);
+    font-size: 120px;
+    font-weight: 600;
+    line-height: calc(123 / 120);
+}
+
+.errorImage {
+    width: 125px;
+    height: 155px;
+}
+
+@media screen and (min-width: 768px) {
+    .notFoundBox {
+        padding-top: 200px;
+        padding-bottom: 170px;
+    }
+
+    .errorText {
+        font-size: 150px;
+        line-height: calc(123 / 150);
+    }
+
+    .errorImage {
+        width: 160px;
+        height: 200px;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .notFoundBox {
+        padding-bottom: 140px;
+    }
+    .errorText {
+        font-size: 200px;
+        line-height: calc(200 / 200);
+    }
+}
