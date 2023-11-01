@@ -8,8 +8,8 @@ export const Navigation = () => {
     return (
         <nav className={css.nav}>
             <NavLink to="/drinks" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Drinks</NavLink>
-            <NavLink to="/add-drink" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Add drink</NavLink>
-            <NavLink to="/my-drinks" className={`${css["navLink"]} ${globalCss["global-link"]}`}>My drinks</NavLink>
+            <NavLink to="/add" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Add drink</NavLink>
+            <NavLink to="/my" className={`${css["navLink"]} ${globalCss["global-link"]}`}>My drinks</NavLink>
             <NavLink to="/favorites" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Favorites</NavLink>
         </nav>      
     )
