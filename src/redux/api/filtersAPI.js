@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const filtersAPI = createApi({
-  reducerPath: 'filtersAPI',
+const filtersAPI = createApi({
+  reducerPath: 'filters',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://drunk404.onrender.com/filters',
   }),
@@ -18,6 +18,7 @@ export const filtersAPI = createApi({
   }),
 });
 
+export default filtersAPI;
 export const {
   useGetGlassesQuery,
   useGetCategoriesQuery,

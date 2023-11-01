@@ -1,9 +1,10 @@
 import {  useState } from 'react';
+
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 
 import css from './AddDrink.module.css';
 import { validateIngredients, validationSchema } from './utils';
-import * as filtersAPI from './filtersAPI';
+import * as filtersAPI from 'redux/api/filtersAPI';
 
 import { TextArea, AddIngredientList, ImageUploadInput } from './components';
 import SelectInput from '../SelectInput';
