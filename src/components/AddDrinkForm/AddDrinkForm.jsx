@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 
 import css from './AddDrink.module.css';
