@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/team-project-cocktails-website/static/css/main.b0908d9a.css",
-    "main.js": "/team-project-cocktails-website/static/js/main.f394782a.js",
+    "main.css": "/team-project-cocktails-website/static/css/main.53c5e506.css",
+    "main.js": "/team-project-cocktails-website/static/js/main.2a2d8d7d.js",
     "static/js/426.9cf04a38.chunk.js": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js",
     "static/js/870.7b104bbf.chunk.js": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js",
     "static/js/922.9fb737bb.chunk.js": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js",
@@ -10,14 +10,14 @@
     "static/media/recipe_1x.png": "/team-project-cocktails-website/static/media/recipe_1x.803e8843264663c0712c.png",
     "static/media/ice_tea_1x.png": "/team-project-cocktails-website/static/media/ice_tea_1x.06c2a2e04f7dfa380080.png",
     "index.html": "/team-project-cocktails-website/index.html",
-    "main.b0908d9a.css.map": "/team-project-cocktails-website/static/css/main.b0908d9a.css.map",
-    "main.f394782a.js.map": "/team-project-cocktails-website/static/js/main.f394782a.js.map",
+    "main.53c5e506.css.map": "/team-project-cocktails-website/static/css/main.53c5e506.css.map",
+    "main.2a2d8d7d.js.map": "/team-project-cocktails-website/static/js/main.2a2d8d7d.js.map",
     "426.9cf04a38.chunk.js.map": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js.map",
     "870.7b104bbf.chunk.js.map": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js.map",
     "922.9fb737bb.chunk.js.map": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0908d9a.css",
-    "static/js/main.f394782a.js"
+    "static/css/main.53c5e506.css",
+    "static/js/main.2a2d8d7d.js"
   ]
 }
