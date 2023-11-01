@@ -1,20 +1,10 @@
-.logoLink {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 22px;
+.socialTitle {
+    color: #0A0A11;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px calc(24 / 18);
 
-    >svg {
-        fill: #F3F3F3;
-    }
-}
-
-.title {
-    color: #F3F3F3;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: calc(18 / 16);
-    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .socialList {
@@ -39,18 +29,12 @@
 
 
 @media screen and (min-width: 768px) {
-    .socialBox {
-        margin-bottom: 40px;
-    }
-    
-    .logoLink {
-        gap: 14px;
-        margin-bottom: 28px;
-    }
+    .socialTitle {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 24px calc(32 / 24);
 
-    .title {
-        font-size: 18px;
-        line-height: calc(22 / 18);
+        margin-bottom: 24px;
     }
 
     .socialList {
@@ -60,16 +44,5 @@
     .socialSvg {
         width: 28px;
         height: 28px;
-    }
-}
-
-
-@media screen and (min-width: 1440px) {
-    .socialBox {
-        margin-bottom: 0;
-    }
-
-    .logoLink {
-        margin-bottom: 40px;
     }
 }
