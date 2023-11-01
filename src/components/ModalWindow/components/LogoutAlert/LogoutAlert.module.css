@@ -1,125 +1,91 @@
 .profileAlert {
-    position: absolute;
-    z-index: 5;
-    top: 550%;
-    right: -20px;
-    width: 335px;
-    height: 193px;
-    border-radius: 16px;
-    background-color: #161F37;
-    padding: 50px 22.5px;
+  width: 100%;
+  max-width: 335px;
+  border-radius: 16px;
+  background-color: #161f37;
 
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 14px;
+  padding-bottom: 50px;
 }
 
-.alertTitle {
-    color: #F3F3F3;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: calc(18 / 14);
-    letter-spacing: -0.28px;
-    margin-top: 0;
-    margin-bottom: 25px;
-}
-
-.btnBox {
-    display: flex;
-    gap: 8px;
-}
-
-.logoutBtn {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: calc(18 / 14);
-
-    background-color: #F3F3F3;
-    color: #161F37;
-    padding: 11px 44px;
-    border: none;
-    border-radius: 42px;
-    
-    &:hover, &:focus {
-        color: #F3F3F3;
-        background-color: #161F37;    
-        border: 1px solid rgba(243, 243, 243, 0.20);
-    }
-}
-
-.cancelBtn {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: calc(18 / 14);
-
-    background-color: #434D67;
-    color: #F3F3F3;
-    padding: 11px 44px;
-    border: none;
-    border-radius: 42px;
-    
-    &:hover, &:focus {
-        color: #F3F3F3;
-        background-color: #161F37;    
-        border: 1px solid rgba(243, 243, 243, 0.20);
-    }
+@media screen and (min-width: 768px) {
+  .profileAlert {
+    max-width: 500px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 18px;
+  }
 }
 
 .closeBtn {
-    top: 18px;
-    right: 18px;
-    position: absolute;
-    z-index: 6;
-    border: none;
-    background: none;
+  display: block;
+  margin-left: auto;
+  color: white;
 }
 
 .closeSvg {
-    stroke: #F3F3F3;
-    width: 24px;
-    height: 100%;
+  stroke: #f3f3f3;
+  width: 24px;
+  height: 24px;
 }
 
+.alertTitle {
+  color: #f3f3f3;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.28px;
+  margin-bottom: 25px;
+}
 
 @media screen and (min-width: 768px) {
+  .profileAlert {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+    letter-spacing: -0.36px;
 
-    .profileAlert {
-        width: 500px;
-        height: 215px;
-        border-radius: 16px;
-        background-color: #161F37;
-        padding: 50px;
-    }
-
-    .alertTitle {
-        color: #F3F3F3;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: calc(24 / 18);
-        letter-spacing: -0.36px;
-        margin-bottom: 37px;
-    }
-
-    .btnBox {
-        gap: 12px;
-    }
-    .logoutBtn {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: calc(18 / 16);
-    
-        padding: 18px 69px;
-    }
-    .cancelBtn {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: calc(18 / 16);
-
-        padding: 17px 68px;
-    }
-
-    .closeSvg {
-        width: 32px;
-    }
+    margin-bottom: 37px;
+  }
 }
 
+.btnBox {
+  margin: 0 auto;
 
+  width: 100%;
+  max-width: 284px;
+
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .btnBox {
+    max-width: 400px;
+  }
+}
+
+.logoutBtn,
+.cancelBtn {
+  padding: 16px;
+
+  transition: background-color 0.3s ease;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+.cancelBtn {
+  background-color: #434d67;
+  color: #f3f3f3;
+}
+
+.cancelBtn:hover,
+.cancelBtn:focus {
+  background-color: rgb(67, 77, 103, 0.6);
+}

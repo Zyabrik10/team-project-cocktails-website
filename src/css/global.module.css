@@ -25,6 +25,7 @@
   font-weight: inherit;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .container {
