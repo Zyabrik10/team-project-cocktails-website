@@ -25,11 +25,9 @@ const authSlice = createSlice({
       console.log('Successfully Logined.');
     },
     [signout.fulfilled](state) {
-      state.user = initialState.user;
+      state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
-
-      console.log(state.user);
       console.log(`Successful logout.`);
     },
     [refreshUser.pending](state) {
