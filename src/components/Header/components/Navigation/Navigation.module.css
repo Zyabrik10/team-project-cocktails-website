@@ -13,7 +13,8 @@
         margin-right: 16px;
         padding: 8px 16px;
 
-        color: #161F37;
+        /* color: #161F37; */
+        color: #F3F3F3;
         font-size: 14px;
         font-weight: 500;
         line-height: calc(23 / 14);

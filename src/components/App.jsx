@@ -74,10 +74,7 @@ export const App = () => {
         <Route
           path="/drink/:drinkId"
           element={
-            <PrivateRoute
-              redirectTo="/welcome"
-              component={<SingleDrinkPage />}
-            />
+            <PrivateRoute redirectTo="/welcome" component={<SingleDrinkPage />}/>
           }
         />
       </Route>
