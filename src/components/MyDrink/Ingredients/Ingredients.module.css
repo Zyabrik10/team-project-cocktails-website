@@ -52,6 +52,6 @@
 @media screen and (min-width: 1440px) {
   .list-ingredients {
     justify-content: space-between;
-    gap: 22px;
+    gap: 42px 22px;
   }
 }
