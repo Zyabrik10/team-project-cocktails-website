@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import SelectInput from 'components/SelectInput';
-import { useGetIngredientsQuery } from 'components/AddDrinkForm/filtersAPI';
+import { useGetIngredientsQuery } from 'redux/api/filtersAPI';
 import { makeIngrSelectOptions } from 'components/AddDrinkForm/utils';
 
 const AddIngredientField = ({
