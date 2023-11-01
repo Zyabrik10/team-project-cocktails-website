@@ -11,16 +11,17 @@ export const Ingredients = ({ ingredients }) => {
         className={`${globalCss['global-list']}  ${css['list-ingredients']} `}
       >
         {ingredients &&
-          ingredients.map(({ title, measure, id, imageX }) => {
+          ingredients.map(({ title, measure, id, imageX, imageM, imageS }) => {
             return (
               <li className={`${css['item-ingredient']}`} key={id}>
                 <img
                   className={`${css['img-ingredient']}`}
                   src={imageX}
-                  alt={title}
                   onError={e =>
                     (e.target.src = require('../../../img/recipe/ingredient.png'))
                   }
+                  alt={title}
+                  // srcSet={`${imageS} 300w, ${imageM} 768w, ${imageX} 1440w`}
                 />
                 <p
                   className={`${globalCss['global-p']} ${css['ingredient-description']}`}

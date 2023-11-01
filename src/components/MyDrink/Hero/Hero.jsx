@@ -1,14 +1,11 @@
-// import { useState } from 'react';
 import globalCss from '../../../css/global.module.css';
 import css from './Hero.module.css';
-import recipes from '../../../pages/my-drinks/recipes.json';
 import { Title } from 'components/Title/Title';
+import recipes from '../../../pages/my-drinks/recipes.json';
 
-export const Hero = () => {
-  // 639b6de9ff77d221f190c520
-  let recipe = recipes[4];
-
+export const Hero = ({ cocktail }) => {
   // const [buttonText, setButtonText] = useState('Add to favorite drinks');
+  let recipe = recipes[4];
 
   const handleClick = () => {
     console.log('onClick action');
@@ -40,6 +37,9 @@ export const Hero = () => {
         <img
           className={` ${css['img-hero']}`}
           src={recipe.drinkThumb}
+          onError={e =>
+            (e.target.src = require('../../../img/recipe/ingredient.png'))
+          }
           alt="drink"
         />
       </div>
