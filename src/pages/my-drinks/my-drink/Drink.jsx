@@ -3,7 +3,7 @@ import { Preparation } from 'components/MyDrink/Preparation/Preparation';
 import { Hero } from 'components/MyDrink/Hero/Hero';
 import { Ingredients } from 'components/MyDrink/Ingredients/Ingredients';
 import globalCss from '../../../css/global.module.css';
-import * as filtersAPI from '../../../components/AddDrinkForm/filtersAPI/filtersAPI';
+import * as filtersAPI from '../../../redux/api/filtersAPI';
 import recipes from '../../my-drinks/recipes.json';
 
 export default function Drink() {
