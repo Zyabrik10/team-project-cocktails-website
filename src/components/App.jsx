@@ -1,11 +1,11 @@
-import { lazy } from 'react';
-// import { useDispatch } from 'react-redux';
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Routes, Route } from 'react-router-dom';
 
 import { PrivateRoute } from '../hooks/PrivateRoute';
 import { RestrictedRoute } from '../hooks/RestrictedRoute';
-// import { refreshUser } from '../redux/auth/operations';
+import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
@@ -20,12 +20,12 @@ const FavoritesPage = lazy(() => import('../pages/favorites/Favorites'));
 const SingleDrinkPage = lazy(() => import('../pages/my-drinks/my-drink/Drink'));
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return isRefreshing ? (
     <p>Loading...</p>

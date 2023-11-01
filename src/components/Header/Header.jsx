@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useAuth } from 'hooks';
+
 import globalCss from '../../css/global.module.css';
 import css from './Header.module.css';
 
@@ -18,6 +20,9 @@ export const Header = () => {
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
+
+    const { user } = useAuth();
+
 
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
 
@@ -49,7 +54,7 @@ export const Header = () => {
                 alt="Avatar"
                 className={css.avatar}
               />
-              <span className={css.name}>User</span>
+              <span className={css.name}>{user.username}</span>
             </div>
             <button className={css.burgerMenu}>
               <BurgerMenuSvg />
