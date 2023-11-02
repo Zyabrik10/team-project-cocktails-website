@@ -1,14 +1,16 @@
-import {  useState } from 'react';
-
+import { useState } from 'react';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
+import axios from 'axios';
 
-import css from './AddDrink.module.css';
 import { validateIngredients, validationSchema } from './utils';
 import * as filtersAPI from 'redux/api/filtersAPI';
 
 import { TextArea, AddIngredientList, ImageUploadInput } from './components';
 import SelectInput from '../SelectInput';
 import makeSelectOptions from './utils/makeSelectOptions';
+
+import css from './AddDrinkForm.module.css';
+import TextInput from './components/TextInput';
 
 const initialValues = {
   itemTitle: '',
@@ -24,32 +26,17 @@ const AddDrinkForm = () => {
   const [category, setCategory] = useState('');
 
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
-  const [isGlassSelected, setIsGlassSelected] = useState(true);
-  const [isCategorySelected, setIsCategorySelected] = useState(true);
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = values => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
     const validationMessage = validateIngredients(ingredients);
-    console.log(validationMessage);
     if (validationMessage) {
       setIngrValidationErrorMess(validationMessage);
       return;
     }
 
-    if (!category) {
-      setIsCategorySelected(false);
-      return;
-    }
-
-    if (!glass) {
-      setIsGlassSelected(false);
-      return;
-    }
-
     setIngrValidationErrorMess(null);
-    setIsCategorySelected(true);
-    setIsGlassSelected(true);
 
     const succesIngredients = ingredients
       .filter(
@@ -68,12 +55,29 @@ const AddDrinkForm = () => {
     formData.append('glass', glass);
     formData.append('alcoholic', radioSelected);
     formData.append('instructions', recipe.trim());
-    formData.append('drinkThumb', file ?? JSON.stringify({}));
-    formData.append('ingredients', JSON.stringify(succesIngredients));
+    formData.append('drinkThumb', file ?? null);
+
+    succesIngredients.forEach((item, index) => {
+      for (const key in item) {
+        formData.append(`ingredients[${index}][${key}]`, item[key]);
+      }
+    });
 
     for (const key of formData.keys()) {
       console.log({ [key]: formData.get(key) });
     }
+
+    axios
+      .post('/drinks/own/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => {
+        console.log('res', res);
+        console.log('Drink added succesful');
+      })
+      .catch(e => console.log(e));
   };
 
   const handleIngredientChange = ingrData => {
@@ -89,12 +93,10 @@ const AddDrinkForm = () => {
     switch (name) {
       case 'glass': {
         setGlass(value);
-        setIsGlassSelected(true);
         return;
       }
       case 'category': {
         setCategory(value);
-        setIsCategorySelected(true);
         return;
       }
       default:
@@ -109,19 +111,24 @@ const AddDrinkForm = () => {
       onSubmit={handleSubmit}
     >
       <Form autoComplete="off" className={css.addForm}>
-        <label htmlFor="image">Add image</label>
         <Field
           component={ImageUploadInput}
           handelFileChange={handelFileChange}
         />
 
-        <label htmlFor="itemTitle">Enter item title</label>
-        <Field id="itemTitle" name="itemTitle" type="text" />
-        <ErrorMessage name="itemTitle" />
+        <Field
+          component={TextInput}
+          inputName={'itemTitle'}
+          title={'Name of your drink'}
+          label={'Enter item title'}
+        />
 
-        <label htmlFor="aboutRecipe">Enter about recipe</label>
-        <Field id="aboutRecipe" name="aboutRecipe" type="text" />
-        <ErrorMessage name="aboutRecipe" />
+        <Field
+          component={TextInput}
+          inputName={'aboutRecipe'}
+          title={'Give short description'}
+          label={'Enter about recipe'}
+        />
 
         <label htmlFor="category">
           Category
@@ -133,7 +140,6 @@ const AddDrinkForm = () => {
             makeOptArr={makeSelectOptions}
             defaultValue={category}
           />
-          {!isCategorySelected && <p>Select option</p>}
         </label>
 
         <label htmlFor="glass">
@@ -146,7 +152,6 @@ const AddDrinkForm = () => {
             makeOptArr={makeSelectOptions}
             defaultValue={glass}
           />
-          {!isGlassSelected && <p>Select option</p>}
         </label>
 
         {/* Radio buttons */}
@@ -156,7 +161,7 @@ const AddDrinkForm = () => {
             Alcoholic
           </label>
           <label>
-            <Field type="radio" name="radioSelected" value="Non-alcoholic" />
+            <Field type="radio" name="radioSelected" value="Non alcoholic" />
             Non-alcoholic
           </label>
         </div>
