@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 import DrinkGroup from './DrinkGroup';
-import css from "../Home.module.css"
+import css from '../Home.module.css';
 // import clsx from 'clsx';
 
 export const DrinkContainer = () => {

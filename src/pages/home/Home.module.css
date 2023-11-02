@@ -1,9 +1,10 @@
 @import '../../css/variables.css';
 
-.drinkGroup {
+/* Навіщо нам два скроли на сторінці? */
+/* .drinkGroup {
   height: 90vh;
   overflow: scroll;
-}
+} */
 
 /* glass effect */
 /* .container {

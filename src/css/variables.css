@@ -4,12 +4,31 @@
   --flex-gap: 21px;
 
   /* dark theme */
+  --main-bg-color: #0a0a11;
+  --text-color: #f3f3f3;
+  --secont-text-cl: rgba(243, 243, 243, 0.5);
+  --button-bg-active: #161f37;
+  --button-bg-main: #f3f3f3;
+  --button-bg-hover: #fff;
+  --button-bg-pagination: rgba(64, 112, 205, 0.5);
+  --nav-link-border: rgba(243, 243, 243, 0.2);
+  --button-main-border-hover: rgba(64, 112, 205, 0.5);
+  /* - Не впевнений чи ми будемо 
+  це використовувати так як на темні темі немає бордеру зовсім */
 
-  --bg-color-dark: #0a0a11;
-  --text-color: #fafafa;
-  --button-color-dark: #161f37;
-  --button-color-active: #434d67;
-  --button-color-pagination: #4070cd;
   --accent-color: #bce6d2;
-  --button-color-light: #f3f3f3;
+  --transit: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme */
+/* Подумати над привязкою змінних не до body, а до main/(SaredLayout) так як стилі на хедері
+та футері на обох темах майже не міняються */
+.main.light {
+  --main-bg-color: #fff;
+  --text-color: #0a0a11;
+  --secont-text-cl: rgba(10, 10, 17, 0.5);
+  --button-bg-main: #161f37;
+  --button-bg-hover: #434d67;
+  --nav-link-border: rgba(22, 31, 55, 0.2);
+  --button-cl-pagination: #4070cd;
 }

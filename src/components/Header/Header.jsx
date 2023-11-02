@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useAuth } from 'hooks';
+
 import globalCss from '../../css/global.module.css';
 import css from './Header.module.css';
 
@@ -11,26 +13,26 @@ import { Navigation } from './components/Navigation/Navigation';
 
 import { ModalWindow } from 'components/ModalWindow/ModalWindow';
 import { UserProfile } from 'components/ModalWindow/components/UserProfile/UserProfile';
+import { DropDown } from 'components/ModalWindow/components/DropDown/DropDown';
+import { LogoutAlert } from 'components/ModalWindow/components/LogoutAlert/LogoutAlert';
 
 export const Header = () => {
-  const [ma, setMa] = useState(false);
+  const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
+  const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
+  const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
 
-  function closeOnClick({ target }) {
-    if (
-      target.classList.value !== '' &&
-      target.classList[0].split('_')[1] === 'modal-wrapper'
-    )
-      setMa(false);
-  }
+    const { user } = useAuth();
 
-  function toggle() {
-    setMa(!ma);
-  }
+
+  const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
 
   return (
     <>
-      <ModalWindow active={ma} closeOn={closeOnClick}>
-        <UserProfile closeOnButtonCLick={toggle} />
+      <ModalWindow isShown={isModalEditUserOpen} setClose={setIsModalEditUserOpen}>
+        <UserProfile setClose={setIsModalEditUserOpen} />
+      </ModalWindow>
+      <ModalWindow isShown={isModalLogoutOpen} setClose={setIsModalLogoutOpen}>
+        <LogoutAlert setClose={setIsModalLogoutOpen} />
       </ModalWindow>
       <header className={css.header}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
@@ -46,17 +48,23 @@ export const Header = () => {
           <Navigation />
           <div className={css.profile}>
             <ThemeSwitcher />
-            <div onClick={toggle} className={css.userBox}>
+            <div onClick={toggleModalChoose} className={css.userBox}>
               <img
                 src={require('../../img/header/user.png')}
                 alt="Avatar"
                 className={css.avatar}
               />
-              <span className={css.name}>User</span>
+              <span className={css.name}>{user.username}</span>
             </div>
             <button className={css.burgerMenu}>
               <BurgerMenuSvg />
             </button>
+            <DropDown
+              isOpen={isModalChooseOpen}
+              setIsOpen={setIsModalChooseOpen}
+              setIsModalEditUserOpen={setIsModalEditUserOpen}
+              setIsModalLogoutOpen={setIsModalLogoutOpen}
+            />
           </div>
         </div>
       </header>
