@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/team-project-cocktails-website/static/css/main.b2a64c76.css",
-    "main.js": "/team-project-cocktails-website/static/js/main.1e5f8213.js",
+    "main.js": "/team-project-cocktails-website/static/js/main.769ca1bf.js",
     "static/js/426.9cf04a38.chunk.js": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js",
     "static/js/870.7b104bbf.chunk.js": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js",
     "static/js/922.9fb737bb.chunk.js": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js",
@@ -12,13 +12,13 @@
     "index.html": "/team-project-cocktails-website/index.html",
     "static/media/addIMG_File.svg": "/team-project-cocktails-website/static/media/addIMG_File.af6f659cae5f0795a61f62b950e814f1.svg",
     "main.b2a64c76.css.map": "/team-project-cocktails-website/static/css/main.b2a64c76.css.map",
-    "main.1e5f8213.js.map": "/team-project-cocktails-website/static/js/main.1e5f8213.js.map",
+    "main.769ca1bf.js.map": "/team-project-cocktails-website/static/js/main.769ca1bf.js.map",
     "426.9cf04a38.chunk.js.map": "/team-project-cocktails-website/static/js/426.9cf04a38.chunk.js.map",
     "870.7b104bbf.chunk.js.map": "/team-project-cocktails-website/static/js/870.7b104bbf.chunk.js.map",
     "922.9fb737bb.chunk.js.map": "/team-project-cocktails-website/static/js/922.9fb737bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b2a64c76.css",
-    "static/js/main.1e5f8213.js"
+    "static/js/main.769ca1bf.js"
   ]
 }
