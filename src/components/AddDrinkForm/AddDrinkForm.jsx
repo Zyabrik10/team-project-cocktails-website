@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
+import { Form, Formik, Field } from 'formik';
 import axios from 'axios';
 
 import { validateIngredients, validationSchema } from './utils';
