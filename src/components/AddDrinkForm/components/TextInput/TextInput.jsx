@@ -32,8 +32,10 @@ const TextInput = props => {
 export default TextInput;
 
 TextInput.propTypes = {
-  props: PropTypes.object.isRequired,
-  inputName: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  props: PropTypes.shape({
+    form: PropTypes.object.isRequired,
+    inputName: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  }),
 };

@@ -122,14 +122,12 @@ const AddDrinkForm = () => {
           title={'Name of your drink'}
           label={'Enter item title'}
         />
-
         <Field
           component={TextInput}
           inputName={'aboutRecipe'}
           title={'Give short description'}
           label={'Enter about recipe'}
         />
-
         <label htmlFor="category">
           Category
           <Field
@@ -141,7 +139,6 @@ const AddDrinkForm = () => {
             defaultValue={category}
           />
         </label>
-
         <label htmlFor="glass">
           Glass
           <Field
@@ -153,7 +150,6 @@ const AddDrinkForm = () => {
             defaultValue={glass}
           />
         </label>
-
         {/* Radio buttons */}
         <div role="group" aria-labelledby="radio-group">
           <label>
@@ -165,18 +161,15 @@ const AddDrinkForm = () => {
             Non-alcoholic
           </label>
         </div>
-
         {/* Dynemic ingredient fields */}
         <AddIngredientList
           handleIngredientChange={handleIngredientChange}
           onSubmitErrorMessage={ingrValidationErrorMess}
         />
-
         <div>
           <h3>Recipe Preparation</h3>
           <Field component={TextArea} />
         </div>
-
         <button type="submit">Add</button>
       </Form>
     </Formik>

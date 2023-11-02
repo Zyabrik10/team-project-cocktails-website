@@ -7,7 +7,6 @@ h3 {
 }
 
 .container {
-  overflow: scroll;
   background-color: var(--color-dark);
 }
 
