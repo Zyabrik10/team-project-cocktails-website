@@ -12,7 +12,8 @@
   --button-bg-hover: #fff;
   --button-bg-pagination: rgba(64, 112, 205, 0.5);
   --nav-link-border: rgba(243, 243, 243, 0.2);
-  /* --button-main-border-hover: rgba(64, 112, 205, 0.5); - Не впевнений чи ми будемо 
+  --button-main-border-hover: rgba(64, 112, 205, 0.5);
+  /* - Не впевнений чи ми будемо 
   це використовувати так як на темні темі немає бордеру зовсім */
 
   --accent-color: #bce6d2;
