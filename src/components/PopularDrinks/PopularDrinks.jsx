@@ -16,7 +16,7 @@ const PopularDrinks = () => {
       return;
     }
 
-    const newArr = selects.slice(0, 4);
+    const newArr = selects.sortedCocktails.slice(0, 4);
     setDrinks(newArr);
   }, [selects]);
 
@@ -25,10 +25,10 @@ const PopularDrinks = () => {
   ) : (
     <ul>
       {drinks.map(el => {
-        const { id, drink, description, drinkThumb } = el;
+        const { _id, drink, description, drinkThumb } = el;
 
         return (
-          <li key={id}>
+          <li key={_id}>
             <img src={drinkThumb} alt={drink} width="90" height="90" />
             <div>
               <p>{drink}</p>
