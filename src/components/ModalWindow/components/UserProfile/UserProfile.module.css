@@ -1,0 +1,131 @@
+.userProfile {
+  position: relative;
+  border-radius: 16px;
+  background-color: #161f37;
+
+  width: 100%;
+  max-width: 335px;
+
+  padding: 14px;
+  padding-bottom: 50px;
+
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .userProfile {
+    max-width: 500px;
+    padding: 18px;
+    padding-bottom: 75px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .userProfile {
+    max-width: 500px;
+    padding: 18px;
+    padding-bottom: 75px;
+  }
+}
+
+.closeBtn {
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.imgBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.profileImg {
+  display: block;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.addBtn {
+  color: aliceblue;
+  margin-top: -15px;
+}
+
+.addSvg {
+  width: 28px;
+  height: 28px;
+}
+
+.editImg {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+
+  width: 16px;
+  height: 16px;
+}
+
+.inputBox {
+  width: 100%;
+  max-width: 285px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .inputBox {
+    max-width: 400px;
+  }
+}
+
+.submitBtn {
+  transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+  background-color: rgba(243, 243, 243, 0.6);
+}
+
+.circle1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translate(-40%, -40%);
+
+  width: 283px;
+  height: 306px;
+
+  border-radius: 306.702px;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+}
+
+.circle2 {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+
+  transform: translate(-20%, -20%);
+
+  width: 362px;
+  height: 358px;
+
+  border-radius: 362px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+}
+
+@media screen and (min-width: 768px) {
+  .circle2 {
+    transform: translate(-40%, -50%);
+  }
+}

@@ -1,47 +1,107 @@
 import { useState } from 'react';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
+import { Form, Formik, Field } from 'formik';
+import axios from 'axios';
 
-import TextArea from './TextArea';
-import AddIngredientList from './AddIngredientList';
+import { validateIngredients, validationSchema } from './utils';
+import * as filtersAPI from 'redux/api/filtersAPI';
 
-import css from './AddDrink.module.css';
-import validateIngredients from './utils/validateIngredients';
-import validationSchema from './utils/validationSchema';
+import { TextArea, AddIngredientList, ImageUploadInput } from './components';
+import SelectInput from '../SelectInput';
+import makeSelectOptions from './utils/makeSelectOptions';
+
+import css from './AddDrinkForm.module.css';
+import TextInput from './components/TextInput';
+
+const initialValues = {
+  itemTitle: '',
+  aboutRecipe: '',
+  radioSelected: 'Alcoholic',
+  recipe: '',
+};
 
 const AddDrinkForm = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [file, setFile] = useState(null);
+  const [glass, setGlass] = useState('');
+  const [category, setCategory] = useState('');
+
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
 
-  const initialValues = {
-    itemTitle: '',
-    aboutRecipe: '',
-    category: '',
-    glass: '',
-    radioSelected: '',
-    recipe: '',
-  };
+  const handleSubmit = values => {
+    const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
-  const handleSubmit = (values, actions) => {
     const validationMessage = validateIngredients(ingredients);
     if (validationMessage) {
       setIngrValidationErrorMess(validationMessage);
       return;
     }
 
-    setIngrValidationErrorMess(validationMessage);
-    const succesDataArr = ingredients.filter(
-      el => el.amound !== '' && el.ingredient !== ''
-    );
-    const result = { ...values, ingredients: succesDataArr };
-    console.log('result', result);
+    setIngrValidationErrorMess(null);
+
+    const succesIngredients = ingredients
+      .filter(
+        el => el.amound !== '' && el.ingredient !== '' && el.ingredientId !== ''
+      )
+      .map(el => ({
+        ingredientId: el.ingredientId,
+        measure: el.amound.trim(),
+        title: el.ingredient.trim(),
+      }));
+
+    const formData = new FormData();
+    formData.append('drink', itemTitle.trim());
+    formData.append('description', aboutRecipe.trim());
+    formData.append('category', category);
+    formData.append('glass', glass);
+    formData.append('alcoholic', radioSelected);
+    formData.append('instructions', recipe.trim());
+    formData.append('drinkThumb', file ?? null);
+
+    succesIngredients.forEach((item, index) => {
+      for (const key in item) {
+        formData.append(`ingredients[${index}][${key}]`, item[key]);
+      }
+    });
+
+    for (const key of formData.keys()) {
+      console.log({ [key]: formData.get(key) });
+    }
+
+    axios
+      .post('/drinks/own/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => {
+        console.log('res', res);
+        console.log('Drink added succesful');
+      })
+      .catch(e => console.log(e));
   };
 
-  // const onCategoryDropSelected = () => {};
+  const handleIngredientChange = ingrData => {
+    setIngredients(ingrData);
+  };
 
-  // const onGlassDropSelected = () => {};
+  const handelFileChange = file => {
+    setFile(file);
+  };
 
-  const getIngData = data => {
-    setIngredients(data);
+  const handleSelectChange = selectData => {
+    const { name, value } = selectData;
+    switch (name) {
+      case 'glass': {
+        setGlass(value);
+        return;
+      }
+      case 'category': {
+        setCategory(value);
+        return;
+      }
+      default:
+        return;
+    }
   };
 
   return (
@@ -50,57 +110,66 @@ const AddDrinkForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form className={css.addForm}>
-        <label htmlFor="image">Add image</label>
-        <Field id="image" name="image" type="file" />
-
-        <label htmlFor="itemTitle">Enter item title</label>
-        <Field id="itemTitle" name="itemTitle" type="text" />
-        <ErrorMessage name="itemTitle" />
-
-        <label htmlFor="aboutRecipe">Enter about recipe</label>
-        <Field id="aboutRecipe" name="aboutRecipe" type="text" />
-        <ErrorMessage name="aboutRecipe" />
-
-        <label htmlFor="category">Category</label>
+      <Form autoComplete="off" className={css.addForm}>
         <Field
-          id="category"
-          name="category"
-          type="select"
-          // onChange={onCategoryDropSelected}
+          component={ImageUploadInput}
+          handelFileChange={handelFileChange}
         />
-        <ErrorMessage name="category" />
 
-        <label htmlFor="glass">Glass</label>
         <Field
-          id="glass"
-          name="glass"
-          type="select"
-          // onChange={onGlassDropSelected}
+          component={TextInput}
+          inputName={'itemTitle'}
+          title={'Name of your drink'}
+          label={'Enter item title'}
         />
-        <ErrorMessage name="glass" />
+
+        <Field
+          component={TextInput}
+          inputName={'aboutRecipe'}
+          title={'Give short description'}
+          label={'Enter about recipe'}
+        />
+
+        <label htmlFor="category">
+          Category
+          <Field
+            component={SelectInput}
+            inputName={'category'}
+            fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
+            handleSelectChange={handleSelectChange}
+            makeOptArr={makeSelectOptions}
+            defaultValue={category}
+          />
+        </label>
+
+        <label htmlFor="glass">
+          Glass
+          <Field
+            component={SelectInput}
+            inputName={'glass'}
+            fetchSelectOpt={filtersAPI.useGetGlassesQuery}
+            handleSelectChange={handleSelectChange}
+            makeOptArr={makeSelectOptions}
+            defaultValue={glass}
+          />
+        </label>
 
         {/* Radio buttons */}
         <div role="group" aria-labelledby="radio-group">
           <label>
-            <Field
-              type="radio"
-              name="radioSelected"
-              value="Alcoholic"
-              checked
-            />
+            <Field type="radio" name="radioSelected" value="Alcoholic" />
             Alcoholic
           </label>
           <label>
-            <Field type="radio" name="radioSelected" value="Non-alcoholic" />
+            <Field type="radio" name="radioSelected" value="Non alcoholic" />
             Non-alcoholic
           </label>
         </div>
 
         {/* Dynemic ingredient fields */}
         <AddIngredientList
-          getIngData={getIngData}
-          validationErrorMessage={ingrValidationErrorMess}
+          handleIngredientChange={handleIngredientChange}
+          onSubmitErrorMessage={ingrValidationErrorMess}
         />
 
         <div>

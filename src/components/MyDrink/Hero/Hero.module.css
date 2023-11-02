@@ -1,0 +1,100 @@
+.hero-section {
+  margin-top: 100px;
+  margin-bottom: 18px;
+}
+.title {
+  font-size: 32px;
+  color: #f3f3f3;
+  /* font-family: Manrope;
+  font-weight: 600; */
+  /* color: var(--text-color); */
+}
+.title-description {
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  margin-top: 8px;
+}
+.description {
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+.btn-add-drink {
+  color: #161f37;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(18 / 14);
+  width: 222px;
+  padding: 14px 40px;
+  margin-bottom: 85px;
+}
+
+.img-hero {
+  width: 335px;
+  height: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section {
+    margin-top: 140px;
+    margin-bottom: 80px;
+  }
+  .title {
+    font-size: 56px;
+    line-height: calc(60 / 56);
+  }
+  .title-description {
+    font-size: 16px;
+    line-height: calc(20 / 16);
+  }
+  .description {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: calc(22 / 16);
+    margin-bottom: 40px;
+  }
+
+  .btn-add-drink {
+    font-size: 16px;
+    line-height: calc(18 / 16);
+    width: 250px;
+    padding: 18px 44px;
+    margin-bottom: 80px;
+  }
+  .img-hero {
+    width: 704px;
+    flex-shrink: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero-section {
+    display: flex;
+
+    margin-top: 132px;
+    margin-bottom: 100px;
+  }
+  .title {
+    font-size: 64px;
+    line-height: calc(68 / 64);
+  }
+
+  .title-description {
+    font-size: 16px;
+    line-height: calc(20 / 16);
+  }
+
+  .description-section {
+    margin-right: 249px;
+  }
+  .title {
+    font-size: 64px;
+  }
+  .img-hero {
+    width: 400px;
+    flex-shrink: 0;
+  }
+}

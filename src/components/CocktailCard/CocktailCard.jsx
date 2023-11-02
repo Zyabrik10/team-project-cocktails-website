@@ -3,6 +3,9 @@ import css from './CockTailCard.module.css';
 import globalCss from '../../css/global.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { DeleteSvg } from './svg/DeleteSvg';
+import defaltDrink from '../../img/home/ice_tea_1x.png';
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
 
 // example card
 // const obj = {
@@ -61,16 +64,26 @@ import { DeleteSvg } from './svg/DeleteSvg';
 //     'A refreshing and minty cocktail with vodka, lime juice, and mint syrup.',
 // };
 
-export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
+export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
   const locations = useLocation();
+  const theme = useSelector(getThemeColor);
 
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
+  const handleImageError = event => {
+    event.target.src = defaltDrink;
+  };
   return (
     <>
-      <div className={css.drink_card}>
+      <div className={`${css['drink_card']} ${themeClass}`}>
         <div className={css.drink_thumb}>
-          <img className={css.img} src={obj.drinkThumb} alt={obj.drink} />
+          <img
+            className={css.img}
+            src={obj.drinkThumb}
+            alt={obj.drink}
+            onError={handleImageError}
+          />
         </div>
-
         {mainDrinksPage ? (
           <div className={css.main_drink_info}>
             <h2
@@ -78,14 +91,23 @@ export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
             >
               {obj.drink}
             </h2>
-            <a href={obj._id.$oid} className={css.main_drink_seeMore}>
+
+            <Link
+              to={`/drink/${obj._id.$oid}`}
+              className={css.main_drink_seeMore}
+              state={{ from: locations }}
+            >
               See more
-            </a>
+            </Link>
           </div>
         ) : (
           <div className={css.additional_drink_info}>
             <div className={css.additional_drink_details}>
-              <h2 className={css.additional_drink_title}>{obj.drink}</h2>
+              <h2
+                className={`${css['additional_drink_title']} ${globalCss['global-title']}`}
+              >
+                {obj.drink}
+              </h2>
               <p
                 className={`${css['additional_drink_alc']} ${globalCss['global-title']}`}
               >
@@ -99,13 +121,17 @@ export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
             </div>
             <div className={css.button_block}>
               <Link
-                to={`drinks/${id}`}
-                className={css.link}
+                to={`/drink/${obj._id.$oid}`}
+                className={`${css['link']} ${css['same']}`}
                 state={{ from: locations }}
               >
                 See more
               </Link>
-              <button type="button" className={css.delete_button}>
+              <button
+                type="button"
+                className={`${css['delete_button']} ${css['same']}`}
+                onClick={() => handleDelete()}
+              >
                 <DeleteSvg></DeleteSvg>
               </button>
             </div>
@@ -116,4 +142,4 @@ export const CocktailCard = ({ mainDrinksPage, obj, id }) => {
   );
 };
 
-//The component receives a drink object, id and a parameter that specifies the display method. Returns the drink card.
+//The component receives a parameter that specifies the display method, drink object, function handleDelete. Returns the drink card.
