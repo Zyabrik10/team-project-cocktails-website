@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 import filtersAPI from './api/filtersAPI';
 import popularDrinksAPI from './api/popularDrinksAPI';
+import themeReducer from './theme/themeSlise';
 
 import {
   persistStore,
@@ -21,10 +22,15 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-
+const themePersistConfig = {
+  key: 'theme',
+  storage: storage,
+  whitelist: ['theme'],
+};
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    theme: persistReducer(themePersistConfig, themeReducer),
     [filtersAPI.reducerPath]: filtersAPI.reducer,
     [popularDrinksAPI.reducerPath]: popularDrinksAPI.reducer,
   },
