@@ -27,7 +27,7 @@ const AddDrinkForm = () => {
 
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
 
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
     const validationMessage = validateIngredients(ingredients);
@@ -55,7 +55,7 @@ const AddDrinkForm = () => {
     formData.append('glass', glass);
     formData.append('alcoholic', radioSelected);
     formData.append('instructions', recipe.trim());
-    formData.append('drinkThumb', file ?? null);
+    formData.append('drinkThumb', file);
 
     succesIngredients.forEach((item, index) => {
       for (const key in item) {
@@ -67,17 +67,16 @@ const AddDrinkForm = () => {
       console.log({ [key]: formData.get(key) });
     }
 
-    axios
-      .post('/drinks/own/add', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => {
-        console.log('res', res);
-        console.log('Drink added succesful');
-      })
-      .catch(e => console.log(e));
+    try {
+      await axios({
+        method: 'post',
+        url: 'drinks/own/add',
+        data: formData,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleIngredientChange = ingrData => {
@@ -116,40 +115,42 @@ const AddDrinkForm = () => {
           handelFileChange={handelFileChange}
         />
 
-        <Field
-          component={TextInput}
-          inputName={'itemTitle'}
-          title={'Name of your drink'}
-          label={'Enter item title'}
-        />
-        <Field
-          component={TextInput}
-          inputName={'aboutRecipe'}
-          title={'Give short description'}
-          label={'Enter about recipe'}
-        />
-        <label htmlFor="category">
-          Category
+        <div className={css['inputs-wrapp']}>
           <Field
-            component={SelectInput}
-            inputName={'category'}
-            fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
-            handleSelectChange={handleSelectChange}
-            makeOptArr={makeSelectOptions}
-            defaultValue={category}
+            component={TextInput}
+            inputName={'itemTitle'}
+            title={'Name of your drink'}
+            label={'Enter item title'}
           />
-        </label>
-        <label htmlFor="glass">
-          Glass
           <Field
-            component={SelectInput}
-            inputName={'glass'}
-            fetchSelectOpt={filtersAPI.useGetGlassesQuery}
-            handleSelectChange={handleSelectChange}
-            makeOptArr={makeSelectOptions}
-            defaultValue={glass}
+            component={TextInput}
+            inputName={'aboutRecipe'}
+            title={'Give short description'}
+            label={'Enter about recipe'}
           />
-        </label>
+          <label htmlFor="category">
+            Category
+            <Field
+              component={SelectInput}
+              inputName={'category'}
+              fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
+              handleSelectChange={handleSelectChange}
+              makeOptArr={makeSelectOptions}
+              defaultValue={category}
+            />
+          </label>
+          <label htmlFor="glass">
+            Glass
+            <Field
+              component={SelectInput}
+              inputName={'glass'}
+              fetchSelectOpt={filtersAPI.useGetGlassesQuery}
+              handleSelectChange={handleSelectChange}
+              makeOptArr={makeSelectOptions}
+              defaultValue={glass}
+            />
+          </label>
+        </div>
         {/* Radio buttons */}
         <div role="group" aria-labelledby="radio-group">
           <label>

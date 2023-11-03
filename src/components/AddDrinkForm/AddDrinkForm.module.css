@@ -1,8 +1,9 @@
 .addForm {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  gap: 5px;
-  margin: 0 auto;
   margin-top: 40px;
+}
+
+.inputs-wrapp {
+  position: relative;
 }

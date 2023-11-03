@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
+import textInputStyles from './textInputStyles';
 
 const TextInput = props => {
   const {
@@ -25,6 +26,7 @@ const TextInput = props => {
       variant="standard"
       size="small"
       fullWidth
+      sx={textInputStyles}
     />
   );
 };

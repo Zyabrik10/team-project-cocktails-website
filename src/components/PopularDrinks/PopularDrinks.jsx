@@ -5,20 +5,20 @@ const PopularDrinks = () => {
   const [drinks, setDrinks] = useState([]);
 
   const {
-    data: selects,
+    data: popularCoctails,
     isLoading,
     // isError,
     // error,
   } = useGetPopularDrinksQuery();
 
   useEffect(() => {
-    if (!selects) {
+    if (!popularCoctails) {
       return;
     }
 
-    const newArr = selects.sortedCocktails.slice(0, 4);
+    const newArr = popularCoctails.sortedCocktails.slice(0, 4);
     setDrinks(newArr);
-  }, [selects]);
+  }, [popularCoctails]);
 
   return isLoading ? (
     <p>Loading...</p>

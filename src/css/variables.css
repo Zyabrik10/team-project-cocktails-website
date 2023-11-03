@@ -13,17 +13,17 @@
   --button-bg-pagination: rgba(64, 112, 205, 0.5);
   --nav-link-border: rgba(243, 243, 243, 0.2);
   --button-main-border-hover: rgba(64, 112, 205, 0.5);
+  --select-menu-bg: #161f37;
   /* - Не впевнений чи ми будемо 
   це використовувати так як на темні темі немає бордеру зовсім */
-  
+
   --color-dark: #000000;
   --bg-color-dark: #0a0a11;
   --button-color-dark: #161f37;
   --button-color-active: #434d67;
-  --button-color-pagination: #4070cd;
   --accent-color: #bce6d2;
   --button-color-light: #f3f3f3;
-  --grey-color: rgba(243, 243, 243, 0.50);
+  --grey-color: rgba(243, 243, 243, 0.5);
 
   --accent-color: #bce6d2;
   --transit: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -38,5 +38,6 @@
   --button-bg-main: #161f37;
   --button-bg-hover: #434d67;
   --nav-link-border: rgba(22, 31, 55, 0.2);
-  --button-cl-pagination: #4070cd;
+  --button-bg-pagination: #4070cd;
+  --select-menu-bg: #fff;
 }
