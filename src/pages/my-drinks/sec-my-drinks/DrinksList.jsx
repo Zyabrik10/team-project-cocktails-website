@@ -1,9 +1,12 @@
-import { DrinksItem } from "./DrinksItem"
+import { DrinksItem } from './DrinksItem';
+import css from './SecMyDrinks.module.css';
 
 export const DrinksList = () => {
-    return (
-        <div>
-            <DrinksItem/>
-    </div>
-    )
-} 
+  return (
+    <ul>
+      <li className={css.drinksList}>
+        <DrinksItem />
+      </li>
+    </ul>
+  );
+};
