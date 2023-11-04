@@ -1,4 +1,5 @@
 .header {
+
     /* border-bottom: solid 1px rgba(22, 31, 55, 0.10); */
     border-bottom: solid 1px rgba(243, 243, 243, 0.20);
     padding-top: 20px;
@@ -17,7 +18,7 @@
 }
 
 .logoSvg {
-        fill: #F3F3F3;
+    fill: #F3F3F3;
     width: 22px;
     height: 22px;
 }
@@ -56,7 +57,7 @@
 
 .name {
     /* color: #161F37; */
-        color: #F3F3F3;
+    color: #F3F3F3;
     font-size: 16px;
     font-weight: 500;
     line-height: calc(24 / 16);
@@ -66,11 +67,16 @@
     border: none;
     background: none;
     padding: 0;
+    > svg {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 .burgerSvg {
-    width: 32px;
-    height: 32px;
+    stroke: #F3F3F3;
+    fill: inherit;
+
 }
 
 @media screen and (min-width: 768px) {
@@ -104,9 +110,11 @@
         margin-right: 14px; 
     }
     
-   .burgerSvg {
-        width: 38px;
-        height: 38px;
+   .burgerMenu {
+        >svg {
+            width: 38px;
+            height: 38px;
+        }
     }
 }
 

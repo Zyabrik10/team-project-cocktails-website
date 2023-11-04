@@ -1,6 +1,17 @@
-.nav {
-    display: none;
+@media screen and (max-width: 1439px) {
+    .nav {
+        display: none;
+    }
+    .navMobile {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nan {
+        display: none;
+    }
 }
+
 
 @media screen and (min-width: 1440px) {
     .nav {
