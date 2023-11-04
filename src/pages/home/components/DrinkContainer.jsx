@@ -4,8 +4,13 @@ import ResizeHook from './ResizeHook';
 import { useEffect, useState } from 'react';
 import globalcss from '../../../css/global.module.css';
 import { useGetMainPageCocktailsQuery } from '../../../redux/api/popularDrinksAPI';
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
 
 export const DrinkContainer = () => {
+  const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
   const [amount, setAmount] = useState(1);
   let width = ResizeHook();
   const { data, isLoading } = useGetMainPageCocktailsQuery();
@@ -22,11 +27,11 @@ export const DrinkContainer = () => {
 
   return (
     <>
-      <div className={css.drinkGroup}>
+      <div className={`${css['drinkGroup']} ${themeClass}`}>
         {isLoading ? (
           <div>Loading....</div>
         ) : (
-          Object.entries(data.data.reduce((m, i) => ({ ...m, ...i }))).map(
+          Object.entries(data).map(
             ([group, cocktails]) => (
               <DrinkGroup
                 group={group}

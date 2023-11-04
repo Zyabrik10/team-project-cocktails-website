@@ -1,6 +1,5 @@
 @import '../../css/variables.css';
 
-h5,
 p,
 h3 {
   margin: 0;
@@ -8,7 +7,7 @@ h3 {
 
 .container {
   overflow: scroll;
-  background-color: var(--color-dark);
+  background-color: var(--main-bg-color);
 }
 
 .drinkGroup {
@@ -21,7 +20,7 @@ h3 {
   margin-top: 80px;
   margin-left: 20px;
   margin-right: 20px;
-  color: var(--button-color-light);
+  color: var(--text-color);
 
   width: 335px;
 
@@ -35,7 +34,7 @@ h3 {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 32px;
-  color: var(--button-color-light);
+  color: var(--text-color);
 
   width: 335px;
 
@@ -58,9 +57,9 @@ h3 {
 }
 
 .button:hover {
-  background: rgba(0, 0, 0, 0.5);
-}
-
+  background: var(--secont-text-cl)
+};
+  
 .image {
   display: block;
   margin: 0 auto;
@@ -69,12 +68,8 @@ h3 {
   margin-bottom: 112px;
 }
 
-.photo {
-  border-radius: 8px;
-}
-
 .categoryName {
-  color: var(--button-color-light);
+  color: var(--text-color);
 
   font-size: 28px;
   font-style: normal;
@@ -97,43 +92,6 @@ h3 {
   margin-bottom: 60px;
 }
 
-.drink img {
-  width: 100%;
-}
-
-.drink {
-  width: 335px;
-  padding: 0;
-  margin: 0;
-
-  color: var(--button-color-light);
-
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: calc(18 / 16);
-}
-
-.cocktail {
-  margin-top: 14px;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.more {
-  color: var(--grey-color);
-
-  text-align: right;
-  align-items: center;
-  padding: 0;
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: calc(18 / 14);
-}
-
 .other {
   display: flex;
   justify-content: center;
@@ -152,7 +110,6 @@ h3 {
     width: 641px;
 
     font-size: 56px;
-    font-weight: 600;
     line-height: calc(60 / 56);
   }
   .heroDescr {
@@ -164,7 +121,6 @@ h3 {
     width: 619px;
 
     font-size: 18px;
-    font-weight: 400;
     line-height: calc(24 / 18);
   }
   .button {
@@ -201,18 +157,6 @@ h3 {
     justify-content: center;
     margin-bottom: 140px;
   }
-  h5 {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(24 / 18);
-  }
-  .more {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(18 / 16);
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -231,7 +175,6 @@ h3 {
     width: 715px;
 
     font-size: 64px;
-    font-weight: 600;
     line-height: calc(68 / 64);
   }
   .heroDescr {
@@ -243,7 +186,6 @@ h3 {
     width: 500px;
 
     font-size: 18px;
-    font-weight: 400;
     line-height: calc(24 / 18);
   }
   .button {
@@ -275,17 +217,5 @@ h3 {
     line-height: calc(44 / 40);
 
     margin-bottom: 40px;
-  }
-  h5 {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(24 / 18);
-  }
-  .more {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(18 / 16);
   }
 }
