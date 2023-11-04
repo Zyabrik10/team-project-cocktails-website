@@ -3,6 +3,7 @@ import { authReducer } from './auth/slice';
 import filtersAPI from './api/filtersAPI';
 import popularDrinksAPI from './api/popularDrinksAPI';
 import themeReducer from './theme/themeSlise';
+import { getFavoriteReducer } from './favorite/getFavoriteSlice';
 
 import {
   persistStore,
@@ -31,6 +32,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     theme: persistReducer(themePersistConfig, themeReducer),
+    getFavorite: getFavoriteReducer,
     [filtersAPI.reducerPath]: filtersAPI.reducer,
     [popularDrinksAPI.reducerPath]: popularDrinksAPI.reducer,
   },
