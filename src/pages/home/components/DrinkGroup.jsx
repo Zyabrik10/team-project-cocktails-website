@@ -1,5 +1,5 @@
-import OrdinaryDrink from './sec-ordinary-drink/OrdinaryDrink';
 import css from "../Home.module.css"
+import { CocktailCard } from 'components/CocktailCard/CocktailCard';
 
 export default function DrinkGroup ({ group, cocktails }) {
   return (
@@ -7,7 +7,7 @@ export default function DrinkGroup ({ group, cocktails }) {
       <h3 className={css.categoryName}>{group}</h3>
       <div className={css.groupCard}>
         {cocktails.map(cocktail => (
-          <OrdinaryDrink cocktail={cocktail} key={cocktail._id.$oid} />
+          <CocktailCard mainDrinksPage obj={cocktail} key={cocktail._id}/>
         ))}
       </div>
     </div>

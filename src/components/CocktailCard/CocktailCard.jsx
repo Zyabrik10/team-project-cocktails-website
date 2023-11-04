@@ -6,6 +6,8 @@ import { DeleteSvg } from './svg/DeleteSvg';
 import defaltDrink from '../../img/home/ice_tea_1x.png';
 import { useSelector } from 'react-redux';
 import { getThemeColor } from 'redux/theme/selectors';
+import defaultImgDesk from '../../img/cocktailCard/default_desk.png';
+// import defaultImgTab from '../../img/cocktailCard/default_tab.png'
 
 // example card
 // const obj = {
@@ -79,7 +81,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
         <div className={css.drink_thumb}>
           <img
             className={css.img}
-            src={obj.drinkThumb}
+            src={obj.drinkThumb ?? defaultImgDesk}
             alt={obj.drink}
             onError={handleImageError}
           />
