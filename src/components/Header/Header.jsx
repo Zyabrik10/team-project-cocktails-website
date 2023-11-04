@@ -21,19 +21,50 @@ export const Header = () => {
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
 
-    const { user } = useAuth();
-
+  const { user } = useAuth();
 
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
 
+  function closeOnKeyDown({ key }) {
+    console.log('key');
+    if (key === 'Escape') {
+      if (isModalChooseOpen) setIsModalChooseOpen(false);
+      else if (isModalLogoutOpen) setIsModalLogoutOpen(false);
+      else if (isModalEditUserOpen) setIsModalEditUserOpen(false);
+
+      document.removeEventListener('keydown', closeOnKeyDown);
+    }
+  }
+
   return (
     <>
-      <ModalWindow isShown={isModalEditUserOpen} setClose={setIsModalEditUserOpen}>
-        <UserProfile setClose={setIsModalEditUserOpen} />
+      <ModalWindow
+        isShown={isModalEditUserOpen}
+        setClose={setIsModalEditUserOpen}
+        closeOnKeyDown={closeOnKeyDown}
+      >
+        <UserProfile
+          isShown={isModalEditUserOpen}
+          setClose={setIsModalEditUserOpen}
+          closeOnKeyDown={closeOnKeyDown}
+        />
       </ModalWindow>
+
       <ModalWindow isShown={isModalLogoutOpen} setClose={setIsModalLogoutOpen}>
-        <LogoutAlert setClose={setIsModalLogoutOpen} />
+        <LogoutAlert
+          isShown={isModalLogoutOpen}
+          setClose={setIsModalLogoutOpen}
+          closeOnKeyDown={closeOnKeyDown}
+        />
       </ModalWindow>
+      <DropDown
+        isOpen={isModalChooseOpen}
+        setIsOpen={setIsModalChooseOpen}
+        setIsModalEditUserOpen={setIsModalEditUserOpen}
+        setIsModalLogoutOpen={setIsModalLogoutOpen}
+        closeOnKeyDown={closeOnKeyDown}
+      />
+
       <header className={css.header}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
           <NavLink
@@ -59,12 +90,6 @@ export const Header = () => {
             <button className={css.burgerMenu}>
               <BurgerMenuSvg />
             </button>
-            <DropDown
-              isOpen={isModalChooseOpen}
-              setIsOpen={setIsModalChooseOpen}
-              setIsModalEditUserOpen={setIsModalEditUserOpen}
-              setIsModalLogoutOpen={setIsModalLogoutOpen}
-            />
           </div>
         </div>
       </header>
