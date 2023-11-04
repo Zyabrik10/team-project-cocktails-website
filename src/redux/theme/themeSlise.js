@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 const initialState = {
   theme: 'dark',
@@ -10,6 +11,7 @@ const themeSlice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.theme = action.payload;
+      toast(`${state.theme} theme`)
     },
   },
 });
