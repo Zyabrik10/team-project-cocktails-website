@@ -31,21 +31,21 @@ export const DrinkContainer = () => {
         {isLoading ? (
           <div>Loading....</div>
         ) : (
-          Object.entries(data).map(
-            ([group, cocktails]) => (
-              <DrinkGroup
-                group={group}
-                cocktails={cocktails.slice(0, amount)}
-                key={group}
-              />
-            )
-          )
+          Object.entries(data).map(([group, cocktails]) => (
+            <DrinkGroup
+              group={group}
+              cocktails={cocktails.slice(0, amount)}
+              key={group}
+            />
+          ))
         )}
       </div>
-      <div className={css.other}>
-        <p className={`${globalcss['custom-button']} ${css['button']} `}>
-          Other Drinks
-        </p>
+      <div className={css.btnContainer}>
+        <div className={css.other}>
+          <p className={`${globalcss['custom-button']} ${css['button']}`}>
+            Other Drinks
+          </p>
+        </div>
       </div>
     </>
   );
