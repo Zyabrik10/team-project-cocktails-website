@@ -7,7 +7,8 @@ import defaltDrink from '../../img/home/ice_tea_1x.png';
 import { useSelector } from 'react-redux';
 import { getThemeColor } from 'redux/theme/selectors';
 import defaultImgDesk from '../../img/cocktailCard/default_desk.png';
-// import defaultImgTab from '../../img/cocktailCard/default_tab.png'
+import defaultImgTab from '../../img/cocktailCard/default_tab.png';
+import defaultImgMob from '../../img/cocktailCard/default_mob.png';
 
 // example card
 // const obj = {
@@ -79,12 +80,27 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
     <>
       <div className={`${css['drink_card']} ${themeClass}`}>
         <div className={css.drink_thumb}>
-          <img
+          {/* <img
             className={css.img}
             src={obj.drinkThumb ?? defaultImgDesk}
             alt={obj.drink}
             onError={handleImageError}
-          />
+          /> */}
+          <picture className={css.img}>
+            <source
+              srcSet={obj.drinkThumb ?? defaultImgDesk}
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcSet={obj.drinkThumb ?? defaultImgTab}
+              media="(min-width: 768px)"
+            />
+            <img
+              src={obj.drinkThumb ?? defaultImgMob}
+              alt={obj.drink}
+              onError={handleImageError}
+            />
+          </picture>
         </div>
         {mainDrinksPage ? (
           <div className={css.main_drink_info}>
