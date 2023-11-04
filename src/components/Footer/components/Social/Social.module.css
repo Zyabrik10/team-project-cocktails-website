@@ -1,48 +1,60 @@
 .socialTitle {
-    color: #0A0A11;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px calc(24 / 18);
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(24 / 18);
 
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .socialList {
-    display: flex;
-    gap: 14px;
+  display: flex;
+  gap: 14px;
 }
 
 .socialItem {
-    border-radius: 10px;
-    border: 1px solid rgba(243, 243, 243, 0.20);
-    padding: 8px;
 }
 
 .socialLink {
-    display: flex;
+  display: flex;
+  width: 38px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  border: 1px solid var(--secont-text-cl);
+}
+
+.socialLink:hover {
+  border-color: var(--text-color);
+}
+
+.socialLink:hover .socialSvg {
+  color: var(--main-button-bg-hover);
 }
 
 .socialSvg {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
+  color: var(--main-button-bg);
 }
 
-
 @media screen and (min-width: 768px) {
-    .socialTitle {
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 24px calc(32 / 24);
+  .socialTitle {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px calc(32 / 24);
 
-        margin-bottom: 24px;
-    }
+    margin-bottom: 24px;
+  }
 
-    .socialList {
-        gap: 16px;
-    }
-    
-    .socialSvg {
-        width: 28px;
-        height: 28px;
-    }
+  .socialList {
+    gap: 16px;
+  }
+
+  .socialSvg {
+    width: 28px;
+    height: 28px;
+  }
 }

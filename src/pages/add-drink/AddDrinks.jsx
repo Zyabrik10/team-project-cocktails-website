@@ -3,18 +3,18 @@ import { Social } from 'components/Footer/components/Social/Social';
 import { Title } from 'components/Title/Title';
 import PopularDrinks from 'components/PopularDrinks';
 
-import css from 'css/global.module.css';
+import globalStyles from 'css/global.module.css';
+import css from './AddDrinks.module.css';
 
 export default function AddDrinks() {
   return (
-    <div className={css['container']}>
+    <div className={globalStyles['container']}>
       <Title children={'Add drink'} />
 
       <AddDrinkForm />
 
-      <div>
-        <h3>Follow Us</h3>
-        <Social />
+      <div className={css['socials-wrap']}>
+        <Social title={'Follow Us'} />
       </div>
 
       <section>

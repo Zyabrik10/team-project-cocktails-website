@@ -4,6 +4,10 @@ import { useState } from 'react';
 import SelectInput from 'components/SelectInput';
 import { useGetIngredientsQuery } from 'redux/api/filtersAPI';
 import { makeIngrSelectOptions } from 'components/AddDrinkForm/utils';
+import { ReactComponent as Close } from 'img/svg/close.svg';
+
+import css from './AddIngredientField.module.css';
+import ingredientSelectStyles from 'components/AddDrinkForm/styles/ingredientSelectStyles';
 
 const AddIngredientField = ({
   handleIngrChange,
@@ -38,7 +42,7 @@ const AddIngredientField = ({
   };
 
   return (
-    <div>
+    <div className={css['ingredient-row']}>
       <SelectInput
         handleSelectChange={handleSelectChange}
         inputName={'ingredient'}
@@ -46,23 +50,27 @@ const AddIngredientField = ({
         makeOptArr={makeIngrSelectOptions}
         defaultValue={inputIngredient}
         onBlur={handleOnBlur}
+        styles={ingredientSelectStyles}
       />
 
       <input
+        className={css['ingredient-input']}
         name="amound"
         type="text"
         value={inputAmound}
         onChange={handleInputChange}
         onBlur={handleOnBlur}
+        placeholder=" "
       />
       {index ? (
         <button
+          className={css['remove-btn']}
           type="button"
           onClick={() => {
             handleRemoveIngrField(id);
           }}
         >
-          Remove
+          <Close width="18" height="18" />
         </button>
       ) : null}
     </div>

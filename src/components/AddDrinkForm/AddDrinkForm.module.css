@@ -1,9 +1,120 @@
 .addForm {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin: 40px 0 80px 0;
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.14;
 }
 
 .inputs-wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.select-labels-wrap {
   position: relative;
+  display: block;
+}
+
+.select-labels {
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+
+  color: var(--secont-text-cl);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+/* Radio buttons */
+.radio-container {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.radio-label {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 2px solid var(--secont-text-cl);
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.radio-label:hover input ~ .radio-checkmark {
+  border-color: var(--text-color);
+}
+
+.radio-label input:checked ~ .radio-checkmark {
+  background-color: transparent;
+  border-color: var(--text-color);
+}
+
+.radio-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.radio-label input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+.radio-label .radio-checkmark:after {
+  top: 48%;
+  left: 50%;
+  transform: translate(-49%, -49%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-color);
+}
+
+.recipe-container {
+  margin-bottom: 20px;
+}
+
+.recipe-container .title {
+  margin-bottom: 40px;
+}
+
+.subm-btn {
+  width: 107px;
+  height: 46px;
+}
+
+.subm-btn:hover {
+  background-color: var(--main-button-bg-hover);
+  color: var(--main-button-txt-cl-hover);
 }

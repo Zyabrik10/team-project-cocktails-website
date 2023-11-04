@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import { ReactComponent as MySvg } from 'img/svg/addIMG_File.svg';
+import { ReactComponent as PlusBtn } from 'img/svg/addIMG_File.svg';
 import { FileUploader } from 'react-drag-drop-files';
 import { RefreshCcw } from 'lucide-react';
 
@@ -43,17 +43,11 @@ const ImageUploadInput = ({ handelFileChange }) => {
             </>
           ) : (
             <>
-              <MySvg width="50" height="50" className={css['svg-add']} />
+              <PlusBtn width="50" height="50" className={css['svg-add']} />
               <p>Add image</p>
             </>
           )}
         </div>
-        {/* {selectedImage && (
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            alt="Selected Preview"
-          />
-        )} */}
       </FileUploader>
     </>
   );

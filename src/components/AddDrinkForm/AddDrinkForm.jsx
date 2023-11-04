@@ -5,12 +5,14 @@ import axios from 'axios';
 import { validateIngredients, validationSchema } from './utils';
 import * as filtersAPI from 'redux/api/filtersAPI';
 
-import { TextArea, AddIngredientList, ImageUploadInput } from './components';
+import { TextArea, AddIngredientBlock, ImageUploadInput } from './components';
 import SelectInput from '../SelectInput';
 import makeSelectOptions from './utils/makeSelectOptions';
 
-import css from './AddDrinkForm.module.css';
 import TextInput from './components/TextInput';
+import css from './AddDrinkForm.module.css';
+import globalStyles from 'css/global.module.css';
+import selectsStyles from './styles/selectsStyles';
 
 const initialValues = {
   itemTitle: '',
@@ -109,7 +111,7 @@ const AddDrinkForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off" className={css.addForm}>
+      <Form autoComplete="off" className={css['addForm']}>
         <Field
           component={ImageUploadInput}
           handelFileChange={handelFileChange}
@@ -128,8 +130,10 @@ const AddDrinkForm = () => {
             title={'Give short description'}
             label={'Enter about recipe'}
           />
-          <label htmlFor="category">
-            Category
+
+          <label htmlFor="category" className={css['select-labels-wrap']}>
+            <span className={css['select-labels']}>Category</span>
+
             <Field
               component={SelectInput}
               inputName={'category'}
@@ -137,10 +141,12 @@ const AddDrinkForm = () => {
               handleSelectChange={handleSelectChange}
               makeOptArr={makeSelectOptions}
               defaultValue={category}
+              styles={selectsStyles}
             />
           </label>
-          <label htmlFor="glass">
-            Glass
+
+          <label htmlFor="glass" className={css['select-labels-wrap']}>
+            <span className={css['select-labels']}>Glass</span>
             <Field
               component={SelectInput}
               inputName={'glass'}
@@ -148,30 +154,52 @@ const AddDrinkForm = () => {
               handleSelectChange={handleSelectChange}
               makeOptArr={makeSelectOptions}
               defaultValue={glass}
+              styles={selectsStyles}
             />
           </label>
         </div>
+
         {/* Radio buttons */}
-        <div role="group" aria-labelledby="radio-group">
-          <label>
+        <div
+          className={css['radio-container']}
+          role="group"
+          aria-labelledby="radio-group"
+        >
+          <label
+            className={css['radio-label']}
+            title="Type of the drink Alcoholic"
+          >
             <Field type="radio" name="radioSelected" value="Alcoholic" />
+            <span className={css['radio-checkmark']}></span>
             Alcoholic
           </label>
-          <label>
+
+          <label
+            className={css['radio-label']}
+            title="Type of the drink Non-alcoholic"
+          >
             <Field type="radio" name="radioSelected" value="Non alcoholic" />
+            <span className={css['radio-checkmark']}></span>
             Non-alcoholic
           </label>
         </div>
         {/* Dynemic ingredient fields */}
-        <AddIngredientList
+        <AddIngredientBlock
           handleIngredientChange={handleIngredientChange}
           onSubmitErrorMessage={ingrValidationErrorMess}
         />
-        <div>
-          <h3>Recipe Preparation</h3>
+
+        <div className={css['recipe-container']}>
+          <h3 className={css['title']}>Recipe Preparation</h3>
           <Field component={TextArea} />
         </div>
-        <button type="submit">Add</button>
+
+        <button
+          className={`${globalStyles['custom-button']} ${css['subm-btn']}`}
+          type="submit"
+        >
+          Add
+        </button>
       </Form>
     </Formik>
   );

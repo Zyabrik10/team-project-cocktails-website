@@ -1,0 +1,39 @@
+.ingredients-block {
+  margin-bottom: 80px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-count-container {
+  display: flex;
+  width: 104px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  border-radius: 200px;
+  border: 1px solid var(--secont-text-cl);
+}
+
+.input-count-btn {
+  padding: 7px 10px;
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.input-count-btn:disabled {
+  color: var(--secont-text-cl);
+}

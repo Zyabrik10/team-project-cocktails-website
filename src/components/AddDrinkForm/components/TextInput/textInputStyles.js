@@ -1,9 +1,11 @@
 const textInputStyles = {
   margin: 0,
-  marginBottom: '31px',
 
   '& .MuiInput-input': {
     height: 'auto',
+    padding: 0,
+    lineHeight: 'normal',
+    textAlign: 'end',
   },
 
   '& .MuiFormLabel-root': {
@@ -18,8 +20,13 @@ const textInputStyles = {
     color: 'inherit',
     paddingBottom: '14px',
 
+    '&:hover:not(.Mui-disabled, .Mui-error):before': {
+      borderColor: 'var(--text-color)',
+    },
+
     '&:hover::before': {
       borderColor: 'var(--text-color)',
+      borderBottom: '1px solid var(--text-color)',
     },
 
     '&::before': {
