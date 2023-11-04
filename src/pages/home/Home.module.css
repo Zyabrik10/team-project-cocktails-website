@@ -50,15 +50,19 @@ h3 {
 
   width: 151px;
   height: 46px;
+  
+  background: var(--button-bg-main);
+  color: var(--button-bg-active);
 }
 
 .button:hover {
-  background: rgba(243, 243, 243, 0.8);
+  cursor: pointer;
+  border-style: solid;
+  border-color: var(--button-bg-pagination);
+  border-width: 2px;
+  color: var(--button-bg-active);
+  background: var(--button-bg-hover);
 }
-
-.button:hover {
-  background: var(--secont-text-cl)
-};
   
 .image {
   display: block;
