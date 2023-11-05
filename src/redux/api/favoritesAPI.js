@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import axiosBaseQuery from './AxiosBaseQuery';
+import axiosBaseQuery from './axiosBaseQuery';
 
 const favoritesAPI = createApi({
   reducerPath: 'favorites',

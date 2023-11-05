@@ -3,7 +3,9 @@ import { useGetFavoritesQuery } from "redux/api/favoritesAPI";
 import { SecFavorites } from "./sec-favorites/SecFavorites"
 
 export default function Favorites() {
-    const { data: favorites, isLoading, isError, error } = useGetFavoritesQuery();
+    const { data: favorites,
+        // isLoading, isError, error
+    } = useGetFavoritesQuery();
     useEffect(() => {
          if (!favorites) {
              return;
