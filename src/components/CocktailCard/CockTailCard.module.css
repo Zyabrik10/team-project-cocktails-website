@@ -49,7 +49,7 @@
   text-decoration: none;
 }
 
-.additional_drink_info{
+.additional_drink_info {
   padding-top: 18px;
 }
 .additional_drink_details {
@@ -71,8 +71,8 @@
 .additional_drink_description {
   font-size: 14px;
   color: var(--text-color);
-  height: 75px; 
-  overflow: hidden; 
+  height: 75px;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -81,10 +81,10 @@
   column-gap: 8px;
 }
 
-.link{
+.link {
   padding: 18px 44px;
   color: #f3f3f3;
-  background-color: #161F37;
+  background-color: #161f37;
   border: none;
   border-radius: 40px;
   transition: var(--transit);
@@ -94,7 +94,7 @@
 .delete_button {
   padding: 15px;
   color: #f3f3f3;
-  background-color: #161F37;
+  background-color: #161f37;
   border: none;
   border-radius: 40px;
   cursor: pointer;
@@ -102,15 +102,15 @@
 
 .same:hover,
 .same:focus {
-  color: #161F37;
+  color: #161f37;
   background-color: #f3f3f3;
 }
 
 @media screen and (min-width: 768px) {
   .drink_card {
-      width: 342px;
-    }
-    
+    width: 342px;
+  }
+
   .main_drink_title {
     font-size: 18px;
     color: var(--text-color);
@@ -150,6 +150,9 @@
     width: 400px;
   }
   .drink_thumb {
+    height: 400px;
+  }
+  .img {
     height: 400px;
   }
   .additional_drink_description {

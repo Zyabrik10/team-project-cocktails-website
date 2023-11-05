@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import axiosBaseQuery from './axiosBaseQuery';
 
 const popularDrinksAPI = createApi({
   reducerPath: 'popularDrinks',
@@ -14,7 +15,7 @@ const popularDrinksAPI = createApi({
   }),
   endpoints: builder => ({
     getPopularDrinks: builder.query({
-      query: () => '/popular',
+      query: () => ({ url: '/drinks/popular' }),
     }),
     getMainPageCocktails: builder.query({
       query: () => ({url:"/mainpage"}),
