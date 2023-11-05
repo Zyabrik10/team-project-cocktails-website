@@ -26,6 +26,8 @@ export const Header = () => {
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
 
+  console.log(themeClass);
+
   const { user } = useAuth();
 
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
