@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 import { validateIngredients, validationSchema } from './utils';
 import * as filtersAPI from 'redux/api/filtersAPI';
@@ -14,6 +15,7 @@ import TextInput from './components/TextInput';
 import css from './AddDrinkForm.module.css';
 import globalStyles from 'css/global.module.css';
 import selectsStyles from './styles/selectsStyles';
+import Loader from 'components/Loader';
 
 const initialValues = {
   itemTitle: '',
@@ -32,7 +34,7 @@ const AddDrinkForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
     const validationMessage = validateIngredients(ingredients);
@@ -70,21 +72,21 @@ const AddDrinkForm = () => {
       }
     });
 
-    for (const key of formData.keys()) {
-      console.log({ [key]: formData.get(key) });
-    }
-
     try {
+      setSubmitting(true);
       await axios({
         method: 'post',
         url: 'drinks/own/add',
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
+      toast.success('Added successfully');
+      navigate('/my', { replace: true });
+      setSubmitting(false);
     } catch (error) {
       console.log(error);
-    } finally {
-      navigate('/my', { replace: true });
+      setSubmitting(false);
+      throw toast.error('You already have this drink');
     }
   };
 
@@ -118,105 +120,117 @@ const AddDrinkForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off" className={css['addForm']}>
-        <div className={css['main-inputs-wrapp']}>
-          <Field
-            component={ImageUploadInput}
-            handelFileChange={handelFileChange}
-          />
+      {({ isSubmitting }) => (
+        <Form autoComplete="off" className={css['addForm']}>
+          <div className={css['main-inputs-wrapp']}>
+            <Field
+              component={ImageUploadInput}
+              handelFileChange={handelFileChange}
+            />
 
-          <div>
-            <div className={css['inputs-wrapp']}>
-              <Field
-                component={TextInput}
-                inputName={'itemTitle'}
-                title={'Name of your drink'}
-                label={'Enter item title'}
-              />
-              <Field
-                component={TextInput}
-                inputName={'aboutRecipe'}
-                title={'Give short description'}
-                label={'Enter about recipe'}
-              />
-
-              <label htmlFor="category" className={css['select-labels-wrap']}>
-                <span className={css['select-labels']}>Category</span>
-
+            <div>
+              <div className={css['inputs-wrapp']}>
                 <Field
-                  component={SelectInput}
-                  inputName={'category'}
-                  fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
-                  handleSelectChange={handleSelectChange}
-                  makeOptArr={makeSelectOptions}
-                  defaultValue={category}
-                  styles={selectsStyles}
+                  component={TextInput}
+                  inputName={'itemTitle'}
+                  title={'Name of your drink'}
+                  label={'Enter item title'}
                 />
-              </label>
-
-              <label htmlFor="glass" className={css['select-labels-wrap']}>
-                <span className={css['select-labels']}>Glass</span>
                 <Field
-                  component={SelectInput}
-                  inputName={'glass'}
-                  fetchSelectOpt={filtersAPI.useGetGlassesQuery}
-                  handleSelectChange={handleSelectChange}
-                  makeOptArr={makeSelectOptions}
-                  defaultValue={glass}
-                  styles={selectsStyles}
+                  component={TextInput}
+                  inputName={'aboutRecipe'}
+                  title={'Give short description'}
+                  label={'Enter about recipe'}
                 />
-              </label>
-            </div>
 
-            {/* Radio buttons */}
-            <div
-              className={css['radio-container']}
-              role="group"
-              aria-labelledby="radio-group"
-            >
-              <label
-                className={css['radio-label']}
-                title="Type of the drink Alcoholic"
+                <label htmlFor="category" className={css['select-labels-wrap']}>
+                  <span className={css['select-labels']}>Category</span>
+
+                  <Field
+                    component={SelectInput}
+                    inputName={'category'}
+                    fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
+                    handleSelectChange={handleSelectChange}
+                    makeOptArr={makeSelectOptions}
+                    defaultValue={category}
+                    styles={selectsStyles}
+                  />
+                </label>
+
+                <label htmlFor="glass" className={css['select-labels-wrap']}>
+                  <span className={css['select-labels']}>Glass</span>
+                  <Field
+                    component={SelectInput}
+                    inputName={'glass'}
+                    fetchSelectOpt={filtersAPI.useGetGlassesQuery}
+                    handleSelectChange={handleSelectChange}
+                    makeOptArr={makeSelectOptions}
+                    defaultValue={glass}
+                    styles={selectsStyles}
+                  />
+                </label>
+              </div>
+
+              {/* Radio buttons */}
+              <div
+                className={css['radio-container']}
+                role="group"
+                aria-labelledby="radio-group"
               >
-                <Field type="radio" name="radioSelected" value="Alcoholic" />
-                <span className={css['radio-checkmark']}></span>
-                Alcoholic
-              </label>
+                <label
+                  className={css['radio-label']}
+                  title="Type of the drink Alcoholic"
+                >
+                  <Field type="radio" name="radioSelected" value="Alcoholic" />
+                  <span className={css['radio-checkmark']}></span>
+                  Alcoholic
+                </label>
 
-              <label
-                className={css['radio-label']}
-                title="Type of the drink Non-alcoholic"
-              >
-                <Field
-                  type="radio"
-                  name="radioSelected"
-                  value="Non alcoholic"
-                />
-                <span className={css['radio-checkmark']}></span>
-                Non-alcoholic
-              </label>
+                <label
+                  className={css['radio-label']}
+                  title="Type of the drink Non-alcoholic"
+                >
+                  <Field
+                    type="radio"
+                    name="radioSelected"
+                    value="Non alcoholic"
+                  />
+                  <span className={css['radio-checkmark']}></span>
+                  Non-alcoholic
+                </label>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Dynemic ingredient fields */}
-        <AddIngredientBlock
-          handleIngredientChange={handleIngredientChange}
-          onSubmitErrorMessage={ingrValidationErrorMess}
-        />
+          {/* Dynemic ingredient fields */}
+          <AddIngredientBlock
+            handleIngredientChange={handleIngredientChange}
+            onSubmitErrorMessage={ingrValidationErrorMess}
+          />
 
-        <div className={css['recipe-container']}>
-          <h3 className={css['title']}>Recipe Preparation</h3>
-          <Field component={TextArea} />
-        </div>
+          <div className={css['recipe-container']}>
+            <h3 className={css['title']}>Recipe Preparation</h3>
+            <Field component={TextArea} />
+          </div>
 
-        <button
-          className={`${globalStyles['custom-button']} ${css['subm-btn']}`}
-          type="submit"
-        >
-          Add
-        </button>
-      </Form>
+          <button
+            className={`${globalStyles['custom-button']} ${css['subm-btn']}`}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <Loader
+                size={7}
+                margin={3}
+                colorDarkTheme="#0a0a11"
+                colorLightTheme="#f3f3f3"
+              />
+            ) : (
+              'Add'
+            )}
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

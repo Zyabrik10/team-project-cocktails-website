@@ -5,16 +5,19 @@ import validErrorMes from '../AddIngredientBlock/AddIngredientBlock.module.css';
 import borderError from 'components/AddDrinkForm/AddDrinkForm.module.css';
 
 const TextArea = props => {
-  const { values, handleChange, errors } = props.form;
+  const { values, handleChange, errors, touched, setTouched } = props.form;
   return (
     <>
       <textarea
         className={`${css['recipe-text-area']} ${
-          errors.recipe && borderError['validation-error-border']
+          touched.recipe &&
+          errors.recipe &&
+          borderError['validation-error-border']
         }`}
         id="recipe"
         name="recipe"
         value={values.recipe}
+        onBlur={() => setTouched({ ...touched, recipe: true })}
         onChange={handleChange}
         placeholder="Enter the recipe"
       />
