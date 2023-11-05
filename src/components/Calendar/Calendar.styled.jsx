@@ -193,7 +193,7 @@ export const Button = styled.button`
 
 export const Svg = styled.svg`
  path {
-    transition: stroke-opacity 0.3s; /* Додали анімацію зміни прозорості */
+    transition: stroke-opacity 0.3s;
   }
  &:hover {
     path {
