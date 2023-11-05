@@ -39,6 +39,14 @@ const AddIngredientBlock = ({
     }
   }, [ingredientFields, handleIngredientChange, onSubmitErrorMessage]);
 
+  useEffect(() => {
+    return () => {
+      dispatchIngredientFields({
+        type: 'clear_state',
+      });
+    };
+  }, []);
+
   const handleIngrChange = ({
     id,
     nextingredientId,

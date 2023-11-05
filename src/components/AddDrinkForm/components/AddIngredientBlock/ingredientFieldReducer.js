@@ -40,8 +40,18 @@ function ingredientFieldReducer(state, action) {
       newState.splice(index, 1);
       return newState;
     }
+    case 'clear_state': {
+      return [
+        {
+          id: nanoid(),
+          ingredientId: '',
+          ingredient: '',
+          amound: '',
+        },
+      ];
+    }
     default:
-      return;
+      return state;
   }
 }
 
