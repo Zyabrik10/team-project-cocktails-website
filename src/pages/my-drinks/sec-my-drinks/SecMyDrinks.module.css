@@ -17,43 +17,6 @@ main {
   padding-bottom: 80px;
 }
 
-.gradient1 {
-  position: absolute;
-  top: 84px;
-  left: 42px;
-  z-index: 1;
-  border-radius: 257px;
-  background: var(--nav-link-border);
-  filter: blur(104.8543701171875px);
-  width: 257px;
-  height: 247px;
-}
-
-.gradient2 {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  z-index: 1;
-  border-radius: 550px;
-  background: var(--button-main-border-hover);
-  filter: blur(104.8543701171875px);
-  transform: translateX(-80%);
-  width: 520px;
-  height: 550px;
-}
-
-.gradient3 {
-  position: absolute;
-  left: 100%;
-  z-index: 1;
-  border-radius: 550px;
-  background: var(--button-main-border-hover);
-  filter: blur(104.8543701171875px);
-  width: 550px;
-  height: 543px;
-  transform: translate(0%, 90%);
-}
-
 .drinksList {
   display: flex;
   flex-wrap: wrap;
