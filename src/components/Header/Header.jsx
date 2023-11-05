@@ -16,10 +16,17 @@ import { UserProfile } from 'components/ModalWindow/components/UserProfile/UserP
 import { DropDown } from 'components/ModalWindow/components/DropDown/DropDown';
 import { LogoutAlert } from 'components/ModalWindow/components/LogoutAlert/LogoutAlert';
 
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
+
 export const Header = () => {
+  const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
+
+  console.log(themeClass);
 
   const { user } = useAuth();
 
@@ -65,7 +72,7 @@ export const Header = () => {
         closeOnKeyDown={closeOnKeyDown}
       />
 
-      <header className={css.header}>
+      <header className={`${css[`header`]} ${`themeClass`}`}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
           <NavLink
             to="/home"
