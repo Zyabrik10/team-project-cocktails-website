@@ -6,21 +6,28 @@ import PopularDrinks from 'components/PopularDrinks';
 import globalStyles from 'css/global.module.css';
 import css from './AddDrinks.module.css';
 
-export default function AddDrinks() {
+const AddDrinks = () => {
   return (
     <div className={globalStyles['container']}>
-      <Title children={'Add drink'} />
+      <section className={css['add-page-section']}>
+        <Title children={'Add drink'} />
+        <div className={css['add-blocks-wrap']}>
+          <AddDrinkForm />
 
-      <AddDrinkForm />
+          <div>
+            <div className={css['socials-wrap']}>
+              <Social title={'Follow Us'} />
+            </div>
 
-      <div className={css['socials-wrap']}>
-        <Social title={'Follow Us'} />
-      </div>
-
-      <section>
-        <h3>Popular drinks</h3>
-        <PopularDrinks />
+            <section className={css['popular-section']}>
+              <h3 className={css['social-title']}>Popular drinks</h3>
+              <PopularDrinks />
+            </section>
+          </div>
+        </div>
       </section>
     </div>
   );
-}
+};
+
+export default AddDrinks;

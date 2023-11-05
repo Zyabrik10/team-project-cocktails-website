@@ -143,13 +143,16 @@ const AddIngredientBlock = ({
                 index={index}
                 id={id}
                 amound={amound}
+                isErrorMess={ingrValidationMessage}
               />
             </li>
           );
         })}
       </ul>
 
-      {ingrValidationMessage && <p>{ingrValidationMessage}</p>}
+      {ingrValidationMessage && (
+        <p className={css['validation-error']}>{ingrValidationMessage}</p>
+      )}
     </div>
   );
 };

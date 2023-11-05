@@ -17,7 +17,12 @@ const selectsStyles = {
     }`,
     borderRadius: 0,
     '&:hover': {
-      borderColor: 'var(--text-color)',
+      borderBottom: '2px solid var(--text-color)',
+    },
+    '@media screen and (min-width: 768px)': {
+      ...baseStyles['@media screen and (min-width: 768px)'],
+      height: '40px',
+      paddingBottom: '18px',
     },
   }),
   dropdownIndicator: (baseStyles, { selectProps }) => ({
@@ -62,7 +67,21 @@ const selectsStyles = {
     fontWeight: '400',
     lineHeight: '1.33',
     color: 'var(--secont-text-cl)',
+    borderRadius: '12px',
     backgroundColor: 'var(--select-menu-bg)',
+    '@media screen and (min-width: 768px)': {
+      ...baseStyles['@media screen and (min-width: 768px)'],
+      width: '139px',
+      padding: '14px 2px 14px 14px',
+      borderRadius: '20px',
+    },
+    '@media screen and (min-width: 1440px)': {
+      ...baseStyles['@media screen and (min-width: 1440px)'],
+      right: '-20px',
+      width: '154px',
+      fontSize: '14px',
+      lineHeight: '18px',
+    },
   }),
   menuList: baseStyles => ({
     ...baseStyles,
@@ -89,6 +108,10 @@ const selectsStyles = {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    '@media screen and (min-width: 768px)': {
+      ...baseStyles['@media screen and (min-width: 768px)'],
+      padding: '4px 0',
+    },
   }),
 };
 

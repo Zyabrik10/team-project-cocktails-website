@@ -1,0 +1,5 @@
+.main {
+  position: relative;
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
+}

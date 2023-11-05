@@ -16,6 +16,19 @@ const textInputStyles = {
     letterSpacing: '-0.28px',
   },
 
+  '& .MuiFormLabel-root.Mui-focused': {
+    color: 'var(--text-color)',
+  },
+
+  '& .Mui-error': {
+    color: 'var(--error-message-cl)',
+  },
+
+  '.MuiFormHelperText-root': {
+    fontFamily: 'Manrope',
+    fontSize: '10px',
+  },
+
   '& .MuiInput-root': {
     color: 'inherit',
     paddingBottom: '14px',
@@ -34,6 +47,10 @@ const textInputStyles = {
     },
     '&::after': {
       borderColor: 'var(--text-color)',
+    },
+
+    '@media screen and (min-width: 768px)': {
+      paddingBottom: '18px',
     },
   },
 

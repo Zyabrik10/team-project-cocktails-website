@@ -14,13 +14,23 @@
   outline: none;
 }
 
+@media screen and (min-width: 768px) {
+  .ingredient-input {
+    width: 150px;
+    height: 56px;
+
+    font-size: 17px;
+    line-height: 2.6;
+  }
+}
+
 .ingredient-input::placeholder {
   color: rgba(243, 243, 243, 0.5);
 }
 
 .ingredient-input:hover,
 .ingredient-input:focus {
-  border-color: var(--text-color);
+  border: 2px solid var(--text-color);
 }
 
 .ingredient-row {
@@ -28,10 +38,29 @@
   gap: 8px;
 }
 
+@media screen and (min-width: 768px) {
+  .ingredient-row {
+    gap: 14px;
+  }
+}
+
 .remove-btn {
   padding: 0;
+  margin-left: auto;
   color: inherit;
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.close-svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .close-svg {
+    width: 20px;
+    height: 20px;
+  }
 }

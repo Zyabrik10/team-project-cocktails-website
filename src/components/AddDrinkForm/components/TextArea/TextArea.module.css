@@ -16,6 +16,16 @@
   resize: none;
 }
 
+@media screen and (min-width: 768px) {
+  .recipe-text-area {
+    width: 480px;
+    height: 184px;
+
+    font-size: 17px;
+    line-height: 2.6;
+  }
+}
+
 .recipe-text-area::placeholder {
   color: var(--secont-text-cl);
 }

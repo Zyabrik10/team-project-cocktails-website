@@ -41,10 +41,15 @@
 }
 
 @media screen and (min-width: 768px) {
+  .socialLink {
+    width: 44px;
+    height: 44px;
+  }
+
   .socialTitle {
     font-size: 24px;
     font-weight: 500;
-    line-height: 24px calc(32 / 24);
+    line-height: calc(32 / 24);
 
     margin-bottom: 24px;
   }

@@ -74,5 +74,5 @@ SelectInput.propTypes = {
   defaultValue: PropTypes.string.isRequired,
   makeOptArr: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
-  // styles: PropTypes.object.isRequired,
+  styles: PropTypes.object.isRequired,
 };

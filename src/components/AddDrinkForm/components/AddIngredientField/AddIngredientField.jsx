@@ -7,6 +7,7 @@ import { makeIngrSelectOptions } from 'components/AddDrinkForm/utils';
 import { ReactComponent as Close } from 'img/svg/close.svg';
 
 import css from './AddIngredientField.module.css';
+import validErrorMes from 'components/AddDrinkForm/AddDrinkForm.module.css';
 import ingredientSelectStyles from 'components/AddDrinkForm/styles/ingredientSelectStyles';
 
 const AddIngredientField = ({
@@ -17,6 +18,7 @@ const AddIngredientField = ({
   id,
   index,
   amound,
+  isErrorMess = false,
 }) => {
   const [inputAmound, setinputAmound] = useState(amound);
   const [inputIngredient, setInputIngredient] = useState(ingredient);
@@ -50,11 +52,13 @@ const AddIngredientField = ({
         makeOptArr={makeIngrSelectOptions}
         defaultValue={inputIngredient}
         onBlur={handleOnBlur}
-        styles={ingredientSelectStyles}
+        styles={ingredientSelectStyles(isErrorMess)}
       />
 
       <input
-        className={css['ingredient-input']}
+        className={`${css['ingredient-input']} ${
+          isErrorMess && validErrorMes['validation-error-border']
+        }`}
         name="amound"
         type="text"
         value={inputAmound}
@@ -70,7 +74,7 @@ const AddIngredientField = ({
             handleRemoveIngrField(id);
           }}
         >
-          <Close width="18" height="18" />
+          <Close className={css['close-svg']} />
         </button>
       ) : null}
     </div>
@@ -86,4 +90,5 @@ AddIngredientField.propTypes = {
   index: PropTypes.number.isRequired,
   amound: PropTypes.string.isRequired,
   ingredient: PropTypes.string.isRequired,
+  isErrorMess: PropTypes.string,
 };

@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
           className={`${css['switchInput']}`}
           type="checkbox"
           id="themeSwitch"
-          checked={theme === 'ligth'}
+          checked={theme === 'dark'}
           onChange={handleToggleTheme}
         />
         <span className={css.switchSlider}></span>

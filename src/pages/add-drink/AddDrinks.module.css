@@ -1,3 +1,46 @@
+.add-page-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
 .socials-wrap {
   margin-bottom: 40px;
+}
+
+.social-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(24 / 18);
+}
+
+@media screen and (min-width: 768px) {
+  .add-page-section {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+
+  .socials-wrap {
+    margin-bottom: 80px;
+  }
+
+  .social-title {
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .add-blocks-wrap {
+    display: flex;
+    gap: 94px;
+    margin-top: 60px;
+  }
+
+  .add-page-section {
+    padding-top: 160px;
+  }
 }

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Form, Formik, Field } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 import { validateIngredients, validationSchema } from './utils';
 import * as filtersAPI from 'redux/api/filtersAPI';
@@ -29,12 +31,16 @@ const AddDrinkForm = () => {
 
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async values => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
 
     const validationMessage = validateIngredients(ingredients);
+
     if (validationMessage) {
       setIngrValidationErrorMess(validationMessage);
+
       return;
     }
 
@@ -78,6 +84,8 @@ const AddDrinkForm = () => {
       });
     } catch (error) {
       console.log(error);
+    } finally {
+      navigate('/my', { replace: true });
     }
   };
 
@@ -112,77 +120,86 @@ const AddDrinkForm = () => {
       onSubmit={handleSubmit}
     >
       <Form autoComplete="off" className={css['addForm']}>
-        <Field
-          component={ImageUploadInput}
-          handelFileChange={handelFileChange}
-        />
-
-        <div className={css['inputs-wrapp']}>
+        <div className={css['main-inputs-wrapp']}>
           <Field
-            component={TextInput}
-            inputName={'itemTitle'}
-            title={'Name of your drink'}
-            label={'Enter item title'}
-          />
-          <Field
-            component={TextInput}
-            inputName={'aboutRecipe'}
-            title={'Give short description'}
-            label={'Enter about recipe'}
+            component={ImageUploadInput}
+            handelFileChange={handelFileChange}
           />
 
-          <label htmlFor="category" className={css['select-labels-wrap']}>
-            <span className={css['select-labels']}>Category</span>
+          <div>
+            <div className={css['inputs-wrapp']}>
+              <Field
+                component={TextInput}
+                inputName={'itemTitle'}
+                title={'Name of your drink'}
+                label={'Enter item title'}
+              />
+              <Field
+                component={TextInput}
+                inputName={'aboutRecipe'}
+                title={'Give short description'}
+                label={'Enter about recipe'}
+              />
 
-            <Field
-              component={SelectInput}
-              inputName={'category'}
-              fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
-              handleSelectChange={handleSelectChange}
-              makeOptArr={makeSelectOptions}
-              defaultValue={category}
-              styles={selectsStyles}
-            />
-          </label>
+              <label htmlFor="category" className={css['select-labels-wrap']}>
+                <span className={css['select-labels']}>Category</span>
 
-          <label htmlFor="glass" className={css['select-labels-wrap']}>
-            <span className={css['select-labels']}>Glass</span>
-            <Field
-              component={SelectInput}
-              inputName={'glass'}
-              fetchSelectOpt={filtersAPI.useGetGlassesQuery}
-              handleSelectChange={handleSelectChange}
-              makeOptArr={makeSelectOptions}
-              defaultValue={glass}
-              styles={selectsStyles}
-            />
-          </label>
+                <Field
+                  component={SelectInput}
+                  inputName={'category'}
+                  fetchSelectOpt={filtersAPI.useGetCategoriesQuery}
+                  handleSelectChange={handleSelectChange}
+                  makeOptArr={makeSelectOptions}
+                  defaultValue={category}
+                  styles={selectsStyles}
+                />
+              </label>
+
+              <label htmlFor="glass" className={css['select-labels-wrap']}>
+                <span className={css['select-labels']}>Glass</span>
+                <Field
+                  component={SelectInput}
+                  inputName={'glass'}
+                  fetchSelectOpt={filtersAPI.useGetGlassesQuery}
+                  handleSelectChange={handleSelectChange}
+                  makeOptArr={makeSelectOptions}
+                  defaultValue={glass}
+                  styles={selectsStyles}
+                />
+              </label>
+            </div>
+
+            {/* Radio buttons */}
+            <div
+              className={css['radio-container']}
+              role="group"
+              aria-labelledby="radio-group"
+            >
+              <label
+                className={css['radio-label']}
+                title="Type of the drink Alcoholic"
+              >
+                <Field type="radio" name="radioSelected" value="Alcoholic" />
+                <span className={css['radio-checkmark']}></span>
+                Alcoholic
+              </label>
+
+              <label
+                className={css['radio-label']}
+                title="Type of the drink Non-alcoholic"
+              >
+                <Field
+                  type="radio"
+                  name="radioSelected"
+                  value="Non alcoholic"
+                />
+                <span className={css['radio-checkmark']}></span>
+                Non-alcoholic
+              </label>
+            </div>
+          </div>
         </div>
 
-        {/* Radio buttons */}
-        <div
-          className={css['radio-container']}
-          role="group"
-          aria-labelledby="radio-group"
-        >
-          <label
-            className={css['radio-label']}
-            title="Type of the drink Alcoholic"
-          >
-            <Field type="radio" name="radioSelected" value="Alcoholic" />
-            <span className={css['radio-checkmark']}></span>
-            Alcoholic
-          </label>
-
-          <label
-            className={css['radio-label']}
-            title="Type of the drink Non-alcoholic"
-          >
-            <Field type="radio" name="radioSelected" value="Non alcoholic" />
-            <span className={css['radio-checkmark']}></span>
-            Non-alcoholic
-          </label>
-        </div>
         {/* Dynemic ingredient fields */}
         <AddIngredientBlock
           handleIngredientChange={handleIngredientChange}
