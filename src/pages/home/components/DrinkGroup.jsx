@@ -12,4 +12,4 @@ export default function DrinkGroup ({ group, cocktails }) {
       </div>
     </div>
   );
-};
+}

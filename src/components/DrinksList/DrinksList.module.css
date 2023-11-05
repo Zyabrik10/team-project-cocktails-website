@@ -1,7 +1,28 @@
 .container {
+  max-width: 335px;
+  margin: 40px auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  gap: 16px;
+  grid-template-columns: repeat(1, 335px);
+  grid-row-gap: 60px;
+
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    grid-template-columns: repeat(2, 342px);
+    grid-column-gap: 20px;
+    grid-row-gap: 78px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+    grid-template-columns: repeat(3, 400px);
+    grid-row-gap: 118px;
+  }
 }
 
 .wrapper {
@@ -10,8 +31,8 @@
 }
 
 .drinkName {
-  padding: 4px;
-  margin-top: 8px;
-  margin-bottom: 0;
-  color: black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 }
