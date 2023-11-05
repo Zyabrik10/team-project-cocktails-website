@@ -3,26 +3,39 @@ import globalCss from '../../../../css/global.module.css';
 
 import CloseSvg from '../Svg/CloseSvg';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signout } from 'redux/auth/operations';
-import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
+import { useCallback, useEffect } from 'react';
+import { useRef } from 'react';
 
-export const LogoutAlert = ({ setClose }) => {
+export const LogoutAlert = ({ isShown, setClose, closeOnKeyDown }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector(selectUser);
 
-  const closeButtonHandle = () => setClose(false);
+  const ref = useRef();
 
   const buttonHandle = async () => {
     await dispatch(signout(token));
-    navigate("/welcome");
+    navigate('/welcome');
+  };
+  
+  const closeButtonHandle = () => {
+    setClose(false);
+    document.removeEventListener('keydown', closeOnKeyDown);
+
   }
 
+  const cs = useCallback(closeOnKeyDown, [closeOnKeyDown]);
+  
+  useEffect(() => {
+    if (isShown) document.addEventListener('keydown', cs);
+  }, [isShown, cs]);
+
   return (
-    <div className={css.profileAlert}>
+    <div ref={ref} className={css.profileAlert}>
       <button
         className={`${css.closeBtn} ${globalCss['global-button']}`}
         onClick={closeButtonHandle}

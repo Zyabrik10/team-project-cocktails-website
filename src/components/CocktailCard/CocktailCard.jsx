@@ -4,6 +4,8 @@ import globalCss from '../../css/global.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { DeleteSvg } from './svg/DeleteSvg';
 import defaltDrink from '../../img/home/ice_tea_1x.png';
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
 
 // example card
 // const obj = {
@@ -64,13 +66,23 @@ import defaltDrink from '../../img/home/ice_tea_1x.png';
 
 export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
   const locations = useLocation();
+  const theme = useSelector(getThemeColor);
 
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
+  const handleImageError = event => {
+    event.target.src = defaltDrink;
+  };
   return (
     <>
-      <div className={css.drink_card}>
+      <div className={`${css['drink_card']} ${themeClass}`}>
         <div className={css.drink_thumb}>
-            <img className={css.img} src={obj.drinkThumb} alt={obj.drink} />
-
+          <img
+            className={css.img}
+            src={obj.drinkThumb}
+            alt={obj.drink}
+            onError={handleImageError}
+          />
         </div>
         {mainDrinksPage ? (
           <div className={css.main_drink_info}>

@@ -16,10 +16,18 @@
   /* - Не впевнений чи ми будемо 
   це використовувати так як на темні темі немає бордеру зовсім */
 
+  --color-dark: #000000;
+  --bg-color-dark: #0a0a11;
+  --button-color-dark: #161f37;
+  --button-color-active: #434d67;
+  --button-color-pagination: #4070cd;
+  --accent-color: #bce6d2;
+  --button-color-light: #f3f3f3;
+  --grey-color: rgba(243, 243, 243, 0.5);
+
   --accent-color: #bce6d2;
   --transit: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* Light theme */
 /* Подумати над привязкою змінних не до body, а до main/(SaredLayout) так як стилі на хедері
 та футері на обох темах майже не міняються */
