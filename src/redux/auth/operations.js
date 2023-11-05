@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drunk404.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:4000';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -92,8 +92,8 @@ export const subscribeUser = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const res = await axios.post('/users/subscribe', { email });
-      console.log(res, )
-      return res.data
+      console.log(res);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
