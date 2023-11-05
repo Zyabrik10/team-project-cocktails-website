@@ -9,6 +9,7 @@ const SelectInput = ({
   defaultValue,
   makeOptArr,
   onBlur = null,
+  styles,
 }) => {
   const [options, setOptions] = useState([]);
   const [value, setValue] = useState(defaultValue);
@@ -51,12 +52,15 @@ const SelectInput = ({
 
   return (
     <Select
-      value={{ label: value }}
       name={inputName}
-      onChange={onChange}
-      options={options}
+      aria-label={`${inputName} select input`}
+      value={{ label: value }}
       isLoading={isLoading}
+      onChange={onChange}
       onBlur={onBlur}
+      options={options}
+      isSearchable={false}
+      styles={styles}
     />
   );
 };
@@ -70,4 +74,5 @@ SelectInput.propTypes = {
   defaultValue: PropTypes.string.isRequired,
   makeOptArr: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
+  styles: PropTypes.object.isRequired,
 };

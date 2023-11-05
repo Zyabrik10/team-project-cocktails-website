@@ -7,13 +7,24 @@ import EdditSvg from '../Svg/EdditSvg';
 import globalCss from '../../../../css/global.module.css';
 
 import { FormInput } from 'components/Form';
+import { useCallback, useEffect } from 'react';
 
-export const UserProfile = ({ setClose }) => {
+export const UserProfile = ({ setClose, closeOnKeyDown, isShown }) => {
   function buttonHandle(e) {
     e.preventDefault();
   }
 
-  const closeButtonHandle = () => setClose(false);
+const closeButtonHandle = () => {
+    setClose(false);
+    document.removeEventListener('keydown', closeOnKeyDown);
+
+  }
+
+  const cs = useCallback(closeOnKeyDown, [closeOnKeyDown]);
+  
+  useEffect(() => {
+    if (isShown) document.addEventListener('keydown', cs);
+  }, [isShown, cs]);
 
   return (
     <div className={css.userProfile}>

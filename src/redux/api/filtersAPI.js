@@ -1,19 +1,18 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import axiosBaseQuery from './axiosBaseQuery';
 
 const filtersAPI = createApi({
   reducerPath: 'filters',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://drunk404.onrender.com/filters',
-  }),
+  baseQuery: axiosBaseQuery(),
   endpoints: builder => ({
     getGlasses: builder.query({
-      query: () => '/glasses',
+      query: () => ({ url: '/filters/glasses' }),
     }),
     getCategories: builder.query({
-      query: () => '/categories',
+      query: () => ({ url: '/filters/categories' }),
     }),
     getIngredients: builder.query({
-      query: () => '/ingredients',
+      query: () => ({ url: '/filters/ingredients' }),
     }),
   }),
 });

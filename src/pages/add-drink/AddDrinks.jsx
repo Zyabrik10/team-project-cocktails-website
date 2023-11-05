@@ -3,24 +3,31 @@ import { Social } from 'components/Footer/components/Social/Social';
 import { Title } from 'components/Title/Title';
 import PopularDrinks from 'components/PopularDrinks';
 
-import css from 'css/global.module.css';
+import globalStyles from 'css/global.module.css';
+import css from './AddDrinks.module.css';
 
-export default function AddDrinks() {
+const AddDrinks = () => {
   return (
-    <div className={css['container']}>
-      <Title children={'Add drink'} />
+    <div className={globalStyles['container']}>
+      <section className={css['add-page-section']}>
+        <Title children={'Add drink'} />
+        <div className={css['add-blocks-wrap']}>
+          <AddDrinkForm />
 
-      <AddDrinkForm />
+          <div>
+            <div className={css['socials-wrap']}>
+              <Social title={'Follow Us'} />
+            </div>
 
-      <div>
-        <h3>Follow Us</h3>
-        <Social />
-      </div>
-
-      <section>
-        <h3>Popular drinks</h3>
-        <PopularDrinks />
+            <section className={css['popular-section']}>
+              <h3 className={css['social-title']}>Popular drinks</h3>
+              <PopularDrinks />
+            </section>
+          </div>
+        </div>
       </section>
     </div>
   );
-}
+};
+
+export default AddDrinks;
