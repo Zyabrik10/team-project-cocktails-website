@@ -49,6 +49,8 @@
   text-decoration: none;
 }
 
+.additional_drink_info {
+
 .additional_drink_info{
   padding-top: 18px;
 }
@@ -81,7 +83,7 @@
   column-gap: 8px;
 }
 
-.link{
+.link {
   padding: 18px 44px;
   color: #f3f3f3;
   background-color: #161F37;
@@ -94,7 +96,7 @@
 .delete_button {
   padding: 15px;
   color: #f3f3f3;
-  background-color: #161F37;
+  background-color: #161f37;
   border: none;
   border-radius: 40px;
   cursor: pointer;
@@ -108,9 +110,9 @@
 
 @media screen and (min-width: 768px) {
   .drink_card {
-      width: 342px;
-    }
-    
+    width: 342px;
+  }
+
   .main_drink_title {
     font-size: 18px;
     color: var(--text-color);
@@ -150,6 +152,9 @@
     width: 400px;
   }
   .drink_thumb {
+    height: 400px;
+  }
+  .img {
     height: 400px;
   }
   .additional_drink_description {
