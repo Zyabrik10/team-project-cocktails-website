@@ -1,15 +1,19 @@
-import { CocktailCard } from "components/CocktailCard/CocktailCard"
+import { CocktailCard } from "components/CocktailCard/CocktailCard";
 
-export const FavList = ({ favoritesArr }) => {
-    console.log(favoritesArr)
+export const FavList = ({ favorites, handleRemoveFavorite }) => {
+    console.log(favorites)
+    const favArray = favorites.result;
+
     return (
         <ul>
-            {favoritesArr?.map(fav =>
+            {favArray.map(fav =>
                 <li key={fav._id}>
-            <CocktailCard/>
+                    <CocktailCard
+                        obj={fav}  
+                        handleRemoveFavorite={handleRemoveFavorite}
+                    />
                </li>
                 )}
-            
         </ul>
     )
 }
