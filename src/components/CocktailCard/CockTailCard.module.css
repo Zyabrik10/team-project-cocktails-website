@@ -50,8 +50,6 @@
 }
 
 .additional_drink_info {
-
-.additional_drink_info{
   padding-top: 18px;
 }
 .additional_drink_details {
@@ -73,8 +71,8 @@
 .additional_drink_description {
   font-size: 14px;
   color: var(--text-color);
-  height: 75px; 
-  overflow: hidden; 
+  height: 75px;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -86,7 +84,7 @@
 .link {
   padding: 18px 44px;
   color: #f3f3f3;
-  background-color: #161F37;
+  background-color: #161f37;
   border: none;
   border-radius: 40px;
   transition: var(--transit);
@@ -104,7 +102,7 @@
 
 .same:hover,
 .same:focus {
-  color: #161F37;
+  color: #161f37;
   background-color: #f3f3f3;
 }
 
