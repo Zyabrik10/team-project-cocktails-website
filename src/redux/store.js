@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 import filtersAPI from './api/filtersAPI';
 import popularDrinksAPI from './api/popularDrinksAPI';
+import favoritesAPI from './api/favoritesAPI';
 import themeReducer from './theme/themeSlise';
 
 import {
@@ -33,6 +34,7 @@ export const store = configureStore({
     theme: persistReducer(themePersistConfig, themeReducer),
     [filtersAPI.reducerPath]: filtersAPI.reducer,
     [popularDrinksAPI.reducerPath]: popularDrinksAPI.reducer,
+    [favoritesAPI.reducerPath]: favoritesAPI.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -41,7 +43,8 @@ export const store = configureStore({
       },
     })
       .concat(filtersAPI.middleware)
-      .concat(popularDrinksAPI.middleware),
+      .concat(popularDrinksAPI.middleware)
+      .concat(favoritesAPI.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 export const persistor = persistStore(store);
