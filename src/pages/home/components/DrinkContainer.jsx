@@ -3,25 +3,18 @@ import css from '../Home.module.css';
 import ResizeHook from './ResizeHook';
 import { useEffect, useState } from 'react';
 import globalcss from '../../../css/global.module.css';
+import { useGetMainPageCocktailsQuery } from '../../../redux/api/popularDrinksAPI';
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
 
 export const DrinkContainer = () => {
+  const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
   const [amount, setAmount] = useState(1);
-  const [groups, setGroups] = useState({});
   let width = ResizeHook();
-  useEffect(() => {
-    fetch(`https://drunk404.onrender.com/drinks/mainpage`, {
-      method: 'GET',
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQxNmEyNDE0MzMwYjhjOWNlZjhmYWIiLCJpYXQiOjE2OTg3ODk5NDQsImV4cCI6MTY5ODc5MzU0NH0.AMzqZhz6YfZuUURgoxZ9YGmVitPTSoDa533dysFv9IA',
-      },
-    })
-      .then(res => res.json())
-      .then(respond => {
-        let groupped = respond.data.reduce((m, i) => ({ ...m, ...i }), {});
-        setGroups(groupped);
-      });
-  }, []);
+  const { data, isLoading } = useGetMainPageCocktailsQuery();
+
   useEffect(() => {
     if (width >= 1440) {
       setAmount(3);
@@ -34,21 +27,25 @@ export const DrinkContainer = () => {
 
   return (
     <>
-      <div className={css.drinkGroup}>
-        {Object.entries(groups).map(([group, cocktails]) => (
-          <DrinkGroup
-            group={group}
-            cocktails={cocktails.slice(0, amount)}
-            key={group}
-          />
-        ))}
+      <div className={`${css['drinkGroup']} ${themeClass}`}>
+        {isLoading ? (
+          <div>Loading....</div>
+        ) : (
+          Object.entries(data).map(([group, cocktails]) => (
+            <DrinkGroup
+              group={group}
+              cocktails={cocktails.slice(0, amount)}
+              key={group}
+            />
+          ))
+        )}
       </div>
-      <div className={css.other}>
-        <p
-          className={`${globalcss['custom-button']} ${css['button']} `}
-        >
-          Other Drinks
-        </p>
+      <div className={css.btnContainer}>
+        <div className={css.other}>
+          <p className={`${globalcss['custom-button']} ${css['button']}`}>
+            Other Drinks
+          </p>
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 @import '../../css/variables.css';
 
+
 /* decoration */
 /* .dec-1,
 .dec-2,
@@ -97,6 +98,7 @@
 } */
 
 .container {
+  background-color: var(--main-bg-color);
   /* background-color: var(--color-dark); */
 }
 
@@ -144,7 +146,7 @@
 
 .heroDescr {
   margin-bottom: 32px;
-  color: var(--button-color-light);
+  color: var(--text-color);
 
   width: 335px;
 
@@ -159,6 +161,17 @@
   width: 151px;
   height: 46px;
 
+  background: var(--button-bg-main);
+  color: var(--button-bg-active);
+}
+
+.button:hover {
+  cursor: pointer;
+  border-style: solid;
+  border-color: var(--button-bg-pagination);
+  border-width: 2px;
+  color: var(--button-bg-active);
+  background: var(--button-bg-hover);
   border: 1px solid var(--button-color-light);
 
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -174,14 +187,16 @@
   display: block;
   margin: 0 auto;
   width: 70%;
+  
+  margin-top: 47px;
 }
 
-.photo {
-  border-radius: 8px;
+
+  margin-bottom: 112px;
 }
 
 .categoryName {
-  color: var(--button-color-light);
+  color: var(--text-color);
 
   font-size: 28px;
   font-style: normal;
@@ -204,47 +219,16 @@
   margin-bottom: 60px;
 }
 
-.drink img {
-  width: 100%;
-}
-
-.drink {
-  width: 335px;
-  padding: 0;
-  margin: 0;
-
-  color: var(--button-color-light);
-
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: calc(18 / 16);
-}
-
-.cocktail {
-  margin-top: 14px;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.more {
-  color: var(--grey-color);
-
-  text-align: right;
-  align-items: center;
-  padding: 0;
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: calc(18 / 14);
+.btnContainer {
+  text-align: center;
+  max-width: 100%;
+  position: relative;
 }
 
 .other {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 15%;
 }
 
 @media screen and (min-width: 768px) {
@@ -255,7 +239,6 @@
     width: 641px;
 
     font-size: 56px;
-    font-weight: 600;
     line-height: calc(60 / 56);
   }
   .heroDescr {
@@ -264,7 +247,6 @@
     width: 619px;
 
     font-size: 18px;
-    font-weight: 400;
     line-height: calc(24 / 18);
   }
   .button {
@@ -298,17 +280,8 @@
     justify-content: center;
     margin-bottom: 140px;
   }
-  h5 {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(24 / 18);
-  }
-  .more {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(18 / 16);
+  .other {
+    position:relative;
   }
 }
 
@@ -324,7 +297,6 @@
     width: 715px;
 
     font-size: 64px;
-    font-weight: 600;
     line-height: calc(68 / 64);
   }
   .heroDescr {
@@ -333,7 +305,6 @@
     width: 500px;
 
     font-size: 18px;
-    font-weight: 400;
     line-height: calc(24 / 18);
   }
   .button {
@@ -364,16 +335,7 @@
 
     margin-bottom: 40px;
   }
-  h5 {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(24 / 18);
-  }
-  .more {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(18 / 16);
+  .other {
+    position:relative;
   }
 }
