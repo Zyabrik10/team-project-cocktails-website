@@ -1,6 +1,5 @@
 @import '../../css/variables.css';
 
-
 /* decoration */
 /* .dec-1,
 .dec-2,
@@ -187,12 +186,8 @@
   display: block;
   margin: 0 auto;
   width: 70%;
-  
+
   margin-top: 47px;
-}
-
-
-  margin-bottom: 112px;
 }
 
 .categoryName {
@@ -281,7 +276,7 @@
     margin-bottom: 140px;
   }
   .other {
-    position:relative;
+    position: relative;
   }
 }
 
@@ -336,6 +331,6 @@
     margin-bottom: 40px;
   }
   .other {
-    position:relative;
+    position: relative;
   }
 }
