@@ -33,16 +33,15 @@ export const Hero = ({ cocktail }) => {
         </button>
       </div>
       {/* image will be added from the props */}
-      <div>
-        <img
-          className={` ${css['img-hero']}`}
-          src={recipe.drinkThumb}
-          onError={e =>
-            (e.target.src = require('../../../img/recipe/ingredient.png'))
-          }
-          alt="drink"
-        />
-      </div>
+
+      <img
+        className={` ${css['img-hero']}`}
+        src={recipe.drinkThumb}
+        onError={e =>
+          (e.target.src = require('../../../img/recipe/ingredient.png'))
+        }
+        alt="drink"
+      />
     </div>
   );
 };
