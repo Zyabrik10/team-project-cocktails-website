@@ -27,7 +27,10 @@ const PopularDrinks = () => {
   return isLoading ? (
     <Loader />
   ) : isError ? (
-    <p> Something went wrong. Please try again!</p>
+    <>
+      <p>Sorry... 😢</p>
+      <p>Unable to show popular drinks now</p>
+    </>
   ) : (
     <ul className={css['popular-list']}>
       {drinks.map(el => {
