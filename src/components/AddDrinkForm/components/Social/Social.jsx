@@ -1,9 +1,9 @@
 import globalCss from 'css/global.module.css';
 import css from './Social.module.css';
 
-import FacebookSvg from '../../../Footer/components/Svg/FacebookSvg';
-import InstagramSvg from '../../../Footer/components/Svg/InstagramSvg';
-import YouTubeSvg from '../../../Footer/components/Svg/YouTubeSvg';
+import FacebookSvg from '../Svg/FacebookSvg';
+import InstagramSvg from '../Svg/InstagramSvg';
+import YouTubeSvg from '../Svg/YouTubeSvg';
 
 export const Social = ({ title }) => {
   return (
