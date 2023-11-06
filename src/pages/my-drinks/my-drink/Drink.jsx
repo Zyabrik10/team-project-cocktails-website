@@ -5,15 +5,30 @@ import { Ingredients } from 'components/MyDrink/Ingredients/Ingredients';
 import globalCss from '../../../css/global.module.css';
 import * as filtersAPI from '../../../redux/api/filtersAPI';
 import recipes from '../../my-drinks/recipes.json';
+import { fetchFavorite } from '../../../redux/favorite/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavorite } from 'redux/favorite/selectors';
 
 export default function Drink() {
   // 639b6de9ff77d221f190c520
   let recipe = recipes[4];
+  const dispatch = useDispatch();
+
   const [ingredients, setIngredients] = useState(null);
   const [drink, setDrink] = useState(null);
   const [filteredIngredients, setFilteredIngredients] = useState(null);
 
   const { data: ingredientsData } = filtersAPI.useGetIngredientsQuery();
+
+  const { items, isLoading, error } = useSelector(getFavorite);
+
+  useEffect(() => {
+    dispatch(fetchFavorite());
+  }, [dispatch]);
+
+  console.log('items', items);
+  console.log('isLoading', isLoading);
+  console.log('error', error);
 
   useEffect(() => {
     if (!ingredientsData) {
