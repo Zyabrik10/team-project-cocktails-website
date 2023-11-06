@@ -1,11 +1,10 @@
 import globalCss from '../../../css/global.module.css';
 import css from './Hero.module.css';
 import { Title } from 'components/Title/Title';
-import recipes from '../../../pages/my-drinks/recipes.json';
 
-export const Hero = ({ cocktail }) => {
+export const Hero = ({ signleDrink }) => {
   // const [buttonText, setButtonText] = useState('Add to favorite drinks');
-  let recipe = recipes[4];
+  console.log('propsHero', signleDrink);
 
   const handleClick = () => {
     console.log('onClick action');
@@ -15,14 +14,14 @@ export const Hero = ({ cocktail }) => {
     <div className={`${css['hero-section']}`}>
       <div className={`${css['description-section']}`}>
         <Title className={`${globalCss['global-title']} ${css['title']}`}>
-          {recipe.drink}
+          {signleDrink.drink}
         </Title>
         <p className={`${globalCss['global-p']} ${css['title-description']}`}>
-          {recipe.glass} / {recipe.alcoholic}
+          {signleDrink.glass} / {signleDrink.alcoholic}
         </p>
 
         <p className={`${globalCss['global-p']} ${css['description']}`}>
-          {recipe.description}
+          {signleDrink.description}
         </p>
         <button
           type="button"
@@ -36,7 +35,7 @@ export const Hero = ({ cocktail }) => {
 
       <img
         className={` ${css['img-hero']}`}
-        src={recipe.drinkThumb}
+        src={signleDrink.drinkThumb}
         onError={e =>
           (e.target.src = require('../../../img/recipe/ingredient.png'))
         }

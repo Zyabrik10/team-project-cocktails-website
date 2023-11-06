@@ -11,9 +11,15 @@ const popularDrinksAPI = createApi({
     getMainPageCocktails: builder.query({
       query: () => ({ url: '/drinks/mainpage' }),
     }),
+    getDrinkById: builder.query({
+      query: id => ({ url: `/drinks/${id}` }),
+    }),
   }),
 });
 
 export default popularDrinksAPI;
-export const { useGetPopularDrinksQuery, useGetMainPageCocktailsQuery } =
-  popularDrinksAPI;
+export const {
+  useGetPopularDrinksQuery,
+  useGetMainPageCocktailsQuery,
+  useGetDrinkByIdQuery,
+} = popularDrinksAPI;
