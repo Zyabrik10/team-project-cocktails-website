@@ -1,5 +1,5 @@
 .preparation-section {
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 .preparation-title {
   font-size: 28px;
@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 768px) {
   .preparation-section {
-    margin-bottom: 140px;
+    padding-bottom: 140px;
   }
   .preparation-title {
     font-size: 40px;
@@ -60,6 +60,7 @@
   }
   .preparation-description {
     text-align: left;
+    max-width: 549px;
   }
   .description-section {
     margin-bottom: 0;

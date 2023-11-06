@@ -33,7 +33,7 @@ export const Hero = ({ cocktail }) => {
         </button>
       </div>
       {/* image will be added from the props */}
-      <div>
+      <div className={` ${css['img-section']}`}>
         <img
           className={` ${css['img-hero']}`}
           src={recipe.drinkThumb}
