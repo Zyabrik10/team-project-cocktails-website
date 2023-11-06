@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
-import { updatehUser } from 'redux/auth/operations';
+import { updateUser } from 'redux/auth/operations';
 
 import CloseSvg from '../Svg/CloseSvg';
 import AddSvg from '../Svg/AddSvg';
@@ -58,7 +58,7 @@ export const UserProfile = ({ setClose, closeOnKeyDown, isShown }) => {
       setIsLoading(true);
       setDisabled(true);
 
-      dispatch(updatehUser(refreshDate))
+      dispatch(updateUser(refreshDate))
         .then(res => {
           toast.success('User updated');
           setIsLoading(false);
