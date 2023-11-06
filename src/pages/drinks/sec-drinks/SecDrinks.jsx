@@ -93,6 +93,5 @@ export default function SecDrinks() {
       </div>
       <DrinkList cocktails={cocktails} />
     </section>
-    </section>
   );
 }
