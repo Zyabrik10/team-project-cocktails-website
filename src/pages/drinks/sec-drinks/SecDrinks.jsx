@@ -43,7 +43,7 @@ export default function SecDrinks() {
   };
 
   return (
-    <>
+    <section className="section">
       <Title children="Drinks" />
       <Filter filter={filter} onChange={handleFilterChange} />
       <Select
@@ -54,6 +54,6 @@ export default function SecDrinks() {
         placeholder="All ingredients"
       />
       <DrinkList cocktails={cocktails} />
-    </>
+    </section>
   );
 }
