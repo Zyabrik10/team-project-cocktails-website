@@ -17,6 +17,7 @@ import {
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
+import drinksPageAPI from './api/drinksPageAPI';
 
 const authPersistConfig = {
   key: 'auth',
@@ -36,6 +37,7 @@ export const store = configureStore({
     [filtersAPI.reducerPath]: filtersAPI.reducer,
     [popularDrinksAPI.reducerPath]: popularDrinksAPI.reducer,
     [favoritesAPI.reducerPath]: favoritesAPI.reducer,
+    [drinksPageAPI.reducerPath]: drinksPageAPI.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -45,7 +47,8 @@ export const store = configureStore({
     })
       .concat(filtersAPI.middleware)
       .concat(popularDrinksAPI.middleware)
-      .concat(favoritesAPI.middleware),
+      .concat(favoritesAPI.middleware)
+      .concat(drinksPageAPI.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 export const persistor = persistStore(store);

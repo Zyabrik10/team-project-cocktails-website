@@ -2,12 +2,20 @@ import globalCss from '../../../css/global.module.css';
 import css from './Hero.module.css';
 import { Title } from 'components/Title/Title';
 
+import favoritesAPI from 'redux/api/favoritesAPI';
+
 export const Hero = ({ signleDrink }) => {
   // const [buttonText, setButtonText] = useState('Add to favorite drinks');
   console.log('propsHero', signleDrink);
 
-  const handleClick = () => {
+  const [addFavorite] = favoritesAPI.useAddFavoriteMutation();
+
+  const handleClick = async () => {
     console.log('onClick action');
+    const response = await addFavorite({
+      id: signleDrink.id,
+    });
+    console.log(response);
   };
 
   return (

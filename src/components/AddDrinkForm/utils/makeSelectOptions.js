@@ -1,6 +1,6 @@
 const makeSelectOptions = ({ data }) => {
   const optArr = data.map(el => ({
-    value: el.toLowerCase(),
+    value: el.toString().toLowerCase(),
     label: el,
   }));
 
