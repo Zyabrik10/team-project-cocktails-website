@@ -1,3 +1,22 @@
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+}
+
 .custom-select__control {
   margin-top: 14px !important;
   width: 335px !important;
