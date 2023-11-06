@@ -18,7 +18,12 @@ import { LogoutAlert } from 'components/ModalWindow/components/LogoutAlert/Logou
 import { MobileMenu } from './components/MobileMenu/MobileMenu';
 import CloseSvg from 'components/ModalWindow/components/Svg/CloseSvg';
 
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
+
 export const Header = () => {
+  const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
@@ -26,11 +31,52 @@ export const Header = () => {
   const { user } = useAuth();
 
   const openMenu = () => setIsMobileMunuOpen(!isMobileMunuOpen);
+
+  const { user } = useAuth();
+
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
+
+  function closeOnKeyDown({ key }) {
+    console.log('key');
+    if (key === 'Escape') {
+      if (isModalChooseOpen) setIsModalChooseOpen(false);
+      else if (isModalLogoutOpen) setIsModalLogoutOpen(false);
+      else if (isModalEditUserOpen) setIsModalEditUserOpen(false);
+
+      document.removeEventListener('keydown', closeOnKeyDown);
+    }
+  }
 
   return (
     <>
-      <header className={css.header}>
+      <ModalWindow
+        isShown={isModalEditUserOpen}
+        setClose={setIsModalEditUserOpen}
+        closeOnKeyDown={closeOnKeyDown}
+      >
+        <UserProfile
+          isShown={isModalEditUserOpen}
+          setClose={setIsModalEditUserOpen}
+          closeOnKeyDown={closeOnKeyDown}
+        />
+      </ModalWindow>
+
+      <ModalWindow isShown={isModalLogoutOpen} setClose={setIsModalLogoutOpen}>
+        <LogoutAlert
+          isShown={isModalLogoutOpen}
+          setClose={setIsModalLogoutOpen}
+          closeOnKeyDown={closeOnKeyDown}
+        />
+      </ModalWindow>
+      <DropDown
+        isOpen={isModalChooseOpen}
+        setIsOpen={setIsModalChooseOpen}
+        setIsModalEditUserOpen={setIsModalEditUserOpen}
+        setIsModalLogoutOpen={setIsModalLogoutOpen}
+        closeOnKeyDown={closeOnKeyDown}
+      />
+
+      <header className={`${css[`header`]} ${themeClass}`}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
           <NavLink
             to="/home"
@@ -59,27 +105,12 @@ export const Header = () => {
             <button onClick={openMenu} className={css.burgerMenu}>
               { isMobileMunuOpen ? <CloseSvg/> : <BurgerMenuSvg /> }
             </button>
-            <DropDown
-              isOpen={isModalChooseOpen}
-              setIsOpen={setIsModalChooseOpen}
-              setIsModalEditUserOpen={setIsModalEditUserOpen}
-              setIsModalLogoutOpen={setIsModalLogoutOpen}
-            />
           </div>
         </div>
       </header>
       <MobileMenu isOpen={isMobileMunuOpen}/>
 
       <MobileMenu/>
-
-      <ModalWindow isShown={isModalEditUserOpen} setClose={setIsModalEditUserOpen}>
-        <UserProfile setClose={setIsModalEditUserOpen} />
-      </ModalWindow>
-
-      <ModalWindow isShown={isModalLogoutOpen} setClose={setIsModalLogoutOpen}>
-        <LogoutAlert setClose={setIsModalLogoutOpen} />
-      </ModalWindow>
-
     </>
   );
 };

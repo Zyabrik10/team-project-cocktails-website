@@ -8,23 +8,27 @@
   --text-color: #f3f3f3;
   --secont-text-cl: rgba(243, 243, 243, 0.5);
   --button-bg-active: #161f37;
-  --button-bg-main: #f3f3f3;
-  --button-bg-hover: #fff;
+  --main-button-bg: #f3f3f3;
+  --main-button-txt-cl: #161f37;
+  --main-button-txt-cl-hover: #f3f3f3;
+  --main-button-bg-hover: rgba(243, 243, 243, 0.7);
   --button-bg-pagination: rgba(64, 112, 205, 0.5);
   --nav-link-border: rgba(243, 243, 243, 0.2);
   --button-main-border-hover: rgba(64, 112, 205, 0.5);
+  --select-menu-bg: #161f37;
+  --drop-file-area: rgba(22, 31, 55, 0.5);
   /* - Не впевнений чи ми будемо 
   це використовувати так як на темні темі немає бордеру зовсім */
-  
+
   --color-dark: #000000;
   --bg-color-dark: #0a0a11;
   --button-color-dark: #161f37;
   --button-color-active: #434d67;
-  --button-color-pagination: #4070cd;
   --accent-color: #bce6d2;
   --button-color-light: #f3f3f3;
-  --grey-color: rgba(243, 243, 243, 0.50);
+  --grey-color: rgba(243, 243, 243, 0.5);
 
+  --error-message-cl: #d32f2f;
   --accent-color: #bce6d2;
   --transit: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -35,8 +39,14 @@
   --main-bg-color: #fff;
   --text-color: #0a0a11;
   --secont-text-cl: rgba(10, 10, 17, 0.5);
-  --button-bg-main: #161f37;
-  --button-bg-hover: #434d67;
+  --main-button-bg: #161f37;
+  --main-button-txt-cl: #f3f3f3;
+  --main-button-bg-hover: #434d67;
   --nav-link-border: rgba(22, 31, 55, 0.2);
   --button-cl-pagination: #4070cd;
+  --button-bg-active: #f3f3f3;
+  --button-bg-pagination: #4070cd;
+  --select-menu-bg: #fff;
+  --drop-file-area: #161f37;
+  --button-main-border-hover: #434d67;
 }

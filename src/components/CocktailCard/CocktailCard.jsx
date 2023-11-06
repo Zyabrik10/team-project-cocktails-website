@@ -3,9 +3,9 @@ import css from './CockTailCard.module.css';
 import globalCss from '../../css/global.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { DeleteSvg } from './svg/DeleteSvg';
-import defaltDrink from '../../img/home/ice_tea_1x.png';
 import { useSelector } from 'react-redux';
 import { getThemeColor } from 'redux/theme/selectors';
+import defaultImgDesk from '../../img/cocktailCard/default_desk.png';
 
 // example card
 // const obj = {
@@ -71,7 +71,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
   const themeClass = theme === 'dark' ? 'main' : 'main light';
 
   const handleImageError = event => {
-    event.target.src = defaltDrink;
+    event.target.src = defaultImgDesk;
   };
   return (
     <>
@@ -130,7 +130,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
               <button
                 type="button"
                 className={`${css['delete_button']} ${css['same']}`}
-                onClick={() => handleDelete()}
+                onClick={() => handleDelete(obj._id.$oid)}
               >
                 <DeleteSvg></DeleteSvg>
               </button>

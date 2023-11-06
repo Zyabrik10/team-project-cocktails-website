@@ -6,11 +6,16 @@ import AddIngredientField from '../AddIngredientField';
 import ingredientFieldReducer from './ingredientFieldReducer';
 import { validateIngredients } from '../../utils';
 
+import css from './AddIngredientBlock.module.css';
+import addFormTitlesStyles from 'components/AddDrinkForm/AddDrinkForm.module.css';
+import { ReactComponent as Plus } from 'img/svg/plus.svg';
+import { ReactComponent as Minus } from 'img/svg/minus.svg';
+
 const initialState = [
   { id: nanoid(), ingredientId: '', ingredient: '', amound: '' },
 ];
 
-const AddIngredientList = ({
+const AddIngredientBlock = ({
   handleIngredientChange,
   onSubmitErrorMessage,
 }) => {
@@ -33,6 +38,14 @@ const AddIngredientList = ({
       setIngrValidationMessage(null);
     }
   }, [ingredientFields, handleIngredientChange, onSubmitErrorMessage]);
+
+  useEffect(() => {
+    return () => {
+      dispatchIngredientFields({
+        type: 'clear_state',
+      });
+    };
+  }, []);
 
   const handleIngrChange = ({
     id,
@@ -67,11 +80,11 @@ const AddIngredientList = ({
   };
 
   const handleAddDeductIngrField = e => {
-    switch (e.target.textContent) {
-      case '+':
+    switch (e.currentTarget.textContent) {
+      case 'Plus':
         return dispatchIngredientFields({ type: 'add_element' });
 
-      case '-':
+      case 'Minus':
         return dispatchIngredientFields({ type: 'remove_element' });
 
       default:
@@ -98,55 +111,63 @@ const AddIngredientList = ({
   };
 
   return (
-    <div>
-      <div>
-        <h3>Ingredients</h3>
+    <div className={css['ingredients-block']}>
+      <div className={css['title-container']}>
+        <h3 className={addFormTitlesStyles['title']}>Ingredients</h3>
 
-        <div>
+        <div className={css['input-count-container']}>
           <button
+            className={css['input-count-btn']}
             onClick={handleAddDeductIngrField}
             type="button"
             disabled={ingredientFields.length < 2}
           >
-            -
+            <Minus width="16" height="16" />
           </button>
 
           <span>{ingredientFields.length}</span>
 
           <button
+            className={css['input-count-btn']}
             onClick={handleAddDeductIngrField}
             type="button"
             disabled={ingredientFields.length >= 10}
           >
-            +
+            <Plus width="16" height="16" />
           </button>
         </div>
+      </div>
 
+      <ul className={css['ingredients-list']}>
         {ingredientFields.map((el, index) => {
           const { ingredient, id, amound } = el;
           return (
-            <AddIngredientField
-              key={nanoid()}
-              ingredient={ingredient}
-              handleIngrChange={handleIngrChange}
-              handleRemoveIngrField={handleRemoveIngrField}
-              handleOnBlur={handleOnBlur}
-              index={index}
-              id={id}
-              amound={amound}
-            />
+            <li key={nanoid()}>
+              <AddIngredientField
+                ingredient={ingredient}
+                handleIngrChange={handleIngrChange}
+                handleRemoveIngrField={handleRemoveIngrField}
+                handleOnBlur={handleOnBlur}
+                index={index}
+                id={id}
+                amound={amound}
+                isErrorMess={ingrValidationMessage}
+              />
+            </li>
           );
         })}
+      </ul>
 
-        {ingrValidationMessage && <p>{ingrValidationMessage}</p>}
-      </div>
+      {ingrValidationMessage && (
+        <p className={css['validation-error']}>{ingrValidationMessage}</p>
+      )}
     </div>
   );
 };
 
-export default AddIngredientList;
+export default AddIngredientBlock;
 
-AddIngredientList.propTypes = {
+AddIngredientBlock.propTypes = {
   handleIngredientChange: PropTypes.func.isRequired,
   onSubmitErrorMessage: PropTypes.string,
 };

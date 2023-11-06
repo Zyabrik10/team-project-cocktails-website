@@ -1,0 +1,36 @@
+.recipe-text-area {
+  width: 100%;
+  height: 184px;
+  padding: 16px 18px;
+
+  color: inherit;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+
+  border: 1px solid var(--secont-text-cl);
+  border-radius: 14px;
+  background: none;
+  outline: none;
+  resize: none;
+}
+
+@media screen and (min-width: 768px) {
+  .recipe-text-area {
+    width: 480px;
+    height: 184px;
+
+    font-size: 17px;
+    line-height: 2.6;
+  }
+}
+
+.recipe-text-area::placeholder {
+  color: var(--secont-text-cl);
+}
+
+.recipe-text-area:hover,
+.recipe-text-area:focus {
+  border-color: var(--text-color);
+}

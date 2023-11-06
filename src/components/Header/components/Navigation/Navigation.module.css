@@ -1,3 +1,5 @@
+@import url('css/variables.css');
+
 @media screen and (max-width: 1439px) {
     .nav {
         display: none;
@@ -10,35 +12,35 @@
     .nan {
         display: none;
     }
+
 }
 
-
 @media screen and (min-width: 1440px) {
-    .nav {
-        display: block;
-    }
+  .nav {
+    display: flex;
+  }
 
-    .navLink {
-        border-radius: 40px;
-        border: 1px solid rgba(22, 31, 55, 0.20);
-        margin-right: 16px;
-        padding: 8px 16px;
+  .navLink {
+    border-radius: 40px;
+    border: 1px solid var(--nav-link-border);
+    margin-right: 16px;
+    padding: 8px 16px;
 
-        /* color: #161F37; */
-        color: #F3F3F3;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: calc(23 / 14);
-        transition: color 0.4s, background-color 0.4s;
+    /* color: #161F37; */
+    color: var(--main-button-bg);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(23 / 14);
+    transition: color 0.4s, background-color 0.4s;
+  }
 
-        &:hover,
-        &:focus {
-            color: #F3F3F3;
-            background-color: #161F37;
-        }
-    }
+  .navLink:hover,
+  .navLink:focus {
+    color: #f3f3f3;
+    background-color: #161f37;
+  }
 
-    .navLink:last-child {
-        margin-right: 0;
-    }
+  .navLink:last-child {
+    margin-right: 0;
+  }
 }

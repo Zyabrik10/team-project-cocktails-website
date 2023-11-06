@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drunk404.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:4000';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -83,6 +83,22 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch('/users/update', credentials, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 /*
  * POST @ /users/subscribe
  * body: { email }
@@ -92,8 +108,7 @@ export const subscribeUser = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const res = await axios.post('/users/subscribe', { email });
-      console.log(res, )
-      return res.data
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

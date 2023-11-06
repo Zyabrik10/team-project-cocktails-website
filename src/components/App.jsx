@@ -9,9 +9,14 @@ import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
-
 import { Signin, Signup, Start } from 'pages';
 import { ErrorComponent } from './ErrorComponent/ErrorComponent';
+
+import { getThemeColor } from 'redux/theme/selectors';
+
+import { useSelector } from 'react-redux';
+
+import css from './App.module.css';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
 const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
@@ -24,6 +29,9 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
+    const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -31,67 +39,69 @@ export const App = () => {
   return isRefreshing ? (
     <p>Loading...</p>
   ) : (
-    <Routes>
-      <Route
-        path="/"
-        element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
-      >
-        <Route path="*" element={<ErrorComponent />} />
+    <div className={`${css["bg"]} ${themeClass}`}>
+      <Routes>
         <Route
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Layout />} />
-          }
-        />
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
-          }
-        />
-        <Route
-          path="/drinks"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
-          }
-        />
-        <Route
-          path="/add"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
-          }
-        />
-        <Route
-          path="/my"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
-          }
-        />
-        <Route
-          path="/favorites"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
-          }
-        />
-        <Route
-          path="/drink/:drinkId"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<SingleDrinkPage />}/>
-          }
-        />
-      </Route>
+          path="/"
+          element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+        >
+          <Route path="*" element={<ErrorComponent />} />
+          <Route
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<Layout />} />
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+            }
+          />
+          <Route
+            path="/drinks"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
+            }
+          />
+          <Route
+            path="/add"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
+            }
+          />
+          <Route
+            path="/my"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
+            }
+          />
+          <Route
+            path="/drink/:drinkId"
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<SingleDrinkPage />}/>
+            }
+          />
+        </Route>
 
-      <Route
-        path="/welcome"
-        element={<RestrictedRoute redirectTo="/home" component={<Start />} />}
-      />
-      <Route
-        path="/signup"
-        element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
-      />
-      <Route
-        path="/signin"
-        element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
-      />
-    </Routes>
+        <Route
+          path="/welcome"
+          element={<RestrictedRoute redirectTo="/home" component={<Start />} />}
+        />
+        <Route
+          path="/signup"
+          element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
+        />
+        <Route
+          path="/signin"
+          element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
+        />
+      </Routes>
+      </div>
   );
 };

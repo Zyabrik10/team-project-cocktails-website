@@ -10,6 +10,9 @@
 .img-ingredient {
   width: 157px;
   height: 157px;
+  padding: 32px;
+  border-radius: 8px;
+  background: #161f37;
 }
 .title-ingredients {
   margin-bottom: 42px;

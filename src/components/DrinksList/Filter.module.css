@@ -1,0 +1,42 @@
+.container {
+  margin-top: 40px;
+}
+
+.input {
+  width: 335px;
+  height: 54px;
+  background: transparent;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  padding: 18px 24px;
+  border-radius: 200px;
+
+  color: #f3f3f3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: calc(18 / 14);
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: rgba(243, 243, 243, 0.5);
+}
+
+.input:focus,
+.input:hover {
+  border-color: #f3f3f3;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    margin-top: 80px;
+  }
+}
