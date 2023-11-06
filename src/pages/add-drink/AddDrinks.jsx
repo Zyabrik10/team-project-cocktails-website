@@ -1,5 +1,5 @@
 import AddDrinkForm from 'components/AddDrinkForm';
-import { Social } from 'components/Footer/components/Social/Social';
+import { Social } from 'components/AddDrinkForm/components/Social/Social';
 import { Title } from 'components/Title/Title';
 import PopularDrinks from 'components/PopularDrinks';
 
