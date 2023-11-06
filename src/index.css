@@ -14,6 +14,20 @@ body {
   font-family: 'Manrope', sans-serif;
 
   overflow-x: hidden;
+  /* overflow: overlay; */
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--main-bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(243, 243, 243, 0.7);
+  border-radius: 20px;
 }
 
 h1,

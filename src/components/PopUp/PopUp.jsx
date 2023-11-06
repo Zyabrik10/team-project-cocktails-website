@@ -10,7 +10,7 @@ export const PopUp = () => {
       position="top-center"
       toastOptions={{
         className: `${css['popup']} ${themeClass}`,
-        duration: 1000,
+        duration: 2000,
       }}
     />
   );
