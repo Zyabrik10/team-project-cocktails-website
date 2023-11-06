@@ -3,12 +3,21 @@ import css from './Hero.module.css';
 import { Title } from 'components/Title/Title';
 import recipes from '../../../pages/my-drinks/recipes.json';
 
+import favoritesAPI from 'redux/api/favoritesAPI';
+
 export const Hero = ({ cocktail }) => {
   // const [buttonText, setButtonText] = useState('Add to favorite drinks');
   let recipe = recipes[4];
 
-  const handleClick = () => {
+  const [addFavorite] = favoritesAPI.useAddFavoriteMutation();
+
+
+  const handleClick = async () => {
     console.log('onClick action');
+    const response = await addFavorite({
+      id: cocktail._id.$oid,
+    })
+    console.log(response)
   };
 
   return (

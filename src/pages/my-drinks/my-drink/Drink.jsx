@@ -71,7 +71,7 @@ export default function Drink() {
 
   return (
     <div className={`${globalCss['container']}`}>
-      <Hero />
+      <Hero cocktail={drink}/>
       <Ingredients ingredients={filteredIngredients} />
       <Preparation />
     </div>

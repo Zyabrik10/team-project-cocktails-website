@@ -9,7 +9,7 @@ export const SecFavorites = ({ favorites, handleDelete }) => {
     return (
         <div className={`${globalCss.container}`}>
             <Title>Favorites</Title>
-            {favorites ? <FavList
+            {favorites.length ? <FavList
                 favorites={favorites}
                 handleDelete={handleDelete}
             /> : <FavNotFound />}
