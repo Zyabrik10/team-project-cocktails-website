@@ -5,7 +5,6 @@ const textInputStyles = {
     height: 'auto',
     padding: 0,
     lineHeight: 'normal',
-    textAlign: 'end',
   },
 
   '& .MuiFormLabel-root': {

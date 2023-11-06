@@ -21,15 +21,14 @@ export const LogoutAlert = ({ isShown, setClose, closeOnKeyDown }) => {
     await dispatch(signout(token));
     navigate('/welcome');
   };
-  
+
   const closeButtonHandle = () => {
     setClose(false);
     document.removeEventListener('keydown', closeOnKeyDown);
-
-  }
+  };
 
   const cs = useCallback(closeOnKeyDown, [closeOnKeyDown]);
-  
+
   useEffect(() => {
     if (isShown) document.addEventListener('keydown', cs);
   }, [isShown, cs]);
@@ -45,6 +44,7 @@ export const LogoutAlert = ({ isShown, setClose, closeOnKeyDown }) => {
       <p className={css.alertTitle}>Are you sure you want to log out?</p>
       <div className={css.btnBox}>
         <button
+          style={{ background: '#f3f3f3' }}
           onClick={buttonHandle}
           className={`${css.logoutBtn} ${globalCss['global-button']} ${globalCss['custom-button']}`}
         >
