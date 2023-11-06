@@ -130,7 +130,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
               <button
                 type="button"
                 className={`${css['delete_button']} ${css['same']}`}
-                onClick={() => handleDelete(obj._id.$oid)}
+                onClick={() => handleDelete(obj._id)}
               >
                 <DeleteSvg></DeleteSvg>
               </button>
