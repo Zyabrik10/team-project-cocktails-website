@@ -1,108 +1,14 @@
 @import '../../css/variables.css';
 
-/* decoration */
-/* .dec-1,
-.dec-2,
-.dec-3 {
-  position: absolute;
-  z-index: -1;
+p,
+h3 {
+  margin: 0;
 }
-
-.dec-1 {
-  border-radius: 849px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-
-  top: 0;
-  left: 0;
-
-  transform: translate(-80%, -10%);
-
-  width: 784px;
-  height: 849px;
-}
-
-@media screen and (min-width: 1440px) {
-  .dec-1 {
-    transform: translate(-65%, -10%);
-  }
-}
-
-.dec-2 {
-  border-radius: 387px;
-  background: rgba(188, 230, 210, 0.3);
-  filter: blur(104.8543701171875px);
-
-  bottom: 0;
-  right: 0;
-
-  transform: translate(-100%, -20%);
-
-  width: 387px;
-  height: 381px;
-
-  display: none;
-}
-
-@media screen and (min-width: 1440px) {
-  .dec-2 {
-    display: block;
-  }
-}
-
-.dec-3 {
-  border-radius: 549px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-
-  bottom: 0;
-  right: 0;
-
-  transform: translate(20%, 25%);
-
-  width: 549px;
-  height: 543px;
-}
-
-@media screen and (min-width: 768px) {
-  .dec-3 {
-    border-radius: 549px;
-    background: rgba(64, 112, 205, 0.5);
-    filter: blur(104.8543701171875px);
-
-    bottom: 0;
-    right: 0;
-
-    transform: translate(20%, 25%);
-
-    width: 549px;
-    height: 543px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .dec-3 {
-    border-radius: 549px;
-    background: rgba(64, 112, 205, 0.5);
-    filter: blur(104.8543701171875px);
-
-    bottom: 0;
-    right: 0;
-
-    transform: translate(20%, 25%);
-
-    width: 549px;
-    height: 543px;
-  }
-} */
 
 .container {
   background-color: var(--main-bg-color);
-  /* background-color: var(--color-dark); */
-}
-
-.heroContainer {
-  position: relative;
+  padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 .drinkGroup {
@@ -111,41 +17,11 @@
   flex-direction: column;
 }
 
-.hero {
-  position: relative;
-  padding-top: 85px;
-  padding-bottom: 112px;
-}
-
-@media screen and (min-width: 768px) {
-  .hero {
-    padding-top: 120px;
-    padding-bottom: 123px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .hero {
-    padding-top: 185px;
-    padding-bottom: 218px;
-  }
-}
-
-.headerHero {
-  color: var(--button-color-light);
-
-  width: 335px;
-
-  font-size: 32px;
-  font-weight: 600;
-  line-height: calc(38 / 32);
-
-  margin-bottom: 16px;
-}
-
 .heroDescr {
-  margin-bottom: 32px;
   color: var(--text-color);
+
+  margin-top: 16px;
+  margin-bottom: 32px;
 
   width: 335px;
 
@@ -155,39 +31,29 @@
 }
 
 .button {
-  margin-bottom: 47px;
-
   width: 151px;
   height: 46px;
 
-  background: var(--button-bg-main);
-  color: var(--button-bg-active);
+  background: var(--main-button-bg);
+  color: var(--main-button-txt-cl);
 }
 
 .button:hover {
   cursor: pointer;
   border-style: solid;
-  border-color: var(--button-bg-pagination);
+  border-color: var(--button-main-border-hover);
   border-width: 2px;
   color: var(--button-bg-active);
-  background: var(--button-bg-hover);
-  border: 1px solid var(--button-color-light);
-
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.button:hover {
-  background-color: transparent;
-  color: aliceblue;
+  background: var(--main-button-bg-hover);
 }
 
 .image {
-  position: relative;
   display: block;
   margin: 0 auto;
   width: 70%;
 
   margin-top: 47px;
+  margin-bottom: 112px;
 }
 
 .categoryName {
@@ -215,28 +81,23 @@
 }
 
 .btnContainer {
-  text-align: center;
-  max-width: 100%;
-  position: relative;
-}
-
-.other {
-  position: absolute;
-  top: 50%;
-  left: 15%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    padding-top: 120px;
+    padding-bottom: 140px;
+  }
   .drink {
     width: 342px;
   }
-  .headerHero {
-    width: 641px;
-
-    font-size: 56px;
-    line-height: calc(60 / 56);
-  }
   .heroDescr {
+    margin-top: 28px;
     margin-bottom: 48px;
 
     width: 619px;
@@ -252,6 +113,7 @@
   }
   .image {
     width: 50%;
+    margin-bottom: 123px;
   }
   .cocktailCard {
     margin-left: 32px;
@@ -270,32 +132,23 @@
   .other > .button {
     margin-bottom: 0;
   }
-  .other {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 140px;
-  }
-  .other {
-    position: relative;
-  }
 }
 
 @media screen and (min-width: 1440px) {
   .heroContainer {
     display: flex;
+    margin-bottom: 160px;
   }
-  .image {
-    transform: translateY(-15%);
-    margin-left: 130px;
+  .title{
+    padding-top: 57px;
   }
-  .headerHero {
-    width: 715px;
-
-    font-size: 64px;
-    line-height: calc(68 / 64);
+  .image{
+    margin-bottom: 0;
+    margin-top: 0;
   }
   .heroDescr {
-    margin-bottom: 48px;
+    margin-top: 28px;
+    margin-bottom: 40px;
 
     width: 500px;
 
@@ -331,6 +184,6 @@
     margin-bottom: 40px;
   }
   .other {
-    position: relative;
+    position:relative;
   }
 }

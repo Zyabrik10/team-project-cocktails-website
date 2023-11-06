@@ -6,6 +6,7 @@ import globalcss from '../../../css/global.module.css';
 import { useGetMainPageCocktailsQuery } from '../../../redux/api/popularDrinksAPI';
 import { useSelector } from 'react-redux';
 import { getThemeColor } from 'redux/theme/selectors';
+import { Link } from 'react-router-dom';
 
 export const DrinkContainer = () => {
   const theme = useSelector(getThemeColor);
@@ -42,9 +43,9 @@ export const DrinkContainer = () => {
       </div>
       <div className={css.btnContainer}>
         <div className={css.other}>
-          <p className={`${globalcss['custom-button']} ${css['button']}`}>
+          <Link className={`${globalcss['custom-button']} ${css['button']}`} to="/drinks">
             Other Drinks
-          </p>
+          </Link>
         </div>
       </div>
     </>
