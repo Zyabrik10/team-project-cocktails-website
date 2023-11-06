@@ -8,14 +8,25 @@ const favoritesAPI = createApi({
     getFavorites: builder.query({
       query: () => ({ url: '/drinks/favorite' }),
     }),
-    // getCategories: builder.query({
-    //   query: () => ({ url: '/filters/categories' }),
-    // }),
+      addFavorite: builder.mutation({
+          query: (drinkId) => ({
+              url: '/drinks/favorite/add',
+              method: 'POST',
+              body: { drinkId },
+          })
+      }),
+      removeFavorite: builder.mutation({
+          query: (drinkId) => ({
+              url: `/drinks/favorite/remove/${drinkId}`,
+              method: 'DELETE',
+          })
+      }),
   }),
 });
 
 export default favoritesAPI;
 export const {
-  useGetFavoritesQuery,
-//   useGetCategoriesQuery,
+    useGetFavoritesQuery,
+    useAddFavoriteMutation,
+    useRemoveFavoriteMutation,
 } = favoritesAPI;
