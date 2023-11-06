@@ -10,6 +10,7 @@ import * as filtersAPI from 'redux/api/filtersAPI';
 import { TextArea, AddIngredientBlock, ImageUploadInput } from './components';
 import SelectInput from '../SelectInput';
 import makeSelectOptions from './utils/makeSelectOptions';
+import makeFormData from './utils/makeFormData';
 
 import TextInput from './components/TextInput';
 import css from './AddDrinkForm.module.css';
@@ -47,29 +48,15 @@ const AddDrinkForm = () => {
 
     setIngrValidationErrorMess(null);
 
-    const succesIngredients = ingredients
-      .filter(
-        el => el.amound !== '' && el.ingredient !== '' && el.ingredientId !== ''
-      )
-      .map(el => ({
-        ingredientId: el.ingredientId,
-        measure: el.amound.trim(),
-        title: el.ingredient.trim(),
-      }));
-
-    const formData = new FormData();
-    formData.append('drink', itemTitle.trim());
-    formData.append('description', aboutRecipe.trim());
-    formData.append('category', category);
-    formData.append('glass', glass);
-    formData.append('alcoholic', radioSelected);
-    formData.append('instructions', recipe.trim());
-    formData.append('drinkThumb', file);
-
-    succesIngredients.forEach((item, index) => {
-      for (const key in item) {
-        formData.append(`ingredients[${index}][${key}]`, item[key]);
-      }
+    const formData = makeFormData({
+      ingredients,
+      aboutRecipe,
+      itemTitle,
+      category,
+      glass,
+      radioSelected,
+      recipe,
+      file,
     });
 
     try {
@@ -84,7 +71,7 @@ const AddDrinkForm = () => {
       navigate('/my', { replace: true });
       setSubmitting(false);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setSubmitting(false);
       throw toast.error('You already have this drink');
     }
