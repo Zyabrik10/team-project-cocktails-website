@@ -1,25 +1,15 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-// import axiosBaseQuery from './axiosBaseQuery';
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import axiosBaseQuery from './axiosBaseQuery';
 
 const popularDrinksAPI = createApi({
   reducerPath: 'popularDrinks',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://drunk404.onrender.com/drinks',
-    prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.token;
-      if (token) {
-        headers.set('authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }),
+  baseQuery: axiosBaseQuery(),
   endpoints: builder => ({
     getPopularDrinks: builder.query({
       query: () => ({ url: '/drinks/popular' }),
     }),
     getMainPageCocktails: builder.query({
-      query: () => ({ url: '/mainpage' }),
+      query: () => ({ url: '/drinks/mainpage' }),
     }),
   }),
 });

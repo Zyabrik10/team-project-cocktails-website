@@ -94,10 +94,16 @@ const selectsStyles = {
       borderRadius: '20px',
     },
   }),
-  option: baseStyles => ({
+  option: (baseStyles, state) => ({
     ...baseStyles,
+
     padding: '3px 0',
-    backgroundColor: 'none',
+    color:
+      state.getValue()[0].label === state.data.label
+        ? 'var(--text-color)'
+        : 'var(--secont-text-cl)',
+    background: 'none',
+
     '&:hover': { color: 'var(--text-color)' },
     '&:active': {
       color: 'var(--text-color)',

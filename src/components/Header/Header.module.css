@@ -1,8 +1,11 @@
+@import url('css/variables.css');
+
 .header {
   /* border-bottom: solid 1px rgba(22, 31, 55, 0.10); */
-  border-bottom: solid 1px rgba(243, 243, 243, 0.2);
+  border-bottom: solid 1px var(--nav-link-border);
   padding-top: 20px;
   padding-bottom: 20px;
+  background: transparent;
 }
 
 .headerBox {
@@ -18,14 +21,14 @@
 }
 
 .logoSvg {
-  fill: #f3f3f3;
+  fill: vvar(--text-color);
   width: 22px;
   height: 22px;
 }
 
 .title {
   /* color: #161F37; */
-  color: #f3f3f3;
+  color: var(--text-color);
   font-size: 16px;
   font-weight: 600;
   line-height: calc(18 / 16);
@@ -57,7 +60,7 @@
 
 .name {
   /* color: #161F37; */
-  color: #f3f3f3;
+  color: var(--text-color);
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
@@ -118,28 +121,29 @@
   }
 
   .nav {
-    display: block;
+    display: flex;
   }
 
   .navLink {
     border-radius: 40px;
-    border: 1px solid rgba(22, 31, 55, 0.2);
+    border: 1px solid var(--button-main-border-hover);
     margin-right: 16px;
     padding: 8px 16px;
 
     /* color: #161F37; */
-    color: #f3f3f3;
+    color: var(--main-button-bg);
     font-size: 14px;
     font-weight: 500;
     line-height: calc(23 / 14);
     transition: color 0.4s, background-color 0.4s;
-
-    &:hover,
-    &:focus {
-      color: #f3f3f3;
-      background-color: #161f37;
-    }
   }
+
+  .navLink:hover,
+  .navLink:focus {
+    color: var(--main-button-bg);
+    background-color: var(--button-bg-active);
+  }
+
   .navLink:last-child {
     margin-right: 0;
   }

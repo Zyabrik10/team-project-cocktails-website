@@ -29,6 +29,7 @@ const themePersistConfig = {
   storage: storage,
   whitelist: ['theme'],
 };
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),

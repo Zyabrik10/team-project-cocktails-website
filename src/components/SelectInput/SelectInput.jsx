@@ -61,6 +61,7 @@ const SelectInput = ({
       options={options}
       isSearchable={false}
       styles={styles}
+      openMenuOnFocus
     />
   );
 };
