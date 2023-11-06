@@ -78,6 +78,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
       <div className={`${css['drink_card']} ${themeClass}`}>
         <div className={css.drink_thumb}>
           <img
+          
             className={css.img}
             src={obj.drinkThumb}
             alt={obj.drink}
