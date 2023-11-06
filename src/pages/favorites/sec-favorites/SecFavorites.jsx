@@ -4,13 +4,13 @@ import { FavNotFound } from "components/FavList/FavNotFound";
 
 import globalCss from '../../../css/global.module.css'
 
-export const SecFavorites = ({ favoritesArr, handleDelete }) => {
+export const SecFavorites = ({ favorites, handleDelete }) => {
 
     return (
         <div className={`${globalCss.container}`}>
             <Title>Favorites</Title>
-            {favoritesArr.length ? <FavList
-                favoritesArr={favoritesArr}
+            {favorites ? <FavList
+                favorites={favorites}
                 handleDelete={handleDelete}
             /> : <FavNotFound />}
         </div>
