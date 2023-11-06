@@ -1,0 +1,41 @@
+.gradient1 {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 1;
+
+  width: 520px;
+  height: 550px;
+  border-radius: 550px;
+  background: var(--button-main-border-hover);
+  filter: blur(104.8543701171875px);
+  transform: translateX(-80%);
+}
+
+@media screen and (min-width: 768px) {
+  .gradient1 {
+    width: 784px;
+    height: 830px;
+    border-radius: 830px;
+  }
+
+  .gradient2 {
+    position: absolute;
+    left: 100%;
+    z-index: 1;
+
+    width: 549px;
+    height: 543px;
+    border-radius: 549px;
+    background: var(--button-main-border-hover);
+    filter: blur(104.8543701171875px);
+    transform: translate(0%, 90%);
+  }
+}
+
+@media screen and (min-width: 1439.98px) {
+  .gradient1 {
+    height: 849px;
+    border-radius: 849px;
+  }
+}
