@@ -17,32 +17,15 @@ main {
   padding-bottom: 80px;
 }
 
-.drinksList {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 20px;
-  row-gap: 40px;
-  margin-top: 40px;
-}
-
 @media screen and (min-width: 768px) {
   .section {
     padding-top: 140px;
     padding-bottom: 140px;
-  }
-
-  .drinksList {
-    margin-top: 60px;
-    row-gap: 80px;
   }
 }
 
 @media screen and (min-width: 1439.98px) {
   .section {
     padding-top: 158px;
-  }
-
-  .drinksList {
-    margin-top: 62px;
   }
 }

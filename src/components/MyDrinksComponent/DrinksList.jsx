@@ -1,12 +1,12 @@
 import { DrinksItem } from './DrinksItem';
-import css from './SecMyDrinks.module.css';
+import css from './MyDrinks.module.css';
 
 export const DrinksList = () => {
   return (
-    <ul>
-      <li className={css.drinksList}>
+    <>
+      <ul className={css.drinksList}>
         <DrinksItem />
-      </li>
-    </ul>
+      </ul>
+    </>
   );
 };
