@@ -2,7 +2,21 @@
   width: 335px;
   max-width: 100%;
   height: 320px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .file-uploader {
+    width: 320px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .file-uploader {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .drop-file-block {
@@ -16,12 +30,13 @@
   width: 100%;
   height: 100%;
 
+  color: var(--button-color-light);
   font-weight: 500;
   line-height: 1.25;
 
   overflow: hidden;
   border-radius: 8px;
-  background-color: rgba(22, 31, 55, 0.5);
+  background-color: var(--drop-file-area);
 }
 
 .img-preview {
@@ -30,7 +45,11 @@
 }
 
 .svg-add {
-  fill: currentcolor;
+  fill: var(--button-color-light);
+}
+
+.drop-file-block:hover {
+  cursor: pointer;
 }
 
 .drop-file-block:hover .svg-add {

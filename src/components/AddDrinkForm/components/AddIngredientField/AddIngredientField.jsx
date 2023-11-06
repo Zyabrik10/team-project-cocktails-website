@@ -4,6 +4,11 @@ import { useState } from 'react';
 import SelectInput from 'components/SelectInput';
 import { useGetIngredientsQuery } from 'redux/api/filtersAPI';
 import { makeIngrSelectOptions } from 'components/AddDrinkForm/utils';
+import { ReactComponent as Close } from 'img/svg/close.svg';
+
+import css from './AddIngredientField.module.css';
+import validErrorMes from 'components/AddDrinkForm/AddDrinkForm.module.css';
+import ingredientSelectStyles from 'components/AddDrinkForm/styles/ingredientSelectStyles';
 
 const AddIngredientField = ({
   handleIngrChange,
@@ -13,6 +18,7 @@ const AddIngredientField = ({
   id,
   index,
   amound,
+  isErrorMess = false,
 }) => {
   const [inputAmound, setinputAmound] = useState(amound);
   const [inputIngredient, setInputIngredient] = useState(ingredient);
@@ -38,7 +44,7 @@ const AddIngredientField = ({
   };
 
   return (
-    <div>
+    <div className={css['ingredient-row']}>
       <SelectInput
         handleSelectChange={handleSelectChange}
         inputName={'ingredient'}
@@ -46,23 +52,29 @@ const AddIngredientField = ({
         makeOptArr={makeIngrSelectOptions}
         defaultValue={inputIngredient}
         onBlur={handleOnBlur}
+        styles={ingredientSelectStyles(isErrorMess)}
       />
 
       <input
+        className={`${css['ingredient-input']} ${
+          isErrorMess && validErrorMes['validation-error-border']
+        }`}
         name="amound"
         type="text"
         value={inputAmound}
         onChange={handleInputChange}
         onBlur={handleOnBlur}
+        placeholder=" "
       />
       {index ? (
         <button
+          className={css['remove-btn']}
           type="button"
           onClick={() => {
             handleRemoveIngrField(id);
           }}
         >
-          Remove
+          <Close className={css['close-svg']} />
         </button>
       ) : null}
     </div>
@@ -78,4 +90,5 @@ AddIngredientField.propTypes = {
   index: PropTypes.number.isRequired,
   amound: PropTypes.string.isRequired,
   ingredient: PropTypes.string.isRequired,
+  isErrorMess: PropTypes.string,
 };

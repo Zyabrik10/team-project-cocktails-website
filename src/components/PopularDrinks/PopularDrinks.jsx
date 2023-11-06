@@ -1,39 +1,57 @@
 import { useEffect, useState } from 'react';
 import { useGetPopularDrinksQuery } from 'redux/api/popularDrinksAPI';
 
+import { Link } from 'react-router-dom';
+
+import css from './PopularDrinks.module.css';
+import Loader from 'components/Loader';
+
 const PopularDrinks = () => {
   const [drinks, setDrinks] = useState([]);
 
   const {
-    data: selects,
+    data: popularCoctails,
+    isError,
     isLoading,
-    // isError,
-    // error,
   } = useGetPopularDrinksQuery();
 
   useEffect(() => {
-    if (!selects) {
+    if (!popularCoctails) {
       return;
     }
 
-    const newArr = selects.slice(0, 4);
+    const newArr = popularCoctails.sortedCocktails.slice(0, 4);
     setDrinks(newArr);
-  }, [selects]);
+  }, [popularCoctails]);
 
   return isLoading ? (
-    <p>Loading...</p>
+    <Loader />
+  ) : isError ? (
+    <>
+      <p>Sorry... 😢</p>
+      <p>Unable to show popular drinks now</p>
+    </>
   ) : (
-    <ul>
+    <ul className={css['popular-list']}>
       {drinks.map(el => {
-        const { id, drink, description, drinkThumb } = el;
+        const { _id, drink, description, drinkThumb } = el;
 
         return (
-          <li key={id}>
-            <img src={drinkThumb} alt={drink} width="90" height="90" />
-            <div>
-              <p>{drink}</p>
-              <p>{description}</p>
-            </div>
+          <li key={_id} className={css['popular-item']}>
+            <Link to={`/drink/${_id}`} className={css['popular-link']}>
+              <div className={css['popular-img-thumb']}>
+                <img
+                  className={css['popular-img']}
+                  src={drinkThumb}
+                  alt={drink}
+                />
+              </div>
+
+              <div className={css['popular-text']}>
+                <p>{drink}</p>
+                <p className={css['popular-descr']}>{description}</p>
+              </div>
+            </Link>
           </li>
         );
       })}

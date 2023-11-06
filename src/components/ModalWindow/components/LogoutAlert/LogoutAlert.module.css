@@ -1,5 +1,10 @@
 .profileAlert {
-  width: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
   max-width: 335px;
   border-radius: 16px;
   background-color: #161f37;

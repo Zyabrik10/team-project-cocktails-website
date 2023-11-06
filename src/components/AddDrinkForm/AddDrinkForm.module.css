@@ -1,8 +1,232 @@
 .addForm {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  gap: 5px;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin: 40px 0 80px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .addForm {
+    margin-top: 60px;
+  }
+
+  .main-inputs-wrapp {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .addForm {
+    margin: 0;
+  }
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+}
+
+.inputs-wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .inputs-wrapp {
+    width: 352px;
+    gap: 13px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .inputs-wrapp {
+    width: 393px;
+    gap: 20px;
+  }
+}
+
+.select-labels-wrap {
+  position: relative;
+  display: block;
+}
+
+.select-labels {
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+
+  color: var(--secont-text-cl);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+@media screen and (min-width: 768px) {
+  .select-labels {
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: -0.32px;
+  }
+}
+
+/* Radio buttons */
+.radio-container {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.radio-label {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 2px solid var(--secont-text-cl);
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.radio-label:hover input ~ .radio-checkmark {
+  border-color: var(--text-color);
+}
+
+.radio-label input:checked ~ .radio-checkmark {
+  background-color: transparent;
+  border-color: var(--text-color);
+}
+
+.radio-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.radio-label input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+.radio-label .radio-checkmark:after {
+  top: 48%;
+  left: 50%;
+  transform: translate(-49%, -49%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .radio-container {
+    margin-bottom: 0;
+  }
+
+  .radio-label {
+    font-size: 16px;
+    padding-left: 27px;
+  }
+
+  .radio-checkmark {
+    height: 20px;
+    width: 20px;
+  }
+
+  .radio-label .radio-checkmark:after {
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .radio-label {
+    height: 24px;
+    padding-left: 33px;
+    display: flex;
+    align-items: center;
+  }
+
+  .radio-checkmark {
+    height: 24px;
+    width: 24px;
+  }
+
+  .radio-label .radio-checkmark:after {
+    top: 51%;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.recipe-container {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+  .recipe-container {
+    margin-bottom: 20px;
+  }
+}
+
+.recipe-container .title {
+  margin-bottom: 40px;
+}
+
+.subm-btn {
+  width: 107px;
+  height: 46px;
+}
+
+@media screen and (min-width: 768px) {
+  .subm-btn {
+    width: 118px;
+    height: 54px;
+
+    color: var(--main-button-txt-cl);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.12;
+  }
+}
+
+.subm-btn:hover {
+  background-color: var(--main-button-bg-hover);
+  color: var(--main-button-txt-cl-hover);
+}
+
+.addForm .validation-error-border {
+  border-color: var(--error-message-cl);
 }

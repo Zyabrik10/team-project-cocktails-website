@@ -9,7 +9,6 @@ import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../hooks';
 
 import { Layout } from '../layout/layout';
-
 import { Signin, Signup, Start } from 'pages';
 import { ErrorComponent } from './ErrorComponent/ErrorComponent';
 

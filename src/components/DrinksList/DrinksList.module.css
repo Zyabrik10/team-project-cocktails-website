@@ -1,0 +1,38 @@
+.container {
+  max-width: 335px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(1, 335px);
+  grid-row-gap: 60px;
+
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    grid-template-columns: repeat(2, 342px);
+    grid-column-gap: 20px;
+    grid-row-gap: 78px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+    grid-template-columns: repeat(3, 400px);
+    grid-row-gap: 118px;
+  }
+}
+
+.wrapper {
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.drinkName {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
