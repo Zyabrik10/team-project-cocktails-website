@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export const Hero = () => {
   return (
     <section>
-        <div className={`${css.heroContainer} ${globalCss['container']}`}>
+        <div className={`${css.heroContainer}`}>
           <div>
             <Title className={css.title}>Craft Your Perfect Drink with Drink Master</Title>
             <p className={`${css.heroDescr} ${globalCss['global-p']}`}>
