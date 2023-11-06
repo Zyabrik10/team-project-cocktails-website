@@ -1,5 +1,5 @@
 .socialTitle {
-  color: var(--text-color);
+  color: var(--button-color-light);
   font-size: 18px;
   font-weight: 500;
   line-height: calc(24 / 18);
@@ -23,21 +23,21 @@
   align-items: center;
 
   border-radius: 10px;
-  border: 1px solid var(--secont-text-cl);
+  border: 1px solid var(--grey-color);
 }
 
 .socialLink:hover {
-  border-color: var(--text-color);
+  border-color: var(--button-color-light);
 }
 
 .socialLink:hover .socialSvg {
-  color: var(--main-button-bg-hover);
+  color: rgba(243, 243, 243, 0.7);
 }
 
 .socialSvg {
   width: 22px;
   height: 22px;
-  color: var(--main-button-bg);
+  color: var(--button-color-light);
 }
 
 @media screen and (min-width: 768px) {
