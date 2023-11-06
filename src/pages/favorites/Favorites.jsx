@@ -7,6 +7,7 @@ import {
 import { SecFavorites } from "./sec-favorites/SecFavorites"
 
 export default function Favorites() {
+    // const [favorites, setFavorites] = useState([]);
     const { data: favorites,
         // isLoading, isError, error
     } = useGetFavoritesQuery();
