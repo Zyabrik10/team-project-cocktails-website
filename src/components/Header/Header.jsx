@@ -72,7 +72,7 @@ export const Header = () => {
         closeOnKeyDown={closeOnKeyDown}
       />
 
-      <header className={`${css[`header`]} ${`themeClass`}`}>
+      <header className={`${css[`header`]} ${themeClass}`}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
           <NavLink
             to="/home"
