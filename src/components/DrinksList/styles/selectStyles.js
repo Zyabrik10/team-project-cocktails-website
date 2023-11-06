@@ -12,18 +12,18 @@ const selectsStyles = {
       paddingTop: '80px',
     },
   }),
-  placeholder: baseStyles => ({
-    ...baseStyles,
-    color: '#f3f3f3',
-    paddingLeft: '24px',
-    fontSize: '14px',
-    lineHeight: 1.28,
-    '@media screen and (min-width: 768px)': {
-      ...baseStyles['@media screen and (min-width: 768px)'],
-      fontSize: '17px',
-      lineHeight: 1.56,
-    },
-  }),
+  // placeholder: baseStyles => ({
+  //   ...baseStyles,
+  //   color: '#f3f3f3',
+  //   paddingLeft: '24px',
+  //   fontSize: '14px',
+  //   lineHeight: 1.28,
+  //   '@media screen and (min-width: 768px)': {
+  //     ...baseStyles['@media screen and (min-width: 768px)'],
+  //     fontSize: '17px',
+  //     lineHeight: 1.56,
+  //   },
+  // }),
   control: (baseStyles, { selectProps }) => ({
     ...baseStyles,
     height: '54px',
@@ -37,7 +37,7 @@ const selectsStyles = {
   }),
   dropdownIndicator: (baseStyles, { selectProps }) => ({
     ...baseStyles,
-    padding: '17px 24px 17px 0',
+    padding: selectProps.menuIsOpen ? '17px 0 17px 24px' : '17px 24px 17px 0',
     transform: selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0)',
     color: selectProps.menuIsOpen
       ? '#F3F3F333'
