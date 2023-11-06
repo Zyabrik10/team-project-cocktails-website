@@ -9,6 +9,10 @@ export default function Favorites() {
     const { mutate: addFavorite } = useAddFavoriteMutation();
     const { mutate: removeFavorite } = useRemoveFavoriteMutation();
 
+    const favArr = favorites.result;
+    console.log(favArr.obj)
+
+
     useEffect(() => {
         if (!favorites) {
             return;
@@ -17,19 +21,21 @@ export default function Favorites() {
     }, [favorites]);
 
     const handleAddFavorite = (drinkId) => {
-        addFavorite(drinkId)
+        addFavorite(drinkId);
+    };
+    //ця функція і мутація для додавання в вибрані
+
+    const handleDelete = (drinkId) => {
+        removeFavorite(drinkId);
     };
 
-    const handleRemoveFavorite = (drinkId) => {
-        removeFavorite(drinkId)
-    };
+    // console.log(handleDelete)
 
     return (
         <>
             <SecFavorites
                 favorites={favorites}
-                onAddFavorite={handleAddFavorite}
-                onRemoveFavorite={handleRemoveFavorite}
+                handleDelete={handleDelete}
             />
         </>
     )
