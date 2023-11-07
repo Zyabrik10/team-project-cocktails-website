@@ -20,6 +20,8 @@ export const Layout = () => {
       <Header />
       <main className={`${css['main']} ${themeClass}`}>
         <PopUp />
+      <div className={css.gradient1}></div>
+      <div className={css.gradient2}></div>
         {/* Можна користуватися, але потрібно дописати медіаКвері в стилях */}
         {/* <div className={radialsCSS['des-2']} style={{ zIndex: '-1' }}></div>
         <div className={radialsCSS['des-3']} style={{ zIndex: '-1' }}></div> */}
