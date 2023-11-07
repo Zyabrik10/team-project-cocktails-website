@@ -33,7 +33,7 @@
   background: var(--main-button-bg);
   color: var(--main-button-txt-cl);
 
-  margin-bottom: 85px;
+  margin-bottom: 80px;
   transition: var(--transit);
 }
 
