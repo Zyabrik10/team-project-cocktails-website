@@ -7,6 +7,7 @@ const favoritesAPI = createApi({
   endpoints: builder => ({
     getFavorites: builder.query({
       query: () => ({ url: '/drinks/favorite' }),
+      providesTags: ['Fav']
     }),
       addFavorite: builder.mutation({
           query: (data) => ({
@@ -14,7 +15,7 @@ const favoritesAPI = createApi({
               data,
               method: 'POST',
         }),
-        invalidatesTags: [{type: 'POST', id: 'LIST'}]
+        invalidatesTags: [{type: 'Fav'}],
       }),
       removeFavorite: builder.mutation({
           query: (data) => ({
@@ -22,7 +23,7 @@ const favoritesAPI = createApi({
           data,
           method: 'DELETE',
         }),
-        invalidatesTags: [{type: 'DELETE', id: 'LIST'}]
+        invalidatesTags: [{type: 'Fav'}],
       }),
   }),
 });
