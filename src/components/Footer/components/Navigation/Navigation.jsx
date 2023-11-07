@@ -7,10 +7,13 @@ import css from './Navigation.module.css';
 export const Navigation = () => {
     return (
         <nav className={css.nav}>
-            <NavLink to="/drinks" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Drinks</NavLink>
-            <NavLink to="/add" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Add drink</NavLink>
-            <NavLink to="/my" className={`${css["navLink"]} ${globalCss["global-link"]}`}>My drinks</NavLink>
-            <NavLink to="/favorites" className={`${css["navLink"]} ${globalCss["global-link"]}`}>Favorites</NavLink>
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/drinks">Drinks</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/add">Add drink</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/my">My drinks</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/favorites">Favorites</NavLink>
         </nav>      
     )
 }

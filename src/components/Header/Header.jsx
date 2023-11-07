@@ -113,6 +113,8 @@ export const Header = () => {
               :
               <div onClick={toggleModalChoose} className={css.userBox}>
                 <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
+                {/* {user.avatarURL ? <img src={user.avatarURL} alt="Avatar" className={css.avatar} /> : <img src={require("../../img/header/user.png")} alt="Avatar" className={css.avatar} />} */}
+
                 <span className={css.name}>{user.username}</span>
               </div> 
             }
