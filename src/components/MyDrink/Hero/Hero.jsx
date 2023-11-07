@@ -7,7 +7,16 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { PopUp } from 'components/PopUp/PopUp';
+import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { getThemeColor } from 'redux/theme/selectors';
+import toesterCss from '../../../components/PopUp/PopUp.module.css';
 export const Hero = ({ signleDrink }) => {
+  const theme = useSelector(getThemeColor);
+  const themeClass = theme === 'dark' ? 'main' : 'main light';
+
   const { drinkId } = useParams();
   const [favorites, setFavorites] = useState(null);
   const [addFavorite] = favoritesAPI.useAddFavoriteMutation();
@@ -28,10 +37,10 @@ export const Hero = ({ signleDrink }) => {
 
         if (response.error) {
           console.log('Error message', response.error.data.message);
+          toast.error('Error occurred, drink was not added');
         } else {
           console.log('REMOVE cocktail from favorites');
           const index = favorites.indexOf(drinkId);
-
           if (index > -1) {
             // only splice array when item is found
             favorites.splice(index, 1);
@@ -39,9 +48,11 @@ export const Hero = ({ signleDrink }) => {
             console.log('Newly Removed', favorites);
           }
           setIsAdded(false);
+          toast.success('Removed from favorite!');
         }
       } catch (error) {
         console.log('errorMessage', error);
+        toast.error('Error occurred, drink was not added');
       }
     }
 
@@ -58,13 +69,16 @@ export const Hero = ({ signleDrink }) => {
             'Error message while Adding',
             response.error.data.message
           );
+          toast.error('Error occurred, drink was not added');
         } else {
           favorites.push(drinkId);
           console.log('Newly ADDED', favorites);
           setIsAdded(true);
+          toast.success('Added to favorite!');
         }
       } catch (error) {
         console.log('errorMessage', error);
+        toast.error('Error occurred, drink was not added');
       }
     }
   };
@@ -134,6 +148,14 @@ export const Hero = ({ signleDrink }) => {
           (e.target.src = require('../../../img/recipe/ingredient.png'))
         }
         alt="drink"
+      />
+      <PopUp />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          className: `${toesterCss['popup']} ${themeClass}`,
+          duration: 2000,
+        }}
       />
     </div>
   );
