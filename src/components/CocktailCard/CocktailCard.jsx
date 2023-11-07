@@ -67,6 +67,7 @@ import defaultImgDesk from '../../img/cocktailCard/default_desk.png';
 export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
   const locations = useLocation();
   const theme = useSelector(getThemeColor);
+  console.log('obj', obj);
 
   const themeClass = theme === 'dark' ? 'main' : 'main light';
 
@@ -78,7 +79,6 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
       <div className={`${css['drink_card']} ${themeClass}`}>
         <div className={css.drink_thumb}>
           <img
-          
             className={css.img}
             src={obj.drinkThumb}
             alt={obj.drink}
@@ -94,7 +94,7 @@ export const CocktailCard = ({ mainDrinksPage, obj, handleDelete }) => {
             </h2>
 
             <Link
-              to={`/drink/${obj._id.$oid}`}
+              to={`/drink/${obj._id}`}
               className={css.main_drink_seeMore}
               state={{ from: locations }}
             >
