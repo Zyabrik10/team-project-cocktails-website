@@ -6,7 +6,7 @@ Drink Master is the frontend component of a full-stack project developed by a gr
 
 - **User-friendly Interface**: The platform boasts a user-friendly interface that allows seamless navigation through its various pages.
 
-- **Explore a World of Drinks**: Upon authorization, users are directed to the Home page, where they can immediately explore a diverse range of drinks categorized by type. 
+- **Explore a World of Drinks**: Upon authorization, users are directed to the Home page, where they can immediately explore a diverse range of drinks categorized by category. 
 
 - **Create Your Own Signature Drink**: Head over to the Add Drink page to craft your very own unique cocktail.
 
