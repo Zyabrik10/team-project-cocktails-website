@@ -12,6 +12,18 @@
     .nan {
         display: none;
     }
+    .navLink {
+        text-align: center;
+        border-radius: 40px;
+        border: 1px solid var(--nav-link-border);
+        padding: 8px 16px;
+
+        color: var(--main-button-bg);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: calc(23 / 14);
+        transition: color 0.4s, background-color 0.4s;
+    }
 
 }
 

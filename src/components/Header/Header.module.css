@@ -1,6 +1,8 @@
 @import url('css/variables.css');
 
 .header {
+    position: relative;
+  z-index: 10;  
   border-bottom: solid 1px var(--nav-link-border);
   padding-top: 20px;
   padding-bottom: 20px;
@@ -54,6 +56,7 @@
   height: 100%;
   border-radius: 50%;
   margin-right: 8px;
+  background-size: cover;
 }
 
 .name {
@@ -64,15 +67,23 @@
 }
 
 .burgerMenu {
+  stroke: var(--text-color);
   border: none;
   background: none;
   padding: 0;
+  >svg {
+    stroke: var(--text-color);
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .burgerSvg {
   width: 32px;
   height: 32px;
 }
+
+
 
 @media screen and (min-width: 768px) {
   .header {
@@ -104,6 +115,13 @@
     width: 44px;
     margin-right: 14px;
   }
+
+  .burgerMenu {
+    >svg {
+        width: 40px;
+        height: 40px;
+    }
+}
 
   .burgerSvg {
     width: 38px;
