@@ -82,6 +82,7 @@
   .img-hero {
     width: 704px;
     flex-shrink: 0;
+    object-fit: cover;
   }
 }
 @media screen and (min-width: 1440px) {
