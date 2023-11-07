@@ -15,6 +15,8 @@ import { ModalWindow } from 'components/ModalWindow/ModalWindow';
 import { UserProfile } from 'components/ModalWindow/components/UserProfile/UserProfile';
 import { DropDown } from 'components/ModalWindow/components/DropDown/DropDown';
 import { LogoutAlert } from 'components/ModalWindow/components/LogoutAlert/LogoutAlert';
+import { MobileMenu } from './components/MobileMenu/MobileMenu';
+import CloseSvg from 'components/ModalWindow/components/Svg/CloseSvg';
 
 import { useSelector } from 'react-redux';
 import { getThemeColor } from 'redux/theme/selectors';
@@ -25,8 +27,10 @@ export const Header = () => {
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
+  const [isMobileMunuOpen, setIsMobileMunuOpen] = useState(false)
+  const { user } = useAuth();
 
-  console.log(themeClass);
+  const openMenu = () => setIsMobileMunuOpen(!isMobileMunuOpen);
 
   const { user } = useAuth();
 
@@ -86,16 +90,23 @@ export const Header = () => {
           <Navigation />
           <div className={css.profile}>
             <ThemeSwitcher />
+            {isMobileMunuOpen ? 
+              <ThemeSwitcher />
+              :
             <div onClick={toggleModalChoose} className={css.userBox}>
               <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
               <span className={css.name}>{user.username}</span>
-            </div>
-            <button className={css.burgerMenu}>
-              <BurgerMenuSvg />
+            </div> 
+            }
+            <button onClick={openMenu} className={css.burgerMenu}>
+              { isMobileMunuOpen ? <CloseSvg/> : <BurgerMenuSvg /> }
             </button>
           </div>
         </div>
       </header>
+      <MobileMenu isOpen={isMobileMunuOpen}/>
+
+      <MobileMenu/>
     </>
   );
 };
