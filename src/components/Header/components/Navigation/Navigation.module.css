@@ -1,30 +1,37 @@
 @import url('css/variables.css');
 
 @media screen and (max-width: 1439px) {
-    .nav {
-        display: none;
-    }
-    .navMobile {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .nan {
-        display: none;
-    }
-    .navLink {
-        text-align: center;
-        border-radius: 40px;
-        border: 1px solid var(--nav-link-border);
-        padding: 8px 16px;
+  .nav {
+    display: none;
+  }
 
-        color: var(--main-button-bg);
-        font-size: 14px;
-        font-weight: 500;
-        line-height: calc(23 / 14);
-        transition: color 0.4s, background-color 0.4s;
-    }
+  .navMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
+  .nan {
+    display: none;
+  }
+  
+  .navLink {
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid var(--nav-link-border);
+    padding: 8px 16px;
+
+    color: var(--main-button-bg);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(23 / 14);
+    transition: color 0.4s, background-color 0.4s;
+  } 
+
+  .activeNavLink {
+    color: #f3f3f3;
+    background-color: #161f37;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -43,11 +50,20 @@
     font-size: 14px;
     font-weight: 500;
     line-height: calc(23 / 14);
-    transition: color 0.4s, background-color 0.4s;
+    transition: all 0.4s;
+    &.active {
+      color: #f3f3f3;
+      background-color: #161f37;
+    }
   }
 
-  .navLink:hover,
-  .navLink:focus {
+  /* .activeNavLink {
+    color: #f3f3f3;
+    background-color: #161f37;
+  } */
+
+  .navLink:hover {
+    border: 1px solid rgba(5, 5, 5, 0.1);
     color: #f3f3f3;
     background-color: #161f37;
   }
