@@ -14,12 +14,11 @@ export const SubscribeForm = () => {
         try {
             const response = await axios.post('https://drunk404.onrender.com/users/subscribe', { email });
             const { message } = await response.data
-
             await toast.success(message);
-            
+
             setEmail('');
         } catch (error) {
-            toast.error("Something wrong. Try again");
+            toast.error(error.response.data.message);
 
         }
     };
