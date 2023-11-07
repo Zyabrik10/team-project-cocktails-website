@@ -31,7 +31,6 @@ export const Header = () => {
   const [isMobileMunuOpen, setIsMobileMunuOpen] = useState(false)
   const { user } = useAuth();
 
-console.log(windowWidth)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
