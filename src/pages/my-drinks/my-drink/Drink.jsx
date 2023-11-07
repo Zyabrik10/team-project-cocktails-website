@@ -6,6 +6,7 @@ import globalCss from '../../../css/global.module.css';
 import * as filtersAPI from '../../../redux/api/filtersAPI';
 import popularDrinksAPI from 'redux/api/popularDrinksAPI';
 import { useParams } from 'react-router-dom';
+import Loader from '../../../components/Loader';
 
 export default function Drink() {
   const [ingredients, setIngredients] = useState(null);
@@ -69,7 +70,7 @@ export default function Drink() {
   }, [ingredientsData, ingredients, drink, drinkInfo]);
 
   return !drink ? (
-    <p>Loading...</p>
+    <Loader />
   ) : (
     <div className={`${globalCss['container']}`}>
       <Hero signleDrink={drink} />

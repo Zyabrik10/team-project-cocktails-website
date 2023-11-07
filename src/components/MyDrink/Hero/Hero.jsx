@@ -26,7 +26,8 @@ export const Hero = ({ signleDrink }) => {
   const { data: favoritesArray } = favoritesAPI.useGetFavoritesQuery();
 
   // add or remove cocktail from the favorites
-  const handleClick = async () => {
+  const handleClick = async event => {
+    event.target.blur();
     //remove cocktail
     if (isAdded) {
       try {
@@ -37,7 +38,7 @@ export const Hero = ({ signleDrink }) => {
 
         if (response.error) {
           console.log('Error message', response.error.data.message);
-          toast.error('Error occurred, drink was not added');
+          toast.error('Error occurred, drink was not removed.');
         } else {
           console.log('REMOVE cocktail from favorites');
           const index = favorites.indexOf(drinkId);
@@ -52,7 +53,7 @@ export const Hero = ({ signleDrink }) => {
         }
       } catch (error) {
         console.log('errorMessage', error);
-        toast.error('Error occurred, drink was not added');
+        toast.error('Error occurred, drink was not removed.');
       }
     }
 
@@ -136,7 +137,7 @@ export const Hero = ({ signleDrink }) => {
           onClick={handleClick}
           className={`${globalCss['global-button']} ${globalCss['custom-button']} ${css['btn-add-drink']}`}
         >
-          {isAdded ? 'Remove from favorite' : 'Add to favorite drinks'}
+          {isAdded ? 'Remove from favorite drinks' : 'Add to favorite drinks'}
         </button>
       </div>
       {/* image will be added from the props */}
