@@ -16,6 +16,8 @@ export const Social = ({ title }) => {
           <a
             className={`${css['socialLink']} ${globalCss['global-link']}`}
             href="https://www.facebook.com/goITclub/"
+            target="_blank"
+            rel="noreferrer"
           >
             <FacebookSvg />
           </a>
@@ -24,6 +26,8 @@ export const Social = ({ title }) => {
           <a
             className={`${css['socialLink']} ${globalCss['global-link']}`}
             href="https://www.instagram.com/goitclub/"
+            target="_blank"
+            rel="noreferrer"
           >
             <InstagramSvg />
           </a>
@@ -32,6 +36,8 @@ export const Social = ({ title }) => {
           <a
             className={`${css['socialLink']} ${globalCss['global-link']}`}
             href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+            rel="noreferrer"
           >
             <YouTubeSvg />
           </a>
