@@ -51,6 +51,13 @@
     min-width: 280px;
     width: 100%;
     max-width: 325px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.4s;
+}
+
+.subscribeBtn:hover {
+    opacity: 1;
 }
 
 
