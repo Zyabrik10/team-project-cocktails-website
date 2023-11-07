@@ -46,6 +46,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
   }
   .react-datepicker__header {
     position: relative;
+    max-width: 224px;
     background-color: #161F37;
   }
   .react-datepicker__day-names {
