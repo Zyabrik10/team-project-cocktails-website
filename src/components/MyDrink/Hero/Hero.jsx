@@ -34,19 +34,15 @@ export const Hero = ({ signleDrink }) => {
         const response = await removeFavorite({
           id: signleDrink._id,
         });
-        console.log('Removed Drink response while Removing', response);
 
         if (response.error) {
           console.log('Error message', response.error.data.message);
           toast.error('Error occurred, drink was not removed.');
         } else {
-          console.log('REMOVE cocktail from favorites');
           const index = favorites.indexOf(drinkId);
           if (index > -1) {
             // only splice array when item is found
             favorites.splice(index, 1);
-            console.log('index', index);
-            console.log('Newly Removed', favorites);
           }
           setIsAdded(false);
           toast.success('Removed from favorite!');
@@ -63,7 +59,6 @@ export const Hero = ({ signleDrink }) => {
         const response = await addFavorite({
           id: signleDrink._id,
         });
-        console.log('Added drink response', response);
 
         if (response.error) {
           console.log(
@@ -73,7 +68,6 @@ export const Hero = ({ signleDrink }) => {
           toast.error('Error occurred, drink was not added');
         } else {
           favorites.push(drinkId);
-          console.log('Newly ADDED', favorites);
           setIsAdded(true);
           toast.success('Added to favorite!');
         }
@@ -95,7 +89,7 @@ export const Hero = ({ signleDrink }) => {
       }
       return arrayOfFavorites;
     };
-    console.log('filterFavorites', filterFavorites());
+    filterFavorites();
     setFavorites(arrayOfFavorites);
   }, [favoritesArray]);
 
@@ -106,8 +100,6 @@ export const Hero = ({ signleDrink }) => {
       return favorites.includes(drinkId);
     };
     checkForAddedDrinks();
-
-    console.log('favoritesIncludesDrink', checkForAddedDrinks());
 
     //drink is NOT currentrly added
     if (!checkForAddedDrinks()) {

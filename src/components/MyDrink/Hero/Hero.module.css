@@ -39,11 +39,9 @@
 
 .btn-add-drink:focus:not(:hover),
 .btn-add-drink:hover {
-  border-style: solid;
-  border-color: var(--button-main-border-hover);
-  border-width: 2px;
-  color: var(--button-bg-active);
-  background: var(--main-button-bg-hover);
+  border: none;
+  background-color: var(--main-button-txt-cl);
+  color: var(--main-button-bg);
 }
 
 .img-hero {
@@ -75,7 +73,7 @@
   .btn-add-drink {
     font-size: 16px;
     line-height: calc(18 / 16);
-    width: 250px;
+    width: 260px;
     padding: 18px; /*  44px */
     margin-bottom: 80px;
   }
