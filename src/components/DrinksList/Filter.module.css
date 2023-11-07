@@ -27,17 +27,18 @@
 
 .input:focus,
 .input:hover {
-  border-color: #f3f3f3;
+  border: 2px solid var(--text-color);
 }
 
 .icon {
   position: absolute;
   top: 18px;
   right: 24px;
-  cursor: pointer;
+  cursor: text;
   padding: 0;
   background-color: transparent;
   border: none;
+  color: var(--text-color);
 }
 
 @media screen and (min-width: 768px) {

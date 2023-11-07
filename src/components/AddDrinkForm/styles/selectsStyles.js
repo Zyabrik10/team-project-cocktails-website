@@ -114,6 +114,7 @@ const selectsStyles = {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    cursor: 'pointer',
     '@media screen and (min-width: 768px)': {
       ...baseStyles['@media screen and (min-width: 768px)'],
       padding: '4px 0',

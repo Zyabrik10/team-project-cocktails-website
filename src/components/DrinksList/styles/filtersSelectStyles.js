@@ -1,4 +1,4 @@
-const selectsStyles = {
+const filtersSelectStyles = {
   container: baseStyles => ({
     ...baseStyles,
     paddingTop: '14px',
@@ -6,9 +6,9 @@ const selectsStyles = {
       ...baseStyles['@media screen and (min-width: 768px)'],
       width: '199px',
       paddingTop: '60px',
-        },
+    },
     '@media screen and (min-width: 1440px)': {
-      ...baseStyles['@media screen and (min-width: 768px)'],
+      ...baseStyles['@media screen and (min-width: 1440px)'],
       paddingTop: '80px',
     },
   }),
@@ -28,20 +28,22 @@ const selectsStyles = {
     ...baseStyles,
     height: '54px',
     minHeight: '34px',
-    backgroundColor: 'var(--button-bg-active)',
+    backgroundColor: '#161f37',
     boxShadow: 'none',
     cursor: 'pointer',
 
     borderColor: 'transparent',
     borderRadius: '200px',
+    '&:hover': {
+      border: '1px solid var(--text-color)',
+      backgroundColor: '#434d67',
+    },
   }),
   dropdownIndicator: (baseStyles, { selectProps }) => ({
     ...baseStyles,
     padding: selectProps.menuIsOpen ? '17px 0 17px 24px' : '17px 24px 17px 0',
     transform: selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0)',
-    color: selectProps.menuIsOpen
-      ? '#F3F3F333'
-      : '#f3f3f3',
+    color: selectProps.menuIsOpen ? '#F3F3F333' : '#f3f3f3',
   }),
   valueContainer: baseStyles => ({
     ...baseStyles,
@@ -67,9 +69,9 @@ const selectsStyles = {
     },
   }),
   menu: baseStyles => ({
-      ...baseStyles,
-      paddingTop: '10px',
-      paddingBottom: '10px',
+    ...baseStyles,
+    paddingTop: '10px',
+    paddingBottom: '10px',
 
     borderRadius: '20px',
     backgroundColor: 'var(--button-bg-active)',
@@ -85,17 +87,24 @@ const selectsStyles = {
       borderRadius: '20px',
     },
   }),
-  option: baseStyles => ({
+  option: (baseStyles, state) => ({
     ...baseStyles,
-    color: '#F3F3F333',
+    color:
+      state.getValue()[0].label === state.data.label
+        ? 'var(--text-color)'
+        : 'var(--secont-text-cl)',
     paddingLeft: '24px',
     fontSize: '14px',
     lineHeight: 1.28,
     backgroundColor: 'transparent',
+    cursor: 'pointer',
     '&:hover': {
-      color: '#f3f3f3',
+      color: 'var(--text-color)',
     },
-
+    '&:active': {
+      color: 'var(--text-color)',
+      backgroundColor: 'var(--secont-text-cl)',
+    },
     textOverflow: 'ellipsis',
     '@media screen and (min-width: 768px)': {
       ...baseStyles['@media screen and (min-width: 768px)'],
@@ -105,4 +114,4 @@ const selectsStyles = {
   }),
 };
 
-export default selectsStyles;
+export default filtersSelectStyles;

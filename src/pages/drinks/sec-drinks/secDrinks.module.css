@@ -22,3 +22,14 @@
     padding: 160px 0 140px 0;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+/* .refBtn {
+  height: 50px;
+}
+.refIconStyles {
+} */

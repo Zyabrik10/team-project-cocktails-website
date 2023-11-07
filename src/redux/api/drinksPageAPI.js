@@ -6,14 +6,24 @@ const drinksPageAPI = createApi({
   baseQuery: axiosBaseQuery(),
   endpoints: builder => ({
     getDrinksPage: builder.query({
-      query: ingredients => {
-        if (ingredients !== 'All ingredients') {
-          return {
-            url: `/drinks/search?page=1&limit=20&ingredient=${ingredients}`,
-          };
-        }
+      query: ({ limit, page, ingredient, category, searchQuery }) => {
+        console.log(searchQuery);
+        const queryParams = new URLSearchParams();
+        queryParams.append(
+          'ingredient',
+          ingredient === 'All ingredients' ? '' : ingredient
+        );
+
+        queryParams.append(
+          'category',
+          category === 'All categories' ? '' : category
+        );
+
+        queryParams.append('limit', limit);
+        queryParams.append('page', page);
+        queryParams.append('search', searchQuery);
         return {
-          url: `/drinks/search?page=1&limit=20`,
+          url: `/drinks/search?${queryParams.toString()}`,
         };
       },
     }),

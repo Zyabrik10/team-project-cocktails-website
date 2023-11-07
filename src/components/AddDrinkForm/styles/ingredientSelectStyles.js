@@ -1,6 +1,6 @@
 import selectsStyles from 'components/AddDrinkForm/styles/selectsStyles';
 
-const ingredientSelectStyles = isErrorMess => {
+const ingredientSelectStyles = (isErrorMess = false) => {
   return {
     ...selectsStyles,
 
