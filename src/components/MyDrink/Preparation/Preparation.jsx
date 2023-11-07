@@ -1,12 +1,7 @@
 import globalCss from '../../../css/global.module.css';
 import css from './Preparation.module.css';
-import recipes from '../../../pages/my-drinks/recipes.json';
 
-export const Preparation = () => {
-  let recipe = recipes[4];
-
-  console.log('recipes', recipe);
-
+export const Preparation = ({ signleDrink }) => {
   return (
     <div className={`${css['preparation-section']}`}>
       <h2
@@ -19,17 +14,7 @@ export const Preparation = () => {
           <p
             className={`${globalCss['global-p']} ${css['preparation-description']}`}
           >
-            {recipe.instructions}
-          </p>
-          <p
-            className={`${globalCss['global-p']} ${css['preparation-description']}`}
-          >
-            {recipe.instructionsDE}
-          </p>
-          <p
-            className={`${globalCss['global-p']} ${css['preparation-description']}`}
-          >
-            {recipe.instructionsES}
+            {signleDrink.instructions}
           </p>
         </div>
         <div className={`img-preparation-section`}>

@@ -4,40 +4,46 @@ import { Hero } from 'components/MyDrink/Hero/Hero';
 import { Ingredients } from 'components/MyDrink/Ingredients/Ingredients';
 import globalCss from '../../../css/global.module.css';
 import * as filtersAPI from '../../../redux/api/filtersAPI';
-import recipes from '../../my-drinks/recipes.json';
+import popularDrinksAPI from 'redux/api/popularDrinksAPI';
+import { useParams } from 'react-router-dom';
+import Loader from '../../../components/Loader';
 
 export default function Drink() {
-  // 639b6de9ff77d221f190c520
-  let recipe = recipes[4];
   const [ingredients, setIngredients] = useState(null);
   const [drink, setDrink] = useState(null);
   const [filteredIngredients, setFilteredIngredients] = useState(null);
 
+  const { drinkId } = useParams();
+
   const { data: ingredientsData } = filtersAPI.useGetIngredientsQuery();
+  const { data: drinkInfo } = popularDrinksAPI.useGetDrinkByIdQuery(drinkId);
 
   useEffect(() => {
     if (!ingredientsData) {
       return;
     }
-    const { data } = ingredientsData;
-    setIngredients(data);
-    setDrink(recipe);
+    if (!drinkInfo) return;
+    const { data } = drinkInfo;
+    setDrink(data);
 
-    const handleFiltering = () => {
+    const { data: ingData } = ingredientsData;
+    setIngredients(ingData);
+
+    const handleFiltering = async () => {
       if (!drink) {
         return;
       }
+
       const filteredIdData = drink.ingredients.map(
-        ({ ingredientId: { $oid: id }, measure }) => {
-          console.log(measure);
+        ({ ingredientId, measure }) => {
           return {
-            id,
+            id: ingredientId,
             measure: measure ? measure : (measure = 'up to you'),
           };
         }
       );
 
-      const filter = () => {
+      const filter = async () => {
         let newArray = [];
         for (var i = 0; i < ingredients.length; i++) {
           for (var k = 0; k < filteredIdData.length; k++) {
@@ -45,12 +51,7 @@ export default function Drink() {
               return;
             }
             if (ingredients[i]._id === filteredIdData[k].id) {
-              console.log('newObj', {
-                ...filteredIdData[k],
-                ...ingredients[i].ingredientThumb,
-              });
-
-              newArray.push({
+              await newArray.push({
                 ...filteredIdData[k],
                 title: ingredients[i].title,
                 imageX: ingredients[i].ingredientThumb,
@@ -60,20 +61,21 @@ export default function Drink() {
             }
           }
         }
-        console.log('newArray', newArray);
         setFilteredIngredients(newArray);
         return newArray;
       };
       filter();
     };
     handleFiltering();
-  }, [ingredientsData, ingredients, recipe, drink]);
+  }, [ingredientsData, ingredients, drink, drinkInfo]);
 
-  return (
+  return !drink ? (
+    <Loader />
+  ) : (
     <div className={`${globalCss['container']}`}>
-      <Hero cocktail={drink}/>
+      <Hero signleDrink={drink} />
       <Ingredients ingredients={filteredIngredients} />
-      <Preparation />
+      <Preparation signleDrink={drink} />
     </div>
   );
 }
