@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 import { signup, signin, signout, refreshUser, updateUser } from './operations';
 
 const initialState = {
@@ -16,19 +17,19 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
-      console.log('Successfully Logined.');
+      toast.success(`Successful Logined.`);
     },
     [signin.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
-      console.log('Successfully Logined.');
+      toast.success(`Successful Logined.`);
     },
     [signout.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
-      console.log(`Successful logout.`);
+      toast.success(`Successful logout.`);
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
