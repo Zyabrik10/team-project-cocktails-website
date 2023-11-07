@@ -9,7 +9,7 @@ import {
 export const DrinksItem = () => {
 
   const { data: myDrinks } = useGetMyDrinksQuery();
-  const { mutate: removeMyDrink } = useRemoveMyDrinkMutation();
+  const [removeMyDrink ] = useRemoveMyDrinkMutation();
 
   useEffect(() => {
     if (!myDrinks) {
@@ -19,17 +19,17 @@ export const DrinksItem = () => {
 
   }, [myDrinks]);
 
-  const handleRemoweMyDrink = drinkId => {
+  const handleRemoweMyDrink = (drinkId)=> {
     removeMyDrink(drinkId);
   };
 
   return (
     <>
       {myDrinks?.map(card => (
-        <li key={card._id.$oid} className={css.drinkCard}>
+        <li key={card._id} className={css.drinkCard}>
           <CocktailCard
             obj={card}
-            id={card._id.$oid}
+            id={card._id}
             handleDelete={handleRemoweMyDrink}
           />
         </li>

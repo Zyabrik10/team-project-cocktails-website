@@ -11,8 +11,11 @@ const myDrinksAPI = createApi({
 
     removeMyDrink: builder.mutation({
       query: drinkId => ({
-        url: `drinks/own/remove/${drinkId}`,
+        url: '/drinks/own/remove',
         method: 'DELETE',
+        body: {
+          _id: drinkId
+        }
       }),
     }),
   }),
