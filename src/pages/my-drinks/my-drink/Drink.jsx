@@ -11,12 +11,11 @@ export default function Drink() {
   const [ingredients, setIngredients] = useState(null);
   const [drink, setDrink] = useState(null);
   const [filteredIngredients, setFilteredIngredients] = useState(null);
+
   const { drinkId } = useParams();
+
   const { data: ingredientsData } = filtersAPI.useGetIngredientsQuery();
-
   const { data: drinkInfo } = popularDrinksAPI.useGetDrinkByIdQuery(drinkId);
-
-  console.log('drinkInfo', drinkInfo);
 
   useEffect(() => {
     if (!ingredientsData) {

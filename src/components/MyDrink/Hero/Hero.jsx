@@ -3,20 +3,86 @@ import css from './Hero.module.css';
 import { Title } from 'components/Title/Title';
 
 import favoritesAPI from 'redux/api/favoritesAPI';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const Hero = ({ signleDrink }) => {
-  // const [buttonText, setButtonText] = useState('Add to favorite drinks');
-  console.log('propsHero', signleDrink);
-
+  const { drinkId } = useParams();
+  const [favorites, setFavorites] = useState(null);
   const [addFavorite] = favoritesAPI.useAddFavoriteMutation();
+  const [removeFavorite] = favoritesAPI.useRemoveFavoriteMutation();
 
+  const [isAdded, setIsAdded] = useState(false);
+  const { data: favoritesArray } = favoritesAPI.useGetFavoritesQuery();
+
+  // add or remove cocktail from the favorites
   const handleClick = async () => {
-    console.log('onClick action');
-    const response = await addFavorite({
-      id: signleDrink.id,
-    });
-    console.log(response);
+    //remove cocktail
+    if (isAdded) {
+      setIsAdded(false);
+
+      console.log('REMOVE cocktail from favorites');
+      const index = favorites.indexOf(drinkId);
+
+      if (index > -1) {
+        // only splice array when item is found
+        favorites.splice(index, 1);
+        console.log('index', index);
+        console.log('Newly Removed', favorites);
+      }
+      const response = await removeFavorite({
+        id: signleDrink._id,
+      });
+      console.log('Removed Drink response', response);
+    }
+    // add cocktail
+    if (!isAdded) {
+      favorites.push(drinkId);
+      console.log('Newly ADDED', favorites);
+
+      const response = await addFavorite({
+        id: signleDrink._id,
+      });
+      console.log('Added drink response', response);
+      setIsAdded(true);
+    }
   };
+
+  useEffect(() => {
+    if (!favoritesArray) return;
+    const arrayOfFavorites = [];
+
+    const filterFavorites = () => {
+      if (!favoritesArray.result) return;
+      for (let key of favoritesArray.result) {
+        arrayOfFavorites.push(key['_id']);
+      }
+      return arrayOfFavorites;
+    };
+    console.log('filterFavorites', filterFavorites());
+    setFavorites(arrayOfFavorites);
+  }, [favoritesArray]);
+
+  useEffect(() => {
+    if (!favorites) return;
+
+    const checkForAddedDrinks = () => {
+      return favorites.includes(drinkId);
+    };
+    checkForAddedDrinks();
+
+    console.log('favoritesIncludesDrink', checkForAddedDrinks());
+
+    //drink is NOT currentrly added
+    if (!checkForAddedDrinks()) {
+      setIsAdded(false);
+    }
+    //drink is already added
+    if (checkForAddedDrinks()) {
+      setIsAdded(true);
+    }
+  }, [favorites, drinkId, isAdded, signleDrink]);
 
   return (
     <div className={`${css['hero-section']}`}>
@@ -36,7 +102,7 @@ export const Hero = ({ signleDrink }) => {
           onClick={handleClick}
           className={`${globalCss['global-button']} ${globalCss['custom-button']} ${css['btn-add-drink']}`}
         >
-          Add to favorite drinks
+          {isAdded ? 'Remove from favorite' : 'Add to favorite drinks'}
         </button>
       </div>
       {/* image will be added from the props */}

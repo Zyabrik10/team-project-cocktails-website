@@ -2,7 +2,6 @@ import globalCss from '../../../css/global.module.css';
 import css from './Preparation.module.css';
 
 export const Preparation = ({ signleDrink }) => {
-  console.log('PropsRecipe', signleDrink);
   return (
     <div className={`${css['preparation-section']}`}>
       <h2
