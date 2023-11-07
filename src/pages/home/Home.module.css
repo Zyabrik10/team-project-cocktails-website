@@ -31,6 +31,9 @@
 
   background: var(--main-button-bg);
   color: var(--main-button-txt-cl);
+
+  transition: var(--transit);
+
 }
 
 .button:hover {

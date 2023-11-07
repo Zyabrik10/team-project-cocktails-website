@@ -30,14 +30,20 @@
   width: 222px;
   padding: 14px; /* 40px  */
 
+  background: var(--main-button-bg);
+  color: var(--main-button-txt-cl);
+
   margin-bottom: 85px;
   transition: var(--transit);
 }
 
 .btn-add-drink:focus:not(:hover),
 .btn-add-drink:hover {
-  color: #f3f3f3;
-  background-color: #161f37;
+  border-style: solid;
+  border-color: var(--button-main-border-hover);
+  border-width: 2px;
+  color: var(--button-bg-active);
+  background: var(--main-button-bg-hover);
 }
 
 .img-hero {
