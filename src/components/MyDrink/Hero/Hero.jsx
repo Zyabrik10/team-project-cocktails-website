@@ -20,32 +20,52 @@ export const Hero = ({ signleDrink }) => {
   const handleClick = async () => {
     //remove cocktail
     if (isAdded) {
-      setIsAdded(false);
+      try {
+        const response = await removeFavorite({
+          id: signleDrink._id,
+        });
+        console.log('Removed Drink response while Removing', response);
 
-      console.log('REMOVE cocktail from favorites');
-      const index = favorites.indexOf(drinkId);
+        if (response.error) {
+          console.log('Error message', response.error.data.message);
+        } else {
+          console.log('REMOVE cocktail from favorites');
+          const index = favorites.indexOf(drinkId);
 
-      if (index > -1) {
-        // only splice array when item is found
-        favorites.splice(index, 1);
-        console.log('index', index);
-        console.log('Newly Removed', favorites);
+          if (index > -1) {
+            // only splice array when item is found
+            favorites.splice(index, 1);
+            console.log('index', index);
+            console.log('Newly Removed', favorites);
+          }
+          setIsAdded(false);
+        }
+      } catch (error) {
+        console.log('errorMessage', error);
       }
-      const response = await removeFavorite({
-        id: signleDrink._id,
-      });
-      console.log('Removed Drink response', response);
     }
+
     // add cocktail
     if (!isAdded) {
-      favorites.push(drinkId);
-      console.log('Newly ADDED', favorites);
+      try {
+        const response = await addFavorite({
+          id: signleDrink._id,
+        });
+        console.log('Added drink response', response);
 
-      const response = await addFavorite({
-        id: signleDrink._id,
-      });
-      console.log('Added drink response', response);
-      setIsAdded(true);
+        if (response.error) {
+          console.log(
+            'Error message while Adding',
+            response.error.data.message
+          );
+        } else {
+          favorites.push(drinkId);
+          console.log('Newly ADDED', favorites);
+          setIsAdded(true);
+        }
+      } catch (error) {
+        console.log('errorMessage', error);
+      }
     }
   };
 
