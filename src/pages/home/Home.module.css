@@ -18,7 +18,8 @@
   margin-top: 16px;
   margin-bottom: 32px;
 
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
 
   font-size: 14px;
   font-weight: 400;
@@ -31,6 +32,9 @@
 
   background: var(--main-button-bg);
   color: var(--main-button-txt-cl);
+
+  transition: var(--transit);
+
 }
 
 .button:hover {

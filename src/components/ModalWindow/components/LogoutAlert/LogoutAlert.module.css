@@ -83,6 +83,12 @@
 .logoutBtn:hover,
 .logoutBtn:focus {
   background-color: rgba(242, 242, 242, 0.6);
+
+  cursor: pointer;
+  border-style: solid;
+  border-color: var(--button-main-border-hover);
+  border-width: 2px;
+  background: var(--main-button-bg-hover);
 }
 
 .cancelBtn {

@@ -9,7 +9,6 @@
 
 .serviceLink {
     color: rgba(243, 243, 243, 0.50);
-    text-align: right;
     font-size: 12px;
     font-weight: 400;
     line-height: calc(16 / 12);
@@ -18,6 +17,10 @@
 
 .serviceLink:first-child {
     margin-right: 14px;
+}
+
+.serviceLinkBox{
+    display: flex;
 }
 
 
