@@ -7,6 +7,9 @@ import { useDispatch } from 'react-redux';
 import { signin } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 
+import toast from 'react-hot-toast';
+import { PopUp } from 'components/PopUp/PopUp';
+
 export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,12 +54,12 @@ export default function Signin() {
       validPassword(password);
 
     if (!emailValid) {
-      console.log(emailError);
+      toast.error(emailError);
       return false;
     }
 
     if (!passwordValid) {
-      console.log(passwordError);
+      toast.error(passwordError);
       return false;
     }
 
@@ -76,6 +79,7 @@ export default function Signin() {
 
   return (
     <>
+      <PopUp />
       <WelcomeLayout>
         <Form
           title="Sign In"

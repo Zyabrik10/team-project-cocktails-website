@@ -8,6 +8,10 @@ import { signup } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import toast from 'react-hot-toast';
+import { PopUp } from 'components/PopUp/PopUp';
+
+
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,23 +20,24 @@ export default function Signup() {
   const [selectedDate, setSelectedDate] = useState(0);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate ();
-  
+  const navigate = useNavigate();
+
   async function SignUserUp() {
     const userData = {
       username: name,
-      email,  
+      email,
       birthDate: selectedDate,
       password,
     };
 
     const { error } = await dispatch(signup(userData));
-    if (!error) navigate("/home");
+    if (!error) navigate('/home');
   }
-  
+
   function validName(name) {
     if (name === '')
       return { valid: false, error: 'Please, provide your name' };
+
     return {
       valid: true,
       error: null,
@@ -50,7 +55,7 @@ export default function Signup() {
       error: null,
     };
   }
-  
+
   function validPassword(password) {
     if (password === '')
       return { valid: false, error: 'Please, provide your password' };
@@ -63,12 +68,14 @@ export default function Signup() {
   function validDate(date) {
     if (date === 0)
       return { valid: false, error: 'Please, provide your birth date' };
+    if (new Date().getTime() <= new Date(date).getTime()) {
+      return { valid: false, error: 'You can`t choose future date as your birthday' };
+    }
     return {
       valid: true,
       error: null,
     };
   }
-
 
   function validateFields() {
     const { valid: nameValid, error: nameError } = validName(name);
@@ -78,22 +85,22 @@ export default function Signup() {
     const { valid: dateValid, error: dateError } = validDate(selectedDate);
 
     if (!nameValid) {
-      console.log(nameError);
+      toast.error(nameError);
       return false;
     }
 
     if (!emailValid) {
-      console.log(emailError);
+      toast.error(emailError);
       return false;
     }
 
     if (!dateValid) {
-      console.log(dateError);
+      toast.error(dateError);
       return false;
     }
 
     if (!passwordValid) {
-      console.log(passwordError);
+      toast.error(passwordError);
       return false;
     }
 
@@ -114,6 +121,7 @@ export default function Signup() {
 
   return (
     <>
+      <PopUp />
       <WelcomeLayout>
         <Form
           title="Sign Up"

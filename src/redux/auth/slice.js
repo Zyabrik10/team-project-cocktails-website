@@ -19,17 +19,26 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       toast.success(`Successful Logined.`);
     },
+    [signup.rejected](state, action) {
+      toast.error('Something is worng');
+    },
     [signin.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
       toast.success(`Successful Logined.`);
     },
+    [signin.rejected](state, action) {
+      toast.error('Something is worng');
+    },
     [signout.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
       toast.success(`Successful logout.`);
+    },
+    [signout.rejected](state, action) {
+      toast.error('Something is worng');
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
