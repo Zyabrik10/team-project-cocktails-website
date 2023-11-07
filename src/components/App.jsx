@@ -17,6 +17,7 @@ import { getThemeColor } from 'redux/theme/selectors';
 import { useSelector } from 'react-redux';
 
 import css from './App.module.css';
+import { RefreshLoader } from './RefreshLoader/RefreshLoader';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
 const DrinksPage = lazy(() => import('../pages/drinks/Drinks'));
@@ -37,7 +38,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>Loading...</p>
+    <RefreshLoader/>
   ) : (
     <div className={`${css["bg"]} ${themeClass}`}>
       <Routes>

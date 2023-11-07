@@ -1,0 +1,9 @@
+@import url('css/variables.css');
+
+.loaderContainer {
+    background: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

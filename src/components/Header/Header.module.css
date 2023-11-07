@@ -1,8 +1,8 @@
 @import url('css/variables.css');
 
 .header {
-    position: relative;
-  z-index: 10;  
+  position: relative;
+  z-index: 50;  
   border-bottom: solid 1px var(--nav-link-border);
   padding-top: 20px;
   padding-bottom: 20px;
