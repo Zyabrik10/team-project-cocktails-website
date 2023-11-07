@@ -1,8 +1,8 @@
-.switchContainer {
+/* .switchContainer {
     display: none;
-}
+} */
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) { */
     .switchContainer {
         display: inline-block;
     }
@@ -58,4 +58,4 @@
         transform: translateX(18px);
         -ms-transform: translateX(18px);
     }
-}
+/* } */

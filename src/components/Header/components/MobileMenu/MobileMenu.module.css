@@ -1,12 +1,86 @@
+@import url('css/variables.css');
+
 .modal-wrapper {
     position: absolute;
-    z-index: 50;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
-    background: #0A0A11;
+    background: var(--main-bg-color);
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 150px;
+    overflow: hidden;
 }
 
+.circle1 {
+    position: absolute;
+    z-index: -1;
+    top: 5%;
+    left: 20%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(188, 230, 210, 0.40);
+    filter: blur(105px);
+}
+
+.circle2 {
+    position: absolute;
+    z-index: -1;
+    top: 5%;
+    left: -110%;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: rgba(64, 112, 205, 0.50);
+    filter: blur(105px);
+}
+
+.circle3 {
+    position: absolute;
+    z-index: -1;
+    bottom: -20%;
+    right: -120%;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: rgba(64, 112, 205, 0.50);
+    filter: blur(105px);
+}
+
+
+@media screen and (min-width: 768px) {
+    .circle1 {
+        top: 50px;
+        left: -25%;
+        z-index: 1;
+        width: 375px;
+        height: 375px;
+    }
+
+    .circle2 {
+        display: none;
+    }
+
+    .circle3 {
+        bottom: 0%;
+        right: -50%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .modal-wrapper {
+        display: none;
+    }
+
+    .circle1 {
+        display: none;
+    }    
+
+    .circle2 {
+        display: none;
+    }
+}

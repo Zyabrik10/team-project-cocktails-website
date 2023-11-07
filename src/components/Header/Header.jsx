@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useAuth } from 'hooks';
@@ -24,15 +24,28 @@ import { getThemeColor } from 'redux/theme/selectors';
 export const Header = () => {
   const theme = useSelector(getThemeColor);
   const themeClass = theme === 'dark' ? 'main' : 'main light';
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
   const [isMobileMunuOpen, setIsMobileMunuOpen] = useState(false)
   const { user } = useAuth();
 
+console.log(windowWidth)
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const openMenu = () => setIsMobileMunuOpen(!isMobileMunuOpen);
 
-  const { user } = useAuth();
 
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
 
@@ -46,6 +59,8 @@ export const Header = () => {
       document.removeEventListener('keydown', closeOnKeyDown);
     }
   }
+
+
 
   return (
     <>
@@ -78,6 +93,7 @@ export const Header = () => {
 
       <header className={`${css[`header`]} ${themeClass}`}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
+          
           <NavLink
             to="/home"
             className={`${css['logoLink']} ${globalCss['global-link']}`}
@@ -87,24 +103,28 @@ export const Header = () => {
               Drink Master
             </p>
           </NavLink>
+
           <Navigation />
+
           <div className={css.profile}>
-            <ThemeSwitcher />
-            {isMobileMunuOpen ? 
-              <ThemeSwitcher />
+            {windowWidth > 1440 && <ThemeSwitcher />}
+            {windowWidth < 1440 && 
+              isMobileMunuOpen ? 
+                <ThemeSwitcher />
               :
-            <div onClick={toggleModalChoose} className={css.userBox}>
-              <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
-              <span className={css.name}>{user.username}</span>
-            </div> 
+              <div onClick={toggleModalChoose} className={css.userBox}>
+                <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
+                <span className={css.name}>{user.username}</span>
+              </div> 
             }
             <button onClick={openMenu} className={css.burgerMenu}>
               { isMobileMunuOpen ? <CloseSvg/> : <BurgerMenuSvg /> }
             </button>
           </div>
+
         </div>
       </header>
-      <MobileMenu isOpen={isMobileMunuOpen}/>
+      <MobileMenu closeMenu={openMenu} isOpen={isMobileMunuOpen}/>
 
       <MobileMenu/>
     </>
