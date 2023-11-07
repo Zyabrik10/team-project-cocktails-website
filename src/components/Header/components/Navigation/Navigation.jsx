@@ -11,11 +11,17 @@ export const Navigation = ({ isOpen }) => {
     const className = isOpen ? "navMobile" : "none";
     return (
         <nav className={`${css["nav"]} ${css[className]}`}>
-            <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`} to="/home">Home</NavLink>
-            <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`} to="/drinks">Drinks</NavLink>
-            <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`} to="/add">Add drink</NavLink>
-            <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`} to="/my">My drinks</NavLink>
-            <NavLink className={`${css["navLink"]} ${globalCss["global-link"]}`} to="/favorites">Favorites</NavLink>
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/home">Home</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/drinks">Drinks</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/add">Add drink</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/my">My drinks</NavLink>
+
+            <NavLink className={({ isActive }) => `${css["navLink"]} ${globalCss["global-link"]} ${isActive ? css["active"] : ""}`} to="/favorites">Favorites</NavLink>
         </nav>
     )
 }
+
+

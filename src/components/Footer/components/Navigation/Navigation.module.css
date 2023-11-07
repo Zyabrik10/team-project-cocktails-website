@@ -1,26 +1,35 @@
 .nav {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 30px;
 }
 
 .navLink {
+
     color: #F3F3F3;
     font-size: 14px;
     font-weight: 500;
     line-height: calc(23 / 14);
+     &.active {
+        border-radius: 40px;
+        border: 1px solid var(--nav-link-border);
+        margin-right: 16px;
+        padding: 8px 16px;
+        color: #f3f3f3;
+        background-color: #161f37;
+    }
 }
 
 
 @media screen and (min-width: 768px) {
     .nav {
-        gap: 16px;
+        /* gap: 16px; */
     }
 }
 
 
 @media screen and (min-width: 1440px) {
     .nav {
-        gap: 24px;
+        /* gap: 24px; */
     }
 }
