@@ -26,7 +26,7 @@ export const Ingredients = ({ ingredients }) => {
                 <p
                   className={`${globalCss['global-p']} ${css['ingredient-description']}`}
                 >
-                  {title} <span>{measure}</span>
+                  {title} <span className={css.measure}>{measure}</span>
                 </p>
               </li>
             );
