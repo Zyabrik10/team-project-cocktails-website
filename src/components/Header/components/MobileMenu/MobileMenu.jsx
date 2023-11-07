@@ -11,11 +11,11 @@ useEffect(() => {
   if (isOpen) {
     document.body.style.overflowY = 'hidden';
   } else {
-    document.body.style.overflowY = 'auto';
+    document.body.style.overflow = '';
   }
 
   return () => {
-    document.body.style.overflowY = 'auto'
+    document.body.style.overflow = ''
   };
 }, [isOpen]);
 
