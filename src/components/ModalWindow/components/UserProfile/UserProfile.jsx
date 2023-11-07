@@ -164,6 +164,7 @@ export const UserProfile = ({ setClose, closeOnKeyDown, isShown }) => {
           </label>
 
           <button
+            style={{ background: '#f3f3f3' }}
             type="submit"
             disabled={disabled}
             className={`${css.submitBtn} ${globalCss['custom-button']} ${globalCss['global-button']}`}

@@ -32,5 +32,5 @@
 
 .recipe-text-area:hover,
 .recipe-text-area:focus {
-  border-color: var(--text-color);
+  border: 2px solid var(--text-color);
 }

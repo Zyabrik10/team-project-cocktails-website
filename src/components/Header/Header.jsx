@@ -87,11 +87,7 @@ export const Header = () => {
           <div className={css.profile}>
             <ThemeSwitcher />
             <div onClick={toggleModalChoose} className={css.userBox}>
-              <img
-                src={require('../../img/header/user.png')}
-                alt="Avatar"
-                className={css.avatar}
-              />
+              <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
               <span className={css.name}>{user.username}</span>
             </div>
             <button className={css.burgerMenu}>
