@@ -1,7 +1,6 @@
 import globalCss from '../../css/global.module.css';
 import css from './FavNotFound.module.css';
 
-
 export const FavNotFound = () => {
     return (
         <div className={`${css["notFoundBox"]} ${globalCss["container"]}`} >
