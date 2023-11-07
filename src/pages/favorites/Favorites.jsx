@@ -22,11 +22,6 @@ export default function Favorites() {
         setFavorites(fetchedFavorites.result);
     }, [fetchedFavorites]);
 
-    // const handleAddFavorite = (drinkId) => {
-    //     addFavorite(drinkId);
-    // };
-    //ця функція і мутація для додавання в вибрані
-
     const handleDelete = async (drinkId) => {
         await removeFavorite({
             id: drinkId
