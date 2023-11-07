@@ -1,105 +1,48 @@
-# React homework template
+# Drink Master
 
-This project was created with
-[Create React App](https://github.com/facebook/create-react-app). To get
-acquainted and configure additional features
-[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Drink Master is the frontend component of a full-stack project developed by a group of junior full-stack developers as their final course project. This platform offers users the ability to authenticate and delve into the exciting world of cocktails. For users of legal drinking age, you can explore and create both traditional and alcoholic cocktails. For those under 18, the platform allows you to discover and create non-alcoholic cocktails and beverages. 
 
-## Creating a repository by template
+## Key Features
 
-Use this GoIT repository as a template for creating a repository
-of your project. To use it just tap the `«Use this template»` button and choose
-`«Create a new repository»` option, as you can see on the image below.
+- **User-friendly Interface**: The platform boasts a user-friendly interface that allows seamless navigation through its various pages.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+- **Explore a World of Drinks**: Upon authorization, users are directed to the Home page, where they can immediately explore a diverse range of drinks categorized by type. 
 
-The page for creating a new repository will open on the next step. Fill out
-the Name field and make sure the repository is public, then click
-`«Create repository from template»` button.
+- **Create Your Own Signature Drink**: Head over to the Add Drink page to craft your very own unique cocktail.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- **Comprehensive Drink Directory**: The Drinks page lets users explore an extensive collection of cocktails, complete with filters for category, ingredients, and search queries.
 
-You now have a personal project repository, having a repository-template file 
-and folder structure. After that, you can work with it as you would with any 
-other private repository: clone it on your computer, write code, commit, and 
-send it to GitHub.
+- **Personalized Drink Collection**: All the drinks you create are conveniently stored on the My Drinks page.
 
-## Preparing for coding
+- **Favorite Picks**: If you find a cocktail you adore, easily mark it as a favorite for quick access. All your favorite drinks can be found on the Favorites screen.
 
-1. Make sure you have an LTS version of Node.js installed on your computer.
-   [Download and install](https://nodejs.org/en/) if needed.
-2. Install the project's base dependencies with the `npm install` command.
-3. Start development mode by running the `npm start` command.
-4. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
-   page will automatically reload after saving changes to the project files.
+- **Profile Customization**: Personalize your profile by updating your avatar or username to make it uniquely yours.
 
-## Deploy
+- **Secure and Convenient**: Once you're done exploring, simply log out from the application. Rest assured, your information will be saved and readily available upon your next login.
 
-The production version of the project will automatically be linted, built, and
-deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` branch
-is updated. For example, after a direct push or an accepted pull request. To do
-this, you need to edit the `homepage` field in the `package.json` file,
-replacing `your_username` and `your_repo_name` with your own, and submit the
-changes to GitHub.
+## Pages
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+1. **Home**: Discover a wide array of drinks sorted by category.
+2. **Add Drink**: Unleash your creativity and craft your own signature drink.
+3. **Drinks**: Explore an extensive collection of cocktails with filtering options.
+4. **My Drinks**: Easily access all the drinks you've created.
+5. **Favorites**: Quickly find your favorite drinks for easy reference.
+6. **Drink**: Check all available information about one drink.
 
-Next, you need to go to the settings of the GitHub repository (`Settings` >
-`Pages`) and set the distribution of the production version of files from the
-`/root` folder of the `gh-pages` branch, if this was not done automatically.
+## Age Verification
 
-![GitHub Pages settings](./assets/repo-settings.png)
+- For users of legal drinking age, enjoy the full range of cocktail options.
+- For users under 18, explore and create non-alcoholic beverages exclusively.
 
-### Deployment status
+Start your journey into the world of cocktails with Drink Master today!
 
-The deployment status of the latest commit is displayed with an icon next to its
-ID.
 
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
+## Technologies Used
 
-More detailed information about the status can be viewed by clicking on the
-icon, and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Live page
-
-After some time, usually a couple of minutes, the live page can be viewed at the
-address specified in the edited `homepage` property. For example, here is a link
-to a live version for this repository
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab
-related to incorrect paths to the CSS and JS files of the project (**404**). You
-most likely have the wrong value for the `homepage` property in the
-`package.json` file.
-
-### Routing
-
-If your application uses the `react-router-dom` library for routing, you must
-additionally configure the `<BrowserRouter>` component by passing the exact name
-of your repository in the `basename` prop. Slashes at the beginning and end of
-the line are required.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## How it works
-
-![How it works](./assets/how-it-works.png)
-
-1. After each push to the `main` branch of the GitHub repository, a special
-   script (GitHub Action) is launched from the `.github/workflows/deploy.yml`
-   file.
-2. All repository files are copied to the server, where the project is
-   initialized and linted and built before deployment.
-3. If all steps are successful, the built production version of the project
-   files is sent to the `gh-pages` branch. Otherwise, the script execution log
-   will indicate what the problem is.
+- JavaScript 
+- React.js
+- React Router DOM
+- Redux Toolkit
+- Axios
+- Material UI
+- Module CSS
