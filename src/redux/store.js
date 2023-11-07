@@ -48,7 +48,8 @@ export const store = configureStore({
       .concat(filtersAPI.middleware)
       .concat(popularDrinksAPI.middleware)
       .concat(favoritesAPI.middleware)
-      .concat(myDrinksAPI.middleware),
+      .concat(myDrinksAPI.middleware)
+      .concat(drinksPageAPI.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 export const persistor = persistStore(store);

@@ -9,39 +9,45 @@ export const DropDown = ({
   setIsOpen,
   setIsModalEditUserOpen,
   setIsModalLogoutOpen,
-  closeOnKeyDown
+  closeOnKeyDown,
 }) => {
-
   const openLogOut = () => {
     setIsModalLogoutOpen(true);
     setIsOpen(false);
-  }
+  };
 
   const openEditUser = () => {
     setIsModalEditUserOpen(true);
     setIsOpen(false);
-  }
+  };
 
   const cs = useCallback(closeOnKeyDown, [closeOnKeyDown]);
-  
+
   useEffect(() => {
     if (isOpen) document.addEventListener('keydown', cs);
   }, [isOpen, cs]);
 
-  function closeOnClick({target, currentTarget}) {
+  function closeOnClick({ target, currentTarget }) {
     if (target === currentTarget) setIsOpen(false);
   }
 
-  return (  
-    <div className={`${css.wrapper} ${isOpen ? css.active : ""}`} onClick={closeOnClick}>
-     <div className={`${css.profileDropdown} ${isOpen ? css.active : ''}`}>
-        <button className={`${css.edditLink} ${globalCss["global-button"]}`} onClick={openEditUser}>
+  return (
+    <div
+      className={`${css.wrapper} ${isOpen ? css.active : ''}`}
+      onClick={closeOnClick}
+    >
+      <div className={`${css.profileDropdown} ${isOpen ? css.active : ''}`}>
+        <button
+          className={`${css.edditLink} ${globalCss['global-button']}`}
+          onClick={openEditUser}
+        >
           Eddit profile
           <span className={css.linkSvg}>
             <EdditSvg />
           </span>
         </button>
         <button
+          style={{ background: '#f3f3f3' }}
           onClick={openLogOut}
           className={`${css.logoutBtn} ${globalCss['custom-button']} ${globalCss['global-button']}`}
         >

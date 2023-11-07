@@ -28,8 +28,16 @@
   font-weight: 600;
   line-height: calc(18 / 14);
   width: 222px;
-  padding: 14px 40px;
+  padding: 14px; /* 40px  */
+
   margin-bottom: 85px;
+  transition: var(--transit);
+}
+
+.btn-add-drink:focus:not(:hover),
+.btn-add-drink:hover {
+  color: #f3f3f3;
+  background-color: #161f37;
 }
 
 .img-hero {
@@ -62,7 +70,7 @@
     font-size: 16px;
     line-height: calc(18 / 16);
     width: 250px;
-    padding: 18px 44px;
+    padding: 18px; /*  44px */
     margin-bottom: 80px;
   }
   .img-hero {

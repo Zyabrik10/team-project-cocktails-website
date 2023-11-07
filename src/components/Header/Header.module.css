@@ -21,7 +21,7 @@
 }
 
 .logoSvg {
-  fill: vvar(--text-color);
+  fill: var(--text-color);
   width: 22px;
   height: 22px;
 }

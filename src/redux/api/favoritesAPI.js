@@ -9,17 +9,20 @@ const favoritesAPI = createApi({
       query: () => ({ url: '/drinks/favorite' }),
     }),
       addFavorite: builder.mutation({
-          query: (drinkId) => ({
+          query: (data) => ({
               url: '/drinks/favorite/add',
+              data,
               method: 'POST',
-              body: { drinkId },
-          })
+        }),
+        invalidatesTags: [{type: 'POST', id: 'LIST'}]
       }),
       removeFavorite: builder.mutation({
-          query: (drinkId) => ({
-              url: `/drinks/favorite/remove/${drinkId}`,
-              method: 'DELETE',
-          })
+          query: (data) => ({
+          url: `/drinks/favorite/remove`,
+          data,
+          method: 'DELETE',
+        }),
+        invalidatesTags: [{type: 'DELETE', id: 'LIST'}]
       }),
   }),
 });

@@ -6,7 +6,7 @@ export default function DrinkList ({cocktails}) {
   return (
     <div className={css.container}>
       {cocktails.map(cocktail => (
-        <CocktailCard mainDrinksPage={true} obj={cocktail} key={cocktail._id.$oid} />
+        <CocktailCard mainDrinksPage={true} obj={cocktail} key={cocktail._id} />
       ))}
     </div>
   );

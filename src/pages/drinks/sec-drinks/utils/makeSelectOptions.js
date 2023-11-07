@@ -4,7 +4,7 @@ const makeSelectOptions = ({ data }) => {
     label: el,
   }));
 
-  return optArr;
+  return [{ label: 'All categories' }, ...optArr];
 };
 
 export default makeSelectOptions;
