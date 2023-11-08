@@ -33,3 +33,19 @@
 }
 .refIconStyles {
 } */
+
+.content-wrapp {
+  min-height: 1500px;
+}
+
+@media screen and (min-width: 768px) {
+  .content-wrapp {
+    min-height: 1779px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content-wrapp {
+    min-height: 1620px;
+  }
+}

@@ -205,9 +205,11 @@
   margin-bottom: 40px;
 }
 
-.subm-btn {
+.addForm .subm-btn {
   width: 107px;
   height: 46px;
+  background-color: var(--main-button-bg);
+  color: var(--main-button-txt-cl);
 }
 
 @media screen and (min-width: 768px) {
@@ -215,7 +217,6 @@
     width: 118px;
     height: 54px;
 
-    color: var(--main-button-txt-cl);
     font-size: 16px;
     font-weight: 600;
     line-height: 1.12;

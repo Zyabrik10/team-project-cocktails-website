@@ -6,17 +6,25 @@ const myDrinksAPI = createApi({
   baseQuery: axiosBaseQuery(),
   endpoints: builder => ({
     getMyDrinks: builder.query({
-      query: () => ({ url: '/drinks/own' }),
+      query: ({ limit = 1, page = 1 }) => {
+        const queryParams = new URLSearchParams();
+        queryParams.append('limit', limit);
+        queryParams.append('page', page);
+
+        return {
+          url: `/drinks/own?${queryParams.toString()}`,
+        };
+      },
+      providesTags: [{ type: 'Own' }],
     }),
 
     removeMyDrink: builder.mutation({
       query: drinkId => ({
         url: '/drinks/own/remove',
+        body: { id: drinkId },
         method: 'DELETE',
-        body: {
-          _id: drinkId
-        }
       }),
+      invalidatesTags: [{ type: 'Own' }],
     }),
   }),
 });
@@ -25,4 +33,5 @@ export default myDrinksAPI;
 export const {
   useGetMyDrinksQuery,
   useRemoveMyDrinkMutation,
+  useAddMyDrinkMutation,
 } = myDrinksAPI;

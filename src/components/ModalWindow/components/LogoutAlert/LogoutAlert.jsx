@@ -44,7 +44,6 @@ export const LogoutAlert = ({ isShown, setClose, closeOnKeyDown }) => {
       <p className={css.alertTitle}>Are you sure you want to log out?</p>
       <div className={css.btnBox}>
         <button
-          style={{ background: '#f3f3f3' }}
           onClick={buttonHandle}
           className={`${css.logoutBtn} ${globalCss['global-button']} ${globalCss['custom-button']}`}
         >

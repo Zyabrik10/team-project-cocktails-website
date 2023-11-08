@@ -41,13 +41,12 @@ export const DropDown = ({
           className={`${css.edditLink} ${globalCss['global-button']}`}
           onClick={openEditUser}
         >
-          Eddit profile
+          Edit profile
           <span className={css.linkSvg}>
             <EdditSvg />
           </span>
         </button>
         <button
-          style={{ background: '#f3f3f3' }}
           onClick={openLogOut}
           className={`${css.logoutBtn} ${globalCss['custom-button']} ${globalCss['global-button']}`}
         >

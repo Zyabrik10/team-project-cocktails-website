@@ -28,7 +28,7 @@ export const Header = () => {
   const [isModalChooseOpen, setIsModalChooseOpen] = useState(false);
   const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
   const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
-  const [isMobileMunuOpen, setIsMobileMunuOpen] = useState(false)
+  const [isMobileMunuOpen, setIsMobileMunuOpen] = useState(false);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -45,11 +45,10 @@ export const Header = () => {
 
   const openMenu = () => setIsMobileMunuOpen(!isMobileMunuOpen);
 
-
   const toggleModalChoose = () => setIsModalChooseOpen(!isModalChooseOpen);
 
   function closeOnKeyDown({ key }) {
-    console.log('key');
+    // console.log('key');
     if (key === 'Escape') {
       if (isModalChooseOpen) setIsModalChooseOpen(false);
       else if (isModalLogoutOpen) setIsModalLogoutOpen(false);
@@ -58,8 +57,6 @@ export const Header = () => {
       document.removeEventListener('keydown', closeOnKeyDown);
     }
   }
-
-
 
   return (
     <>
@@ -92,7 +89,6 @@ export const Header = () => {
 
       <header className={`${css[`header`]} ${themeClass}`}>
         <div className={`${css['headerBox']} ${globalCss['container']}`}>
-          
           <NavLink
             to="/home"
             className={`${css['logoLink']} ${globalCss['global-link']}`}
@@ -107,27 +103,25 @@ export const Header = () => {
 
           <div className={css.profile}>
             {windowWidth > 1440 && <ThemeSwitcher />}
-            {windowWidth < 1440 && 
-              isMobileMunuOpen ? 
-                <ThemeSwitcher />
-              :
+            {windowWidth < 1440 && isMobileMunuOpen ? (
+              <ThemeSwitcher />
+            ) : (
               <div onClick={toggleModalChoose} className={css.userBox}>
                 <img src={user.avatarURL} alt="Avatar" className={css.avatar} />
                 {/* {user.avatarURL ? <img src={user.avatarURL} alt="Avatar" className={css.avatar} /> : <img src={require("../../img/header/user.png")} alt="Avatar" className={css.avatar} />} */}
 
                 <span className={css.name}>{user.username}</span>
-              </div> 
-            }
+              </div>
+            )}
             <button onClick={openMenu} className={css.burgerMenu}>
-              { isMobileMunuOpen ? <CloseSvg/> : <BurgerMenuSvg /> }
+              {isMobileMunuOpen ? <CloseSvg /> : <BurgerMenuSvg />}
             </button>
           </div>
-
         </div>
       </header>
-      <MobileMenu closeMenu={openMenu} isOpen={isMobileMunuOpen}/>
+      <MobileMenu closeMenu={openMenu} isOpen={isMobileMunuOpen} />
 
-      <MobileMenu/>
+      <MobileMenu />
     </>
   );
 };

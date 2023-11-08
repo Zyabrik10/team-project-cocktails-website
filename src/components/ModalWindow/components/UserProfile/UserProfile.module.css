@@ -132,12 +132,13 @@
 }
 
 .submitBtn:disabled {
-  background-color: rgba(243, 243, 243, 0.5);
+  background-color: rgba(243, 243, 243, 0.3);
 }
 
 .submitBtn:hover,
 .submitBtn:focus {
-  background-color: rgba(243, 243, 243, 1);
+  background-color: rgba(243, 243, 243, 0.6);
+  outline: 2px solid var(--button-main-border-hover);
 }
 
 .circle1 {

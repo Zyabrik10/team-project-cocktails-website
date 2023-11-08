@@ -17,7 +17,6 @@ import { getThemeColor } from 'redux/theme/selectors';
 import { useSelector } from 'react-redux';
 
 import css from './App.module.css';
-// import { RefreshLoader } from './RefreshLoader/RefreshLoader';
 import Loader from './Loader';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
@@ -31,7 +30,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
-    const theme = useSelector(getThemeColor);
+  const theme = useSelector(getThemeColor);
   const themeClass = theme === 'dark' ? 'main' : 'main light';
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-  // <RefreshLoader/>
+    // <RefreshLoader/>
     <Loader
       size={20}
       margin={10}
@@ -50,50 +49,22 @@ export const App = () => {
       }}
     />
   ) : (
-    <div className={`${css["bg"]} ${themeClass}`}>
-    <Routes>
-      <Route
-        path="/"
-        element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
-      >   
-      <Route
-        path="/home"
-        element={
-          <HomePage />
-        }
-      />
-      <Route
-        path="/drinks"
-        element={
-          <DrinksPage />
-        }
-      />
-      <Route
-        path="/add"
-        element={
-          <AddDrinkPage />
-        }
-      />
-      <Route
-        path="/my"
-        element={
-          <MyDrinksPage />
-        }
-      />
-      <Route
-        path="/favorites"
-        element={
-          <FavoritesPage />
-        }
-      />
-      <Route
-        path="/drink/:drinkId"
-        element={
-          <SingleDrinkPage />
-        }
-      />
-      <Route path="*" element={<ErrorComponent />} />
-    </Route>
+    <div className={`${css['bg']} ${themeClass}`}>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/welcome" component={<Layout />} />
+          }
+        >
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/drinks" element={<DrinksPage />} />
+          <Route path="/add" element={<AddDrinkPage />} />
+          <Route path="/my" element={<MyDrinksPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/drink/:drinkId" element={<SingleDrinkPage />} />
+          <Route path="*" element={<ErrorComponent />} />
+        </Route>
 
         <Route
           path="/welcome"
@@ -101,11 +72,15 @@ export const App = () => {
         />
         <Route
           path="/signup"
-          element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
+          element={
+            <RestrictedRoute redirectTo="/home" component={<Signup />} />
+          }
         />
         <Route
           path="/signin"
-          element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
+          element={
+            <RestrictedRoute redirectTo="/home" component={<Signin />} />
+          }
         />
       </Routes>
     </div>

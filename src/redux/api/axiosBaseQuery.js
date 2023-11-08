@@ -3,6 +3,7 @@ import axios from 'axios';
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: 'https://drunk404.onrender.com' }) =>
   async ({ url, method, data, params, headers }) => {
+    console.log(headers);
     try {
       const result = await axios({
         url: baseUrl + url,

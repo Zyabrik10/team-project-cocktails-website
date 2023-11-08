@@ -17,7 +17,6 @@ import css from './AddDrinkForm.module.css';
 import globalStyles from 'css/global.module.css';
 import selectsStyles from './styles/selectsStyles';
 import Loader from 'components/Loader';
-import { useGetPopularDrinksQuery } from 'redux/api/popularDrinksAPI';
 
 const initialValues = {
   itemTitle: '',
@@ -35,8 +34,6 @@ const AddDrinkForm = () => {
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
 
   const navigate = useNavigate();
-
-  const { refetch } = useGetPopularDrinksQuery();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const { itemTitle, aboutRecipe, radioSelected, recipe } = values;
@@ -70,7 +67,7 @@ const AddDrinkForm = () => {
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      await refetch();
+      // await refetch();
       toast.success('Added successfully');
       navigate('/my', { replace: true });
       setSubmitting(false);

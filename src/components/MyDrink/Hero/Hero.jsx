@@ -23,7 +23,10 @@ export const Hero = ({ signleDrink }) => {
   const [removeFavorite] = favoritesAPI.useRemoveFavoriteMutation();
 
   const [isAdded, setIsAdded] = useState(false);
-  const { data: favoritesArray } = favoritesAPI.useGetFavoritesQuery();
+  const { data: favoritesArray } = favoritesAPI.useGetFavoritesQuery({
+    limit: 1,
+    page: 1,
+  });
 
   // add or remove cocktail from the favorites
   const handleClick = async event => {
@@ -36,7 +39,6 @@ export const Hero = ({ signleDrink }) => {
         });
 
         if (response.error) {
-          console.log('Error message', response.error.data.message);
           toast.error('Error occurred, drink was not removed.');
         } else {
           const index = favorites.indexOf(drinkId);
@@ -48,7 +50,7 @@ export const Hero = ({ signleDrink }) => {
           toast.success('Removed from favorite!');
         }
       } catch (error) {
-        console.log('errorMessage', error);
+        // console.log('errorMessage', error);
         toast.error('Error occurred, drink was not removed.');
       }
     }
@@ -61,10 +63,10 @@ export const Hero = ({ signleDrink }) => {
         });
 
         if (response.error) {
-          console.log(
-            'Error message while Adding',
-            response.error.data.message
-          );
+          // console.log(
+          //   'Error message while Adding',
+          //   response.error.data.message
+          // );
           toast.error('Error occurred, drink was not added');
         } else {
           favorites.push(drinkId);
@@ -72,7 +74,7 @@ export const Hero = ({ signleDrink }) => {
           toast.success('Added to favorite!');
         }
       } catch (error) {
-        console.log('errorMessage', error);
+        // console.log('errorMessage', error);
         toast.error('Error occurred, drink was not added');
       }
     }
@@ -83,8 +85,8 @@ export const Hero = ({ signleDrink }) => {
     const arrayOfFavorites = [];
 
     const filterFavorites = () => {
-      if (!favoritesArray.result) return;
-      for (let key of favoritesArray.result) {
+      if (!favoritesArray.hits) return;
+      for (let key of favoritesArray.hits) {
         arrayOfFavorites.push(key['_id']);
       }
       return arrayOfFavorites;
