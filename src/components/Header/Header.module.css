@@ -43,7 +43,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .userBox {
@@ -66,7 +66,7 @@
   font-weight: 500;
   line-height: calc(24 / 16);
 
-  max-width: 50px;
+  max-width: 60px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -121,6 +121,10 @@
     width: 44px;
     margin-right: 14px;
   }
+  
+  .name {
+    max-width: 140px;
+  }
 
   .burgerMenu {
     >svg {
@@ -167,6 +171,10 @@
 
   .navLink:last-child {
     margin-right: 0;
+  }
+
+  .name {
+    max-width: 150px;
   }
 
   .themeSwitcher {

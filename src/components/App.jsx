@@ -44,7 +44,7 @@ export const App = () => {
       size={20}
       margin={10}
       position={{
-        marginTop: '50%',
+        marginTop: '100px',
         marginLeft: '50%',
         transform: 'translateX(-8%)',
       }}

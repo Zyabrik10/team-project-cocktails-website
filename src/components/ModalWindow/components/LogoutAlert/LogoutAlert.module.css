@@ -76,8 +76,8 @@
 .logoutBtn,
 .cancelBtn {
   padding: 16px;
-
-  transition: background-color 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
 .logoutBtn:hover,
@@ -85,9 +85,7 @@
   background-color: rgba(242, 242, 242, 0.6);
 
   cursor: pointer;
-  border-style: solid;
-  border-color: var(--button-main-border-hover);
-  border-width: 2px;
+  border: 2px solid var(--button-main-border-hover);
   background: var(--main-button-bg-hover);
 }
 

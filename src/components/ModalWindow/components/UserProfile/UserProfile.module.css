@@ -137,7 +137,7 @@
 
 .submitBtn:hover,
 .submitBtn:focus {
-  background-color: rgba(243, 243, 243, 0.6);
+  background-color: rgba(243, 243, 243, 1);
 }
 
 .circle1 {
