@@ -66,7 +66,7 @@ export const SecMyDrinks = () => {
   }, [myDrinks, currentPage, isDesktop, params, setSearchParams]);
 
   const handleDelete = async drinkId => {
-    const responce = await removeMyDrink(drinkId);
+    const responce = await removeMyDrink({ id:drinkId });
 
     if (responce.error) {
       throw toast.error('something went wrong');

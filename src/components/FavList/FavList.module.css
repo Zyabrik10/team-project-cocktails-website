@@ -6,12 +6,14 @@
     column-gap: 20px;
     row-gap: 40px;
     margin-top: 40px;
+    padding-bottom: 40px;
 }
 
 @media screen and (min-width: 768px) {
     .drinksList {
         margin-top: 60px;
         row-gap: 80px;
+        padding-bottom: 80px;
     }
 }
 
