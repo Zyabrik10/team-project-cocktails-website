@@ -19,17 +19,17 @@ export const Layout = () => {
 
   useEffect(() => {
     if (pathname === '/') {
-      navigate('/home')
+      navigate('/home');
     }
-  }, [pathname])
+  }, [pathname, navigate]);
 
   return (
     <div>
       <Header />
       <main className={`${css['main']} ${themeClass}`}>
         <PopUp />
-      <div className={css.gradient1}></div>
-      <div className={css.gradient2}></div>
+        <div className={css.gradient1}></div>
+        <div className={css.gradient2}></div>
         <Suspense
           fallback={
             <Loader
