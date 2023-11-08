@@ -23,7 +23,7 @@ const ingredientSelectStyles = (isErrorMess = false) => {
         ? '1px solid var(--error-message-cl)'
         : '1px solid var(--secont-text-cl)',
       '&:hover': {
-        border: '2px solid var(--text-color)',
+        outline: '2px solid var(--text-color)!important',
       },
       '@media screen and (max-width: 377.98px)': {
         ...baseStyles['@media screen and (min-width: 377.98px)'],

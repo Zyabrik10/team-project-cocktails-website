@@ -17,7 +17,6 @@ import { getThemeColor } from 'redux/theme/selectors';
 import { useSelector } from 'react-redux';
 
 import css from './App.module.css';
-// import { RefreshLoader } from './RefreshLoader/RefreshLoader';
 import Loader from './Loader';
 
 const HomePage = lazy(() => import('../pages/home/Home'));
@@ -31,7 +30,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
-    const theme = useSelector(getThemeColor);
+  const theme = useSelector(getThemeColor);
   const themeClass = theme === 'dark' ? 'main' : 'main light';
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-  // <RefreshLoader/>
+    // <RefreshLoader/>
     <Loader
       size={20}
       margin={10}
@@ -50,11 +49,13 @@ export const App = () => {
       }}
     />
   ) : (
-    <div className={`${css["bg"]} ${themeClass}`}>
+    <div className={`${css['bg']} ${themeClass}`}>
       <Routes>
         <Route
           path="/"
-          element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+          element={
+            <PrivateRoute redirectTo="/welcome" component={<Layout />} />
+          }
         >
           <Route path="*" element={<ErrorComponent />} />
           <Route
@@ -77,25 +78,37 @@ export const App = () => {
           <Route
             path="/add"
             element={
-              <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<AddDrinkPage />}
+              />
             }
           />
           <Route
             path="/my"
             element={
-              <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<MyDrinksPage />}
+              />
             }
           />
           <Route
             path="/favorites"
             element={
-              <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<FavoritesPage />}
+              />
             }
           />
           <Route
             path="/drink/:drinkId"
             element={
-              <PrivateRoute redirectTo="/welcome" component={<SingleDrinkPage />}/>
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<SingleDrinkPage />}
+              />
             }
           />
         </Route>
@@ -106,13 +119,17 @@ export const App = () => {
         />
         <Route
           path="/signup"
-          element={<RestrictedRoute redirectTo="/home" component={<Signup />} />}
+          element={
+            <RestrictedRoute redirectTo="/home" component={<Signup />} />
+          }
         />
         <Route
           path="/signin"
-          element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
+          element={
+            <RestrictedRoute redirectTo="/home" component={<Signin />} />
+          }
         />
       </Routes>
-      </div>
+    </div>
   );
 };

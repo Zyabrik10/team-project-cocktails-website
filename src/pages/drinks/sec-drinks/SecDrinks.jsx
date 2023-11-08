@@ -17,13 +17,11 @@ import makeIngrSelectOptions from './utils/makeIngrSelectOptions';
 import makeSelectOptions from './utils/makeSelectOptions';
 import DrinksPagination from 'components/DrinksPagination';
 import { useMediaQuery } from 'hooks';
+import { NotFoundMyDrinks } from 'components/MyDrinksComponent/NotFoundMyDrinks';
+import Loader from 'components/Loader';
 
 export default function SecDrinks() {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const [ingredientsOptions, setIngredientsOptions] =
-    useState('All ingredients');
-  const [categoryOptions, setCategoryOptions] = useState('All categories');
   const [cocktails, setCocktails] = useState([]);
   const [pagesCount, setPagesCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,7 +39,14 @@ export default function SecDrinks() {
     ingredient = 'All ingredients',
   } = params;
 
-  const { data: drinks } = useGetDrinksPageQuery({
+  const [ingredientsOptions, setIngredientsOptions] = useState(ingredient);
+  const [categoryOptions, setCategoryOptions] = useState(category);
+
+  const {
+    data: drinks,
+    isLoading,
+    isFetching,
+  } = useGetDrinksPageQuery({
     limit,
     page,
     ingredient,
@@ -66,6 +71,8 @@ export default function SecDrinks() {
       limit = 8;
     }
 
+    // const countLimit = Math.ceil(total / limit);
+    // setPagesCount(countLimit ? countLimit : 1);
     setPagesCount(Math.ceil(total / limit));
 
     setSearchParams({
@@ -86,7 +93,6 @@ export default function SecDrinks() {
   ]);
 
   const updateQueryString = drink => {
-    console.log(drink);
     let nextParams;
     if (drink === '') {
       nextParams = { ...params };
@@ -105,11 +111,13 @@ export default function SecDrinks() {
       case 'ingredients': {
         setIngredientsOptions(value);
         setSearchParams({ ...params, ingredient: value });
+        setCurrentPage(1);
         return;
       }
       case 'category': {
         setCategoryOptions(value);
         setSearchParams({ ...params, category: value });
+        setCurrentPage(1);
         return;
       }
       default:
@@ -149,14 +157,24 @@ export default function SecDrinks() {
         </button> */}
       </div>
 
-      <DrinkList cocktails={cocktails} />
+      <div className={css['content-wrapp']}>
+        {isLoading || isFetching ? (
+          <Loader />
+        ) : cocktails.length && !isLoading ? (
+          <DrinkList cocktails={cocktails} />
+        ) : (
+          <NotFoundMyDrinks children={`There are no results`} />
+        )}
+      </div>
 
-      <DrinksPagination
-        className={css['pagination']}
-        currentPage={currentPage}
-        pagesCount={pagesCount}
-        refreshOnClick={handlePagination}
-      />
+      {cocktails.length !== 0 && !isLoading && (
+        <DrinksPagination
+          className={css['pagination']}
+          currentPage={currentPage}
+          pagesCount={pagesCount}
+          refreshOnClick={handlePagination}
+        />
+      )}
     </section>
   );
 }

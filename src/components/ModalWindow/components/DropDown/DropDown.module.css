@@ -57,6 +57,11 @@
   justify-content: space-between;
 }
 
+.edditLink:hover,
+.edditLink:hover .linkSvg > svg {
+  color: rgba(243, 243, 243, 0.7);
+}
+
 .linkSvg > svg {
   width: 14px;
   height: 14px;
@@ -67,16 +72,14 @@
   transition: background-color 0.2s ease;
 
   background: var(--main-button-bg);
-  
-
 }
 
 .logoutBtn:hover,
 .logoutBtn:focus,
 .logoutBtn:active {
   cursor: pointer;
-  border-style: solid;
-  border-color: var(--button-main-border-hover);
-  border-width: 2px;
-  background: var(--main-button-bg-hover);
+  outline-width: 2px;
+  outline-color: var(--button-main-border-hover);
+  outline-style: solid;
+  background-color: rgba(243, 243, 243, 0.7);
 }

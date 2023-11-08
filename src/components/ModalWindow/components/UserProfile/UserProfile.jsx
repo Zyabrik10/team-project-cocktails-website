@@ -89,7 +89,6 @@ export const UserProfile = ({ setClose, closeOnKeyDown, isShown }) => {
   };
 
   const handleOnBlur = e => {
-    console.log(e.target.value);
     if (e.target.value === '') {
       setVariant(borderVariant.invalid);
       setDisabled(true);
@@ -164,7 +163,7 @@ export const UserProfile = ({ setClose, closeOnKeyDown, isShown }) => {
           </label>
 
           <button
-            style={{ background: '#f3f3f3' }}
+            // style={{ background: '#f3f3f3' }}
             type="submit"
             disabled={disabled}
             className={`${css.submitBtn} ${globalCss['custom-button']} ${globalCss['global-button']}`}

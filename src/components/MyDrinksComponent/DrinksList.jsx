@@ -1,11 +1,11 @@
 import { DrinksItem } from './DrinksItem';
 import css from './MyDrinks.module.css';
 
-export const DrinksList = () => {
+export const DrinksList = ({ drinks, handleDelete }) => {
   return (
     <>
       <ul className={css.drinksList}>
-        <DrinksItem />
+        <DrinksItem drinks={drinks} handleDelete={handleDelete} />
       </ul>
     </>
   );

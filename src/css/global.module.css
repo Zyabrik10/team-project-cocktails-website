@@ -1,6 +1,5 @@
 @import url('./variables.css');
 
-
 .global-p,
 .global-title,
 .global-list {
@@ -66,7 +65,7 @@
   border: none;
 
   color: #161f37;
-  background: var(--main-button-bg);
+  background: #f3f3f3;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);

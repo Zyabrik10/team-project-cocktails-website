@@ -29,7 +29,7 @@
 
 .form-submit-button {
   margin-bottom: 14px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-submit-button:focus,

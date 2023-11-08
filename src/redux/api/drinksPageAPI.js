@@ -7,7 +7,6 @@ const drinksPageAPI = createApi({
   endpoints: builder => ({
     getDrinksPage: builder.query({
       query: ({ limit, page, ingredient, category, searchQuery }) => {
-        console.log(searchQuery);
         const queryParams = new URLSearchParams();
         queryParams.append(
           'ingredient',
