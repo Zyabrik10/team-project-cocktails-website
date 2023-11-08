@@ -16,8 +16,9 @@
   --nav-link-border: rgba(243, 243, 243, 0.2);
   --button-main-border-hover: rgb(155, 186, 247);
   --select-menu-bg: #161f37;
+  --circle: #4070CD;
   --drop-file-area: rgba(22, 31, 55, 0.5);
-  /* - Не впевнений чи ми будемо 
+  /* - Не впевнений чи ми будемо
   це використовувати так як на темні темі немає бордеру зовсім */
 
   --color-dark: #000000;
@@ -48,4 +49,5 @@
   --select-menu-bg: #fff;
   --drop-file-area: #161f37;
   --button-main-border-hover: #434d67;
+
 }
