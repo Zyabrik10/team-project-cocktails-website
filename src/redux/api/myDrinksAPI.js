@@ -19,9 +19,9 @@ const myDrinksAPI = createApi({
     }),
 
     removeMyDrink: builder.mutation({
-      query: drinkId => ({
+      query: data => ({
         url: '/drinks/own/remove',
-        body: { id: drinkId },
+        data,
         method: 'DELETE',
       }),
       invalidatesTags: [{ type: 'Own' }],
