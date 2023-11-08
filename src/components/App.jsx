@@ -51,54 +51,49 @@ export const App = () => {
     />
   ) : (
     <div className={`${css["bg"]} ${themeClass}`}>
-      <Routes>
-        <Route
-          path="/"
-          element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
-        >
-          <Route path="*" element={<ErrorComponent />} />
-          <Route
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<Layout />} />
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
-            }
-          />
-          <Route
-            path="/drinks"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
-            }
-          />
-          <Route
-            path="/add"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
-            }
-          />
-          <Route
-            path="/my"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
-            }
-          />
-          <Route
-            path="/drink/:drinkId"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<SingleDrinkPage />}/>
-            }
-          />
-        </Route>
+    <Routes>
+      <Route
+        path="/"
+        element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+      >   
+      <Route
+        path="/home"
+        element={
+          <HomePage />
+        }
+      />
+      <Route
+        path="/drinks"
+        element={
+          <DrinksPage />
+        }
+      />
+      <Route
+        path="/add"
+        element={
+          <AddDrinkPage />
+        }
+      />
+      <Route
+        path="/my"
+        element={
+          <MyDrinksPage />
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <FavoritesPage />
+        }
+      />
+      <Route
+        path="/drink/:drinkId"
+        element={
+          <SingleDrinkPage />
+        }
+      />
+      <Route path="*" element={<ErrorComponent />} />
+    </Route>
 
         <Route
           path="/welcome"
@@ -113,6 +108,6 @@ export const App = () => {
           element={<RestrictedRoute redirectTo="/home" component={<Signin />} />}
         />
       </Routes>
-      </div>
+    </div>
   );
 };
