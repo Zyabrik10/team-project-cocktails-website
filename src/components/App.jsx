@@ -43,75 +43,56 @@ export const App = () => {
       size={20}
       margin={10}
       position={{
-        marginTop: '50%',
+        marginTop: '100px',
         marginLeft: '50%',
         transform: 'translateX(-8%)',
       }}
     />
   ) : (
-    <div className={`${css['bg']} ${themeClass}`}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Layout />} />
-          }
-        >
-          <Route path="*" element={<ErrorComponent />} />
-          <Route
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<Layout />} />
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
-            }
-          />
-          <Route
-            path="/drinks"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
-            }
-          />
-          <Route
-            path="/add"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<AddDrinkPage />}
-              />
-            }
-          />
-          <Route
-            path="/my"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<MyDrinksPage />}
-              />
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<FavoritesPage />}
-              />
-            }
-          />
-          <Route
-            path="/drink/:drinkId"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<SingleDrinkPage />}
-              />
-            }
-          />
-        </Route>
+    <div className={`${css["bg"]} ${themeClass}`}>
+    <Routes>
+      <Route
+        path="/"
+        element={<PrivateRoute redirectTo="/welcome" component={<Layout />} />}
+      >   
+      <Route
+        path="/home"
+        element={
+          <HomePage />
+        }
+      />
+      <Route
+        path="/drinks"
+        element={
+          <DrinksPage />
+        }
+      />
+      <Route
+        path="/add"
+        element={
+          <AddDrinkPage />
+        }
+      />
+      <Route
+        path="/my"
+        element={
+          <MyDrinksPage />
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <FavoritesPage />
+        }
+      />
+      <Route
+        path="/drink/:drinkId"
+        element={
+          <SingleDrinkPage />
+        }
+      />
+      <Route path="*" element={<ErrorComponent />} />
+    </Route>
 
         <Route
           path="/welcome"

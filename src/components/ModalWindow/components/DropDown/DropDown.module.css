@@ -69,7 +69,8 @@
 
 .logoutBtn {
   padding: 12px;
-  transition: background-color 0.2s ease;
+  transition: all 0.4s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 
   background: var(--main-button-bg);
 }
@@ -78,8 +79,7 @@
 .logoutBtn:focus,
 .logoutBtn:active {
   cursor: pointer;
-  outline-width: 2px;
-  outline-color: var(--button-main-border-hover);
-  outline-style: solid;
-  background-color: rgba(243, 243, 243, 0.7);
+
+  border: 2px solid var(--button-main-border-hover);
+  background: var(--main-button-bg-hover);
 }
