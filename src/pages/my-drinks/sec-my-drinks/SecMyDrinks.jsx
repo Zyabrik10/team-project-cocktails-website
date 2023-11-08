@@ -35,7 +35,7 @@ export const SecMyDrinks = () => {
     { refetchOnMountOrArgChange: true }
   );
   const [removeMyDrink] = useRemoveMyDrinkMutation();
-  console.log(myDrinks);
+  // console.log(myDrinks);
 
   const isDesktop = useMediaQuery('(min-width: 1440px)');
 
