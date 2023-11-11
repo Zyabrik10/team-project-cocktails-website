@@ -23,8 +23,8 @@
   color: rgba(243, 243, 243, 0.5);
 }
 
-.form-input:focus,
-.form-input:hover {
+.form-input-box:focus .form-input,
+.form-input-box:hover .form-input {
   /* border-color: #f3f3f3; */
   outline: 2px solid #f3f3f3;
 }

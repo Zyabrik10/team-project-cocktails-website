@@ -38,7 +38,6 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    // <RefreshLoader/>
     <Loader
       size={20}
       margin={10}

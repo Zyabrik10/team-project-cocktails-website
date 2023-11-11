@@ -26,6 +26,16 @@ const myDrinksAPI = createApi({
       }),
       invalidatesTags: [{ type: 'Own' }],
     }),
+
+    addMyDrink: builder.mutation({
+      query: data => ({
+        url: '/drinks/own/add',
+        data,
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }),
+      invalidatesTags: [{ type: 'Own' }],
+    }),
   }),
 });
 

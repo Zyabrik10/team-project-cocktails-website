@@ -25,8 +25,8 @@
   color: var(--text-color);
 }
 
-.input:focus,
-.input:hover {
+.container:focus .input,
+.container:hover .input {
   outline: 2px solid var(--text-color);
 }
 
@@ -39,6 +39,7 @@
   background-color: transparent;
   border: none;
   color: var(--text-color);
+  cursor: text;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 
 import { validateIngredients, validationSchema } from './utils';
@@ -17,6 +16,7 @@ import css from './AddDrinkForm.module.css';
 import globalStyles from 'css/global.module.css';
 import selectsStyles from './styles/selectsStyles';
 import Loader from 'components/Loader';
+import { useAddMyDrinkMutation } from 'redux/api/myDrinksAPI';
 
 const initialValues = {
   itemTitle: '',
@@ -31,6 +31,7 @@ const AddDrinkForm = () => {
   const [glass, setGlass] = useState('');
   const [category, setCategory] = useState('');
 
+  const [addMyDrink] = useAddMyDrinkMutation();
   const [ingrValidationErrorMess, setIngrValidationErrorMess] = useState(null);
 
   const navigate = useNavigate();
@@ -59,34 +60,31 @@ const AddDrinkForm = () => {
       file,
     });
 
-    try {
-      setSubmitting(true);
-      await axios({
-        method: 'post',
-        url: 'drinks/own/add',
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-      // await refetch();
-      toast.success('Added successfully');
-      navigate('/my', { replace: true });
-      setSubmitting(false);
-    } catch ({ response }) {
+    setSubmitting(true);
+    const response = await addMyDrink(formData);
+
+    if (response.error) {
       const {
         data: { message },
-      } = response;
+      } = response.error;
 
-      if (message === 'Not found') {
-        throw toast.error('Something went wrong... Please try again');
+      switch (message) {
+        case 'Not found': {
+          throw toast.error('Something went wrong... Please try again');
+        }
+        case 'Drink already exists': {
+          throw toast.error(`Drink ${itemTitle} already exists`);
+        }
+        default: {
+          setSubmitting(false);
+          throw toast.error(message);
+        }
       }
-
-      if (message === 'Drink already exists') {
-        throw toast.error(`Drink ${itemTitle} already exists`);
-      }
-
-      setSubmitting(false);
-      throw toast.error(message);
     }
+
+    toast.success('Added successfully');
+    navigate('/my', { replace: true });
+    setSubmitting(false);
   };
 
   const handleIngredientChange = ingrData => {

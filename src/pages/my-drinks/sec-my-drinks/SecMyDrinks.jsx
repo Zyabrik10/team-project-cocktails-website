@@ -30,12 +30,8 @@ export const SecMyDrinks = () => {
 
   const { page = 1, limit = 1 } = params;
 
-  const { data: myDrinks } = useGetMyDrinksQuery(
-    { page, limit },
-    { refetchOnMountOrArgChange: true }
-  );
+  const { data: myDrinks } = useGetMyDrinksQuery({ page, limit });
   const [removeMyDrink] = useRemoveMyDrinkMutation();
-  // console.log(myDrinks);
 
   const isDesktop = useMediaQuery('(min-width: 1440px)');
 
@@ -66,7 +62,7 @@ export const SecMyDrinks = () => {
   }, [myDrinks, currentPage, isDesktop, params, setSearchParams]);
 
   const handleDelete = async drinkId => {
-    const responce = await removeMyDrink({ id:drinkId });
+    const responce = await removeMyDrink({ id: drinkId });
 
     if (responce.error) {
       throw toast.error('something went wrong');

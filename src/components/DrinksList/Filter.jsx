@@ -4,7 +4,7 @@ import { SearchSvg } from './svg/SearchSvg';
 
 export default function Filter({ value, onChange }) {
   return (
-    <div className={css.container}>
+    <label className={css.container}>
       <input
         className={css.input}
         type="text"
@@ -12,10 +12,10 @@ export default function Filter({ value, onChange }) {
         value={value}
         onChange={e => onChange(e.target.value)}
       />
-      <div className={css.icon}>
+      <span className={css.icon}>
         <SearchSvg />
-      </div>
-    </div>
+      </span>
+    </label>
   );
 }
 
