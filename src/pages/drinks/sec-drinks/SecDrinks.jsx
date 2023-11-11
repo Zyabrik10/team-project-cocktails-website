@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-// import { ReactComponent as RefreshIcon } from 'img/svg/refreshAvatar.svg';
 import { useSearchParams } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
@@ -71,8 +70,6 @@ export default function SecDrinks() {
       limit = 8;
     }
 
-    // const countLimit = Math.ceil(total / limit);
-    // setPagesCount(countLimit ? countLimit : 1);
     setPagesCount(Math.ceil(total / limit));
 
     setSearchParams({
@@ -152,14 +149,20 @@ export default function SecDrinks() {
           defaultValue={categoryOptions}
           styles={filtersSelectStyles}
         />
-        {/* <button className={css['refBtn']} type="button">
-          <RefreshIcon className={css['refIconStyles']} />
-        </button> */}
       </div>
 
       <div className={css['content-wrapp']}>
         {isLoading || isFetching ? (
-          <Loader />
+          <Loader
+            size={15}
+            margin={10}
+            position={{
+              marginTop: '100px',
+              marginLeft: '50%',
+              transform: 'translateX(-50%)',
+              textAlign: 'center',
+            }}
+          />
         ) : cocktails.length && !isLoading ? (
           <DrinkList cocktails={cocktails} />
         ) : (
