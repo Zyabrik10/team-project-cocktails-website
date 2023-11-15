@@ -7,9 +7,9 @@ world of cocktails. For users of legal drinking age, you can explore and create
 both traditional and alcoholic cocktails. For those under 18, the platform
 allows you to discover and create non-alcoholic cocktails and beverages.
 
-## Back-End Swagger docs
+## API
 
-> [![Swagger](https://drunk404.onrender.com/api-docs/favicon-32x32.png)](https://drunk404.onrender.com/api-docs/)
+> [**Swagger Documentation**](https://drunk404.onrender.com/api-docs/)
 
 ## Key Features
 
